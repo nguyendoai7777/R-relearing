@@ -31,7 +31,8 @@
         "babel": true
       },
       "component": {
-        "style": "scss"
+        "style": "scss",
+        "skipTest": true
       },
       "library": {
         "style": "scss"

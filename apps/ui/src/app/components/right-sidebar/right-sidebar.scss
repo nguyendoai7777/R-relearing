@@ -1,0 +1,9 @@
+[__right_sidebar_style_scope] {
+  &.rsb-r {
+    width: var(--right-sidebar-width);
+    max-width: var(--right-sidebar-width);
+    min-width: var(--right-sidebar-width);
+    height: 100vh;
+    background: dodgerblue;
+  }
+}
