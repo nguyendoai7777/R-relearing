@@ -19,7 +19,7 @@
         "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
         "styles": [
           "apps/ui/src/styles.scss",
-          "apps/ui/src/assets/styles/bootstrap.min.css"
+          "apps/ui/src/assets/styles/3rd-part-libs/bootstrap.min.css"
         ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"

@@ -1,0 +1,9 @@
+@import "./constants.css";
+
+.dark-theme {
+  --navbar-background-color: #000;
+}
+
+.light-theme {
+  --navbar-background-color: #fff;
+}
