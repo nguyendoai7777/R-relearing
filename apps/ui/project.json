@@ -17,7 +17,10 @@
         "polyfills": "apps/ui/src/polyfills.ts",
         "tsConfig": "apps/ui/tsconfig.app.json",
         "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
-        "styles": ["apps/ui/src/styles.scss"],
+        "styles": [
+          "apps/ui/src/styles.scss",
+          "apps/ui/src/assets/styles/bootstrap.min.css"
+        ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -59,13 +62,6 @@
           "buildTarget": "ui:build:production",
           "hmr": false
         }
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
