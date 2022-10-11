@@ -1,8 +1,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "../../dist/out-tsc",
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@cpns/*": ["src/app/components/*"],
+      "@screens/*": ["src/app/screens/*"],
+      "@store/*": ["src/app/common/store/*"],
+      "@constants/*": ["src/app/common/constants/*"],
+      "@models/*": ["src/app/common/models/*"],
+    }
   },
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",

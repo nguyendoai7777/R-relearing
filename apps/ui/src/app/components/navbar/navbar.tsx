@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
-import { CountPayload, dec, inc, incrementAsync } from '../states/reducers/counter.slice';
 import { useRef } from 'react';
-import { useAppDispatch } from '../states/store';
+import { useAppDispatch } from '@store/store';
+import { dec, inc, incrementAsync } from '@store/slices/counter.slice';
 
 export function Navbar() {
   const dispatch = useAppDispatch();
@@ -30,7 +29,7 @@ export function Navbar() {
         <button
           className="btn btn-outline-primary"
           onClick={() => {
-            dispatch(incrementAsync({value: +(amountRef.current?.value || 0) ?? 1, delaySeed: 1000} ));
+            dispatch(incrementAsync({ value: +(amountRef.current?.value || 0) ?? 1, delaySeed: 1000 }));
           }}
         >Increment By Amount
         </button>
