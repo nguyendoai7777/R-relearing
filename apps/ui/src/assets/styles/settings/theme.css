@@ -2,8 +2,12 @@
 
 .dark-theme {
   --navbar-background-color: #000;
+  --normar-text-color: #fff;
+  --left-sb-background-color: #fff;
 }
 
 .light-theme {
+  --normar-text-color: #000;
   --navbar-background-color: #fff;
+  --right-sb-background-color: #fff;
 }
