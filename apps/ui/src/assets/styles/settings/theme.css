@@ -4,10 +4,37 @@
   --navbar-background-color: #000;
   --normar-text-color: #fff;
   --left-sb-background-color: #fff;
+  --search-ic-fill: #efefef;
+  --search-box-bg-color: rgba(0, 0, 0, 0.05);
+  --text-search-color: #282828;
+  --search-filled-bg-color: #F9E6E2;
+  --btn-save-text-color: #fff;
+  --btn-save-hover-color: rgba(255, 20, 147, 0.35);
+  --scrolbar-color: #F3B4AEFF;
 }
 
 .light-theme {
   --normar-text-color: #000;
   --navbar-background-color: #fff;
   --right-sb-background-color: #fff;
+  --search-ic-fill: #efefef;
+  --search-box-bg-color: rgba(0, 0, 0, 0.05);
+  --text-search-color: #282828;
+  --search-filled-bg-color: #F9E6E2;
+  --btn-save-text-color: #fff;
+  --btn-save-hover-color: rgba(255, 20, 147, 0.35);
+  --scrolbar-color: #F3B4AEFF;
+}
+
+.lisa-theme {
+  --normar-text-color: #000;
+  --navbar-background-color: #fff;
+  --right-sb-background-color: #fff;
+  --search-ic-fill: #282828;
+  --search-box-bg-color: rgba(0, 0, 0, 0.05);
+  --text-search-color: #282828;
+  --search-filled-bg-color: #F9E6E2;
+  --btn-save-text-color: #fff;
+  --btn-save-hover-color: rgba(255, 20, 147, 0.35);
+  --scrolbar-color: #F3B4AEFF;
 }

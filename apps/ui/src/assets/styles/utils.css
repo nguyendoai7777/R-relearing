@@ -2,7 +2,37 @@
   display: flex;
   align-items: center;
 }
+
 .fj-center {
   display: flex;
   justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  align-items: center;
+}
+
+.fj-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }

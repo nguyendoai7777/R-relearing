@@ -22,7 +22,7 @@
           "apps/ui/src/assets/styles/3rd-part-libs/bootstrap.min.css",
           "apps/ui/src/assets/styles/settings/theme.css",
           "apps/ui/src/assets/styles/settings/constants.css",
-          "apps/ui/src/assets/styles/index.css"
+          "apps/ui/src/assets/styles/utils.css"
         ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"

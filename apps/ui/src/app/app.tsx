@@ -6,18 +6,21 @@ import RightSidebar from '@cpns/right-sidebar/right-sidebar';
 import LeftSidebar from '@cpns/left-sidebar/left-sidebar';
 import { useAppSelector } from '@store/store';
 import { selectCount } from '@store/slices/counter.slice';
+import { useEffect } from 'react';
 
 
 export function App() {
+  useEffect(() => {
+    const ROOT = document.getElementById('root')!;
+    ROOT.classList.add('has-img');
+    ROOT.style.backgroundImage = 'url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/lisa.jpg)';
+  }, []);
   const count = useAppSelector(selectCount);
   return (
     <>
 
       <div className="d-flex">
         <LeftSidebar/>
-
-
-
         <div className="main">
           <Navbar/>
           <Routes>
@@ -26,11 +29,6 @@ export function App() {
         </div>
         <RightSidebar/>
       </div>
-
-      {/*count.status === 'loading' ? (<h1>loading</h1>) : (<h1>{count.value}</h1>)*/}
-     {/* {count.status === 'loading' && (<h1>loading</h1>) }
-      {count.status !== 'loading' && (<h1>{count.value}</h1>) }*/}
-      <h1>{count.status === 'loading' ? 'loading...' : count.value}</h1>
     </>
   );
 }

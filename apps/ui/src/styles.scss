@@ -13,13 +13,13 @@ html, * {
     visibility: hidden;
   }
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
     background-color: transparent;
     visibility: hidden;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    background-color: #4e4e4e;
+    background-color: var(--scrolbar-color);
     visibility: hidden;
   }
   &:hover {
@@ -32,5 +32,33 @@ html, * {
     &::-webkit-scrollbar-thumb {
       visibility: visible;
     }
+  }
+}
+.has-img {
+  background-size: 1920px auto;
+  background-repeat: repeat;
+}
+.dialog-main {
+  .dialog-max-body {
+    max-height: calc(100% - 140px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .dialog-header {
+    margin: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    color: var(--normar-text-color);
+  }
+  .MuiDialog-paper {
+    min-width: 800px;
+    background-color: var(--search-filled-bg-color);
+  }
+  .dialog-end-btn {
+    margin-left: 12px;
+    text-transform: capitalize;
   }
 }

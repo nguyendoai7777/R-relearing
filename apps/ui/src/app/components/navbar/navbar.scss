@@ -1,7 +1,105 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+[_nav_scope] {
+  &.d-navbar {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .search-box {
+      position: relative;
+      width: 600px;
+      &.s_active input {
+        background-color: var(--search-filled-bg-color);
+        box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
+      }
+      .sic {
+        width: 25px;
+        height: 25px;
+        fill: var(--search-ic-fill);
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+      }
+      .sct {
+        width: 20px;
+        height: 20px;
+        fill: var(--search-ic-fill);
+      }
+      .sip {
+        padding: 0 45px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 50px;
+        background: var(--search-box-bg-color);
+        border-radius: 25px;
+        font-size: 16px;
+        color: var(--text-search-color);
+        &:focus {
+          background-color: var(--search-filled-bg-color);
+          box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
+        }
+      }
+      .sctr {
+        right: 7px;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      .result-box {
+        top: 100%;
+        width: 100%;
+        left: 0;
+        padding: 120px;
+        background-color: var(--search-filled-bg-color);
+        border-radius: 0 0 25px 25px;
+        box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+      }
+    }
+    .main-actions {
+      margin-right: 12px;
+      .action-button {
+        margin: 0 6px;
+      }
+      .icon-style {
+        width: 34px;
+        height: 34px;
+        fill: var(--search-ic-fill);
+      }
+    }
+  }
+}
+.s {
+  color: rgba(255, 20, 147, 0.56);
+}
+.color-picker-group {
+  padding: 0 24px;
+}
+.color-picker {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: deeppink;
+  border: none;
+}
+.theme-selected {
+  box-shadow: 0 0 10px rgb(0 0 0);
+}
+.gr-av {
+  margin: 0 -12px;
+}
+.avatar-background-picker {
+  cursor: pointer;
+  margin: 0 12px 48px 12px;
+  width: calc(100% / 4 - 24px);
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .char-name {
+    color: var(--normar-text-color);
+    font-size: 18px;
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
