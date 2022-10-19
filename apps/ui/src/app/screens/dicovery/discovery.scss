@@ -1,0 +1,25 @@
+.slide-gallery {
+  width: calc(100% - 120px);
+  margin: 0 auto;
+  .slide-item {
+    img {
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+  .slide-controller-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1234;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--nav-btn-active-bg-color);
+    svg {
+      fill: var(--nav-active-detective);
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

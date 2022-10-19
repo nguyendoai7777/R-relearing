@@ -11,12 +11,13 @@ export interface IconButtonProps {
 }
 
 const DIconButton = (props: ButtonProps & IconButtonProps) => {
+
   return (
     <Button
-      color='inherit'
+      color="inherit"
       className={`icon-button-self ${props.cls}`}
       style={{
-        borderRadius: props.shape === 'circle' ? '50%' : '3px',
+        borderRadius: props.shape === 'box' ? '3px' : '50%',
         minWidth: props.siz ? props.siz : '40px',
         maxWidth: props.siz ? props.siz : '40px',
         maxHeight: props.siz ? props.siz : '40px',

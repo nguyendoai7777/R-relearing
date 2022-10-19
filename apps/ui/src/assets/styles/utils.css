@@ -36,3 +36,17 @@
 .flex-wrap {
   flex-wrap: wrap;
 }
+
+.cs-pointer {
+  cursor: pointer;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

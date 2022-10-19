@@ -7,13 +7,14 @@ import LeftSidebar from '@cpns/left-sidebar/left-sidebar';
 import { useAppSelector } from '@store/store';
 import { selectCount } from '@store/slices/counter.slice';
 import { useEffect } from 'react';
+import { LOCAL_KEY } from '@constants/storage-key.const';
 
 
 export function App() {
   useEffect(() => {
     const ROOT = document.getElementById('root')!;
-    ROOT.classList.add('has-img');
-    ROOT.style.backgroundImage = 'url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/lisa.jpg)';
+    ROOT.className = localStorage.getItem(LOCAL_KEY.SetBackground) || '';
+    document.body.className = localStorage.getItem(LOCAL_KEY.SetTheme) || '';
   }, []);
   const count = useAppSelector(selectCount);
   return (

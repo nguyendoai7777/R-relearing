@@ -10,6 +10,7 @@
       "@store/*": ["src/app/common/store/*"],
       "@constants/*": ["src/app/common/constants/*"],
       "@models/*": ["src/app/common/models/*"],
+      "@modules/*": ["src/app/common/modules/*"]
     }
   },
   "files": [

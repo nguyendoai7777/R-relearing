@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'swiper/swiper-bundle.min.css';
 html, * {
   padding: 0;
   box-sizing: border-box;
   margin: 0;
+}
+#root {
+  background-size: 1920px;
+  background-position: 26px 10px;
+  background-repeat: no-repeat;
 }
 .my-scrollbar {
   overflow-y: scroll !important;
@@ -20,7 +26,7 @@ html, * {
   &::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: var(--scrolbar-color);
-    visibility: hidden;
+    // visibility: hidden;
   }
   &:hover {
     &::-webkit-scrollbar-track {
@@ -34,14 +40,9 @@ html, * {
     }
   }
 }
-.has-img {
-  background-size: 1920px auto;
-  background-repeat: repeat;
-}
 .dialog-main {
   .dialog-max-body {
     max-height: calc(100% - 140px);
-
     overflow-x: hidden;
     overflow-y: auto;
   }
