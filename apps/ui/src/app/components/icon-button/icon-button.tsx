@@ -25,7 +25,7 @@ const DIconButton = (props: ButtonProps & IconButtonProps) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: props.ripplecolor
+        color: props.ripplecolor || 'var(--nav-active-detective)'
       }}
       aria-label={props.ariaLabel}
       variant="text"

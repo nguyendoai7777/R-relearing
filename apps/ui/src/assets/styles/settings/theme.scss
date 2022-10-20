@@ -1,29 +1,39 @@
 @import "./constants.css";
-
 .dark-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #1d1d1d;
   --navbar-background-color: #000;
-  --normar-text-color: #fff;
+  --normal-text-color: #fff;
   --left-sb-background-color: #000;
   --right-sb-background-color: #141414;
   --search-ic-fill: #efefef;
-  --search-box-bg-color: rgba(0, 0, 0, 0.05);
+  --search-box-bg-color: #ffffff0d;
   --text-search-color: #f1f1f1;
   --search-filled-bg-color: #313131;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #676767;
+  --scrollbar-color: #676767;
   --text-theme-picked-color: deeppink;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
-  --nav-btn-active-bg-color: #2c2c2c;
+  --nav-btn-active-bg-color: #ffffff3b;
   --nav-active-detective: #fff;
+  --overlay-standout-color: #ffffff0d;
+  --hover-standout-color: rgba(255, 255, 255, 0.25);
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #ffffff33;
+    &:after {
+      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 22%), transparent);
+    }
+  }
 }
-
-
 .light-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #fff;
   --navbar-background-color: #fff;
-  --normar-text-color: #000;
+  --normal-text-color: #000;
   --left-sb-background-color: #f4f4f4;
   --right-sb-background-color: #f4f4f4;
   --search-ic-fill: #656565;
@@ -32,17 +42,27 @@
   --search-filled-bg-color: #e3e3e3;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #aaaaaa;
+  --scrollbar-color: #aaaaaa;
   --text-theme-picked-color: deeppink;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
-  --nav-btn-active-bg-color: #e8e8e8;
+  --nav-btn-active-bg-color: #00000014;
   --nav-active-detective: #676767;
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #0000001a;
+    &:after {
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+    }
+  }
 }
-
 .pink-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #ffc6e5;
   --navbar-background-color: #000;
-  --normar-text-color: #fff;
+  --normal-text-color: #fff;
   --left-sb-background-color: #ff9fd3;
   --right-sb-background-color: #ffb6dd;
   --search-ic-fill: #efefef;
@@ -51,17 +71,26 @@
   --search-filled-bg-color: #f6c7e0;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #e09fc2;
+  --scrollbar-color: #e09fc2;
   --text-theme-picked-color: #fff;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ffffff47;
   --nav-active-detective: #fff;
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #ff14931a;
+    &:after {
+      background: linear-gradient(90deg, transparent, #ffffff7a, transparent);
+    }
+  }
 }
-
-
 .lisa-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #F2DDD8;
-  --normar-text-color: #000;
+  --normal-text-color: #181818;
   --navbar-background-color: #fff;
   --left-sb-background-color: #ffffff24;
   --right-sb-background-color: #ffffff52;
@@ -71,17 +100,26 @@
   --search-filled-bg-color: #F9E6E2;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #F3B4AEFF;
+  --scrollbar-color: #F3B4AEFF;
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ff8a8a33;
   --nav-active-detective: #ff8a8a;
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #f89d881a;
+    &:after {
+      background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+    }
+  }
 }
-
-
 .jisoo-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #fff;
-  --normar-text-color: #000;
+  --normal-text-color: #181818;
   --navbar-background-color: #fff;
   --left-sb-background-color: #0000000d;
   --right-sb-background-color: #0000000a;
@@ -91,17 +129,27 @@
   --search-filled-bg-color: #efefef;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #BCC2CD;
+  --scrollbar-color: #BCC2CD;
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #0000000d;
   --nav-active-detective: #4a5c82;
+  --view-more-ripple-color: rgba(7, 7, 7, 0.15);
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #9898981a;
+    &:after {
+      background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+    }
+  }
 }
-
-
 .iu-theme {
+  --standout-main-atist: #aaa;
+  --standout-song-name: #fff;
   --background-color-all: #E6E0DE;
-  --normar-text-color: #000;
+  --normal-text-color: #181818;
   --navbar-background-color: #fff;
   --left-sb-background-color: #0000000d;
   --right-sb-background-color: #0000000a;
@@ -111,17 +159,24 @@
   --search-filled-bg-color: #ebe5e4;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #CCB4AC;
+  --scrollbar-color: #CCB4AC;
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
-  --nav-btn-active-bg-color: #e6e0de4f;
+  --nav-btn-active-bg-color: #d3ac9f4f;
   --nav-active-detective: #8f5541;
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #e6b7a840;
+    &:after {
+      background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+    }
+  }
 }
-
-
 .jennie-theme {
   --background-color-all: #BBB9C4;
-  --normar-text-color: #000;
+  --normal-text-color: #181818;
   --navbar-background-color: #fff;
   --left-sb-background-color: #9692a847;
   --right-sb-background-color: #9692a814;
@@ -131,41 +186,43 @@
   --search-filled-bg-color: #dcd3e4;
   --btn-save-text-color: #fff;
   --btn-save-hover-color: rgba(255, 20, 147, 0.35);
-  --scrolbar-color: #c0b3c8;
+  --scrollbar-color: #c0b3c8;
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #8075b329;
   --nav-active-detective: #411151;
+  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --hover-standout-color: #0000000f;
+  --song-standout-reflect-color: #f1f1f1;
+  .slide-gallery .skeleton-4-slide {
+    background: #9277aa1a;
+    &:after {
+      background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+    }
+  }
 }
-
 .jennie-bg {
   background-image: url(../../../assets/imgs/theme-background/jennie.jpg);
   background-color: var(--background-color-all);
 }
-
 .iu-bg {
   background-image: url(../../../assets/imgs/theme-background/iu.jpg);
   background-color: var(--background-color-all);
 }
-
 .jisoo-bg {
   background-image: url(../../../assets/imgs/theme-background/jisoo.jpg);
   background-color: var(--background-color-all);
 }
-
 .lisa-bg {
   background-image: url(../../../assets/imgs/theme-background/lisa.jpg);
   background-color: var(--background-color-all);
 }
-
 .dark-theme {
   background-color: var(--background-color-all);
 }
-
 .dark-theme {
   background-color: var(--background-color-all);
 }
-
 .pink-theme {
   background-color: var(--background-color-all);
 }

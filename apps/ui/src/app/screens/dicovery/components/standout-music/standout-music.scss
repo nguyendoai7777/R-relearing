@@ -1,0 +1,52 @@
+.standout-ms-box {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--overlay-standout-color);
+  img {
+    width: 25%;
+    border-radius: 10px;
+  }
+  .aud-list {
+    margin-left: 12px;
+    flex: 1;
+  }
+}
+.standout-song {
+  color: var(--song-standout-reflect-color);
+  padding: 7px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  transition: .2s;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    background-color: var(--hover-standout-color);
+  }
+  * {
+    text-decoration: none !important;
+  }
+  .main-artist {
+    padding-right: 8px;
+    color: var(--standout-main-atist);
+  }
+  .sub-artist {
+    color: var(--standout-main-atist);
+  }
+  .song-name {
+    padding: 0 8px;
+    color: var(--standout-song-name);
+  }
+  .fas-info {
+    color: var(--standout-main-atist);
+  }
+  .triangle-play {
+    width: 10px;
+    height: 9px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid var(--normal-text-color);
+    border-right: 5px solid transparent;
+  }
+}

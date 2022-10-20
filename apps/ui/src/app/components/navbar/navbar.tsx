@@ -4,7 +4,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import './navbar.scss';
 
 import { CustomButtonOutlined } from '@cpns/custom-buttom/button-custom-color';
-import { THEME_CHOICE } from '@constants/theme.const';
+import { DEFAULT_THEME, THEME_CHOICE } from '@constants/theme.const';
 import { ThemeBase, ThemeChar, ThemeColor } from '@models/theme.model';
 import DIconButton from '@cpns/icon-button/icon-button';
 import { setTheme } from '@modules/feature.module';
@@ -27,7 +27,7 @@ const COLOR_THEME_LIST = THEME_CHOICE.color as ThemeColor[];
 
 
 export function Navbar() {
-  const currentTheme = localStorage.getItem(LOCAL_KEY.SetTheme) || '';
+  const currentTheme = localStorage.getItem(LOCAL_KEY.SetTheme) || `${DEFAULT_THEME}-theme`;
   const navRef = useRef<HTMLDivElement | null>(null);
   const inpRef = useRef<HTMLInputElement | null>(null);
 
@@ -54,10 +54,14 @@ export function Navbar() {
     <>
       <div className="d-navbar" ref={navRef}>
         <div className="fa-center nav-leading">
-          <Link to="discovery">
-            <svg className="redirect-home">
-              <use href="#home"/>
-            </svg>
+          <Link to="discovery" className="text-decoration-none">
+            <DIconButton
+              shape="circle" siz="60px"
+              cls="action-button">
+              <svg className="redirect-home">
+                <use href="#home"/>
+              </svg>
+            </DIconButton>
           </Link>
           <div className={`search-box fa-center ${inpFocus && searchText ? 's_active' : ''}`}>
             <svg className="sic absolute">
@@ -80,7 +84,6 @@ export function Navbar() {
               <DIconButton
                 cls="sctr absolute"
                 shape="circle"
-                ripplecolor="rgba(0, 0, 0, .25)"
                 onClick={() => {
                   setSearchText('');
                   inpRef.current?.focus();

@@ -1,5 +1,5 @@
 import './left-sidebar.scss';
-import { NavButton } from '@cpns/left-sidebar/components/nav-button';
+import { NavButton } from '@cpns/single-components/nav-button';
 import { APP_ROUTING } from '../../app.routing';
 import { NavLink } from 'react-router-dom';
 

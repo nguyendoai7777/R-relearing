@@ -20,7 +20,7 @@
         "styles": [
           "apps/ui/src/styles.scss",
           "apps/ui/src/assets/styles/3rd-part-libs/bootstrap.min.css",
-          "apps/ui/src/assets/styles/settings/theme.css",
+          "apps/ui/src/assets/styles/settings/theme.scss",
           "apps/ui/src/assets/styles/settings/constants.css",
           "apps/ui/src/assets/styles/utils.css"
         ],
@@ -55,7 +55,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "ui:build",
-        "hmr": false
+        "hmr": false,
+        "port": 4201
       },
       "configurations": {
         "development": {

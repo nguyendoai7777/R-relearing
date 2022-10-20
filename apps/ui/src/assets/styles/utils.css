@@ -28,6 +28,11 @@
   align-items: center;
 }
 
+.fj-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .fj-end {
   display: flex;
   justify-content: flex-end;
@@ -49,4 +54,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+.force-white-color {
+  color: white !important;
 }
