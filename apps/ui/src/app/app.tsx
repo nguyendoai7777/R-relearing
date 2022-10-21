@@ -9,6 +9,7 @@ import { selectCount } from '@store/slices/counter.slice';
 import { useEffect } from 'react';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_THEME } from '@constants/theme.const';
+import { MediaPlayer } from '@cpns/media-player/media-player';
 
 
 export function App() {
@@ -20,7 +21,7 @@ export function App() {
   const count = useAppSelector(selectCount);
   return (
     <>
-      <div className="d-flex">
+      <div className="flex rx-content">
         <LeftSidebar/>
         <div className="main">
           <Navbar/>
@@ -34,6 +35,7 @@ export function App() {
         </div>
         <RightSidebar/>
       </div>
+      <MediaPlayer/>
     </>
   );
 }

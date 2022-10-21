@@ -9,7 +9,7 @@
   width: var(--left-sidebar-width);
   max-width: var(--left-sidebar-width);
   min-width: var(--left-sidebar-width);
-  height: 100vh;
+  height: calc(100%);
   background-color: var(--left-sb-background-color);
   .logo {
     height: var(--nav-height);

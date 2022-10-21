@@ -3,7 +3,7 @@
     width: var(--right-sidebar-width);
     max-width: var(--right-sidebar-width);
     min-width: var(--right-sidebar-width);
-    height: 100vh;
+    height: calc(100%);
     background: var(--right-sb-background-color);
   }
 }

@@ -56,7 +56,7 @@ export const DiscoveryScreen = () => {
               </svg>
             </DIconButton>
             <Swiper
-              style={{ 'borderRadius': '10px', height: '250px' }}
+              style={{ 'borderRadius': '10px', height: '211px' }}
               {...SWIPER_OPTION}
               onSwiper={(swiper) => setSwiperController(swiper)}
             >
@@ -70,15 +70,15 @@ export const DiscoveryScreen = () => {
             </Swiper>
           </> :
           <div className="fj-between">
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={250}/>
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={250}/>
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={250}/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
           </div>
         }
       </div>
       <div className="body-cc60">
         <div className="g-body">
-          <div className="header-pai fj-between">
+          <div className="header-pai fj-between align-items-center">
             Nhạc Nổi Bật
             <NavButton color="var(--scrollbar-color)" text="Xem Thêm" textColor="var(--normal-text-color)"/>
           </div>

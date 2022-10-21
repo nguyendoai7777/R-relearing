@@ -10,6 +10,7 @@
   .aud-list {
     margin-left: 12px;
     flex: 1;
+    width: calc(75% - 24px);
   }
 }
 .standout-song {
@@ -34,12 +35,19 @@
   .sub-artist {
     color: var(--standout-main-atist);
   }
+  .main-artist, .sub-artist {
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
   .song-name {
     padding: 0 8px;
     color: var(--standout-song-name);
   }
   .fas-info {
     color: var(--standout-main-atist);
+    min-width: 45px;
+    text-align: right;
   }
   .triangle-play {
     width: 10px;
@@ -49,4 +57,12 @@
     border-left: 10px solid var(--normal-text-color);
     border-right: 5px solid transparent;
   }
+}
+.divider-x:last-child .div-x {
+  display: none;
+}
+.name-oversize {
+  max-width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

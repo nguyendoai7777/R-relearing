@@ -1,5 +1,6 @@
 @import "./constants.css";
 .dark-theme {
+  --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
   --background-color-all: #1d1d1d;
@@ -29,8 +30,9 @@
   }
 }
 .light-theme {
-  --standout-main-atist: #aaa;
-  --standout-song-name: #fff;
+  --standout-main-atist-hover: black;
+  --standout-main-atist: #585858;
+  --standout-song-name: #000 ;
   --background-color-all: #fff;
   --navbar-background-color: #fff;
   --normal-text-color: #000;
@@ -47,9 +49,9 @@
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #00000014;
   --nav-active-detective: #676767;
-  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --overlay-standout-color: rgba(182, 182, 182, 0.25);
   --hover-standout-color: #0000000f;
-  --song-standout-reflect-color: #f1f1f1;
+  --song-standout-reflect-color: #000;
   .slide-gallery .skeleton-4-slide {
     background: #0000001a;
     &:after {
@@ -58,6 +60,7 @@
   }
 }
 .pink-theme {
+  --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
   --background-color-all: #ffc6e5;
@@ -87,6 +90,7 @@
   }
 }
 .lisa-theme {
+  --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
   --background-color-all: #F2DDD8;
@@ -116,6 +120,7 @@
   }
 }
 .jisoo-theme {
+  --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
   --background-color-all: #fff;
@@ -146,6 +151,7 @@
   }
 }
 .iu-theme {
+  --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
   --background-color-all: #E6E0DE;

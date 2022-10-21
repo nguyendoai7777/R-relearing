@@ -1,9 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'swiper/swiper-bundle.min.css';
+
+@font-face {
+  font-family: 'FuzzyBubbles';
+  src: url("assets/fonts/FuzzyBubbles-Regular.ttf");
+}
 html, * {
+  font-family: 'FuzzyBubbles';
   padding: 0;
   box-sizing: border-box;
   margin: 0;
+  user-select: none;
+  color: var(--normal-text-color);
 }
 #root {
   background-size: 1920px;
@@ -63,23 +71,30 @@ html, * {
     text-transform: capitalize;
   }
 }
-
 .icon-button-self {
   &:hover {
     background-color: var(--nav-btn-active-bg-color) !important;
   }
 }
-
 .header-pai {
   font-size: 22px;
   font-weight: bolder;
   color: var(--normal-text-color);
 }
-
 .body-cc60 {
   margin: 0 60px;
-
 }
-.view-more {
-  background-color: rgba(26, 30, 33, 0.5);
+.gb- {
+  &song-name {
+    font-size: 14px;
+    color: var(--song-standout-reflect-color);
+  }
+  &artist-name {
+    font-size: 13px;
+    color: var(--standout-main-atist);
+  }
+  &sub-artist-name, &sub-name {
+    font-size: 11px;
+    color: var(--standout-main-atist);
+  }
 }
