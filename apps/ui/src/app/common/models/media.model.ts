@@ -7,6 +7,7 @@ export interface ArtisBaseInfo {
 
 
 export interface SongBase {
+  index: number;
   key: string;
   mainArtist: ArtisBaseInfo,
   artwork: string;

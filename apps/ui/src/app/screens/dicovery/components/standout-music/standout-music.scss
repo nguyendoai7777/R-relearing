@@ -11,13 +11,15 @@
     margin-left: 12px;
     flex: 1;
     width: calc(75% - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 .standout-song {
   color: var(--song-standout-reflect-color);
-  padding: 7px;
+  padding: 10px 7px;
   border-radius: 6px;
-  margin-bottom: 12px;
   transition: .2s;
   &:last-child {
     margin-bottom: 0;
@@ -45,6 +47,7 @@
     color: var(--standout-song-name);
   }
   .fas-info {
+    width: 60px;
     color: var(--standout-main-atist);
     min-width: 45px;
     text-align: right;

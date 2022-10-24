@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState, useAppSelector } from '@store/store';
-import { mediaPlayerSlice } from '@store/slices/media-player.slice';
+import { RootState } from '@store/store';
 
 export interface PlayState {
   id?: string;
@@ -10,10 +9,10 @@ export interface PlayState {
 const initialState: PlayState = {
   id: undefined,
   playing: false,
-}
+};
 
-  export const playStateSlice = createSlice({
-  name: 'mediaPlayer',
+export const playStateSlice = createSlice({
+  name: 'playState',
   initialState,
   reducers: {
     play: (state) => {
@@ -26,5 +25,5 @@ const initialState: PlayState = {
 });
 
 export const { pause, play } = playStateSlice.actions;
-export const selectPlayState = (state: RootState) => state.mediaPlayer;
-export const playStateReducer = mediaPlayerSlice.reducer;
+export const selectPlayState = (state: RootState) => state.playState;
+export const playStateReducer = playStateSlice.reducer;

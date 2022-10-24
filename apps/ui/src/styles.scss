@@ -13,6 +13,9 @@ html, * {
   user-select: none;
   color: var(--normal-text-color);
 }
+body {
+  // overflow: hidden;
+}
 #root {
   background-size: 1920px;
   background-position: 26px 10px;

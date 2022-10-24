@@ -56,7 +56,7 @@ export const DiscoveryScreen = () => {
               </svg>
             </DIconButton>
             <Swiper
-              style={{ 'borderRadius': '10px', height: '211px' }}
+              style={{ 'borderRadius': '10px' }}
               {...SWIPER_OPTION}
               onSwiper={(swiper) => setSwiperController(swiper)}
             >

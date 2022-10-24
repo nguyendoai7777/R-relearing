@@ -6,6 +6,8 @@
 .media-player {
   height: var(--media-height);
   padding: 5px;
+  background: var(--media-player-bg-color);
+  overflow: hidden;
   .mp-left {
     width: 20%;
     max-width: 20%;
@@ -23,13 +25,21 @@
     }
   }
   .mp-right {
-    background: #af1389;
     width: 20%;
+    .volume {
+      width: 40%;
+    }
   }
   .mp-center {
-    background: #5dd23d;
     flex: 1;
     width: 60%;
+    .control-head {
+      width: 100%;
+    }
+    .control-main {
+      width: 75%;
+      height: 30px;
+    }
   }
   .auto-text {
     animation-name: AutoTextSurfing;
@@ -42,4 +52,67 @@
       animation-play-state: paused;
     }
   }
+  .ctrl-btn {
+    padding: 5px;
+    margin: 0 5px;
+    .ctrl-icon {
+      width: 30px;
+      height: 30px;
+      fill: var(--ctrl-icon);
+    }
+    &.looped {
+      .ctrl-icon {
+        fill: var(--nav-active-detective) !important;
+      }
+      .loop-1-sym {
+        color: var(--nav-active-detective);
+      }
+    }
+    &:nth-child(3) {
+      .ctrl-icon {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &:nth-child(4) {
+      .ctrl-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .duration-text {
+    margin: 0 12px;
+    font-size: 12px;
+  }
+  .volume-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--volume-fill);
+    margin-right: 15px;
+    transform: translateY(-1px);
+    &.waring {
+      fill: var(--volume-danger);
+      & + .MuiSlider-root {
+        .MuiSlider-thumb, .MuiSlider-track {
+          background-color: var(--volume-danger);
+        }
+      }
+    }
+  }
+}
+.loop-1-sym {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  font-weight: bold;
+  color: var(--ctrl-icon);
+  font-size: 8px;
+}
+.RippleColorTheme {
+  .MuiTouchRipple-root * { // custom ripple color
+    color: var(--ripple-color-base);
+  }
+}
+.CircleCorners .MuiTouchRipple-root * { // custom ripple color
+  border-radius: 50%;
 }

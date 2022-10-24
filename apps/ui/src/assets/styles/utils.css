@@ -23,9 +23,11 @@
 .align-items-center {
   align-items: center;
 }
-
-.justify-content-center {
+.align-items-end {
   align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
 }
 
 .fj-between {
@@ -66,4 +68,8 @@
 }
 .w-fit {
   width: fit-content;
+}
+.circle-corners {
+  border-radius: 50% !important;
+  overflow: hidden;
 }

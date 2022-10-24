@@ -45,3 +45,56 @@ export const THEME_CHOICE = {
     }
   ]
 };
+export const SLIDER_SX = {
+  color: 'var(--slider-active-color)',
+  height: 4,
+  '& .MuiSlider-thumb': {
+    width: 10,
+    height: 10,
+    backgroundColor: 'var(--slider-active-color)',
+    // transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+    '&:before': {
+      boxShadow: '0 2px 12px 0 var(--slider-active-color)',
+    },
+    '&:hover, &.Mui-focusVisible': {
+      boxShadow: '0px 0px 0px 8px  var(--slide-overlay)',
+    },
+    '&.Mui-active': {
+      width: 15,
+      height: 15,
+    },
+  },
+  '& .MuiSlider-track': {
+    backgroundColor: 'var(--slider-active-color)'
+  },
+  '& .MuiSlider-rail': {
+    opacity: 0.2,
+  },
+};
+
+export const VOLUME_SX = {
+  color: 'var(--volume-fill)',
+  height: 4,
+  '& .MuiSlider-thumb': {
+    width: 10,
+    height: 10,
+    backgroundColor: 'var(--volume-fill)',
+    // transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+    '&:before': {
+      boxShadow: '0 2px 12px 0 var(--volume-fill)',
+    },
+    '&:hover, &.Mui-focusVisible': {
+      boxShadow: '0px 0px 0px 8px  var(--slide-overlay)',
+    },
+    '&.Mui-active': {
+      width: 15,
+      height: 15,
+    },
+  },
+  '& .MuiSlider-track': {
+    backgroundColor: 'var(--volume-fill)'
+  },
+  '& .MuiSlider-rail': {
+    opacity: 0.2,
+  },
+};

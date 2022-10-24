@@ -1,15 +1,13 @@
+import { useEffect } from 'react';
 import './app.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { APP_ROUTING } from './app.routing';
+import { MediaPlayer } from '@cpns/media-player/media-player';
 import Navbar from '@cpns/navbar/navbar';
 import RightSidebar from '@cpns/right-sidebar/right-sidebar';
 import LeftSidebar from '@cpns/left-sidebar/left-sidebar';
-import { useAppSelector } from '@store/store';
-import { selectCount } from '@store/slices/counter.slice';
-import { useEffect } from 'react';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_THEME } from '@constants/theme.const';
-import { MediaPlayer } from '@cpns/media-player/media-player';
+import { APP_ROUTING } from './app.routing';
 
 
 export function App() {
@@ -18,7 +16,6 @@ export function App() {
     ROOT.className = localStorage.getItem(LOCAL_KEY.SetBackground) || `${DEFAULT_THEME}-bg`;
     document.body.className = localStorage.getItem(LOCAL_KEY.SetTheme) || `${DEFAULT_THEME}-theme`;
   }, []);
-  const count = useAppSelector(selectCount);
   return (
     <>
       <div className="flex rx-content">

@@ -1,25 +1,26 @@
 import './standout-music.scss';
 import { Link } from 'react-router-dom';
 import { DIS_STANDOUT_SONG_LIST } from '@constants/mock.const';
-import { SongBase } from '@constants/media.model';
-import { useAppDispatch, useAppSelector } from '@store/store';
-import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
+import { SongBase } from '@models/media.model';
+import { useAppDispatch } from '@store/store';
+import { setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { durationConverter, stopParentEvent } from '@modules/feature.module';
+import { play } from '@store/slices/play-state.slice';
 
-export type StandoutSong = Omit<SongBase, 'artwork'> & {
+export type StandoutSong = Omit<SongBase, 'artwork' | 'index'> & {
   onClick?: () => void
 }
 
 const Song = (pr: StandoutSong) => {
   return (
     <div className="standout-song fa-center fj-between cs-pointer" onClick={pr.onClick}>
-      <div className='flex' style={{maxWidth: '70%'}}>
+      <div className="flex" style={{ maxWidth: '70%' }}>
         <Link onClick={stopParentEvent} className="main-artist" to={pr.mainArtist.profileUrl}>{pr.mainArtist.name}</Link>
         —
-        <span className="song-name name-oversize text-nowrap" >{pr.songName}</span>
+        <span className="song-name name-oversize text-nowrap">{pr.songName}</span>
         {pr.subArtist.length > 0 && <>({
           pr.subArtist.map((sa, i) => (
-            <span key={sa.id} className="divider-x">
+            <span key={sa.id} className="divider-x text-nowrap">
               <Link onClick={stopParentEvent} className="sub-artist" to={sa.profileUrl}>{sa.name}</Link>
               <span className="div-x"> x&nbsp;</span>
             </span>
@@ -30,7 +31,7 @@ const Song = (pr: StandoutSong) => {
       </div>
       <div className="tail fa-center">
         <div className="fas-info" style={{ marginRight: '28px' }}>{durationConverter(pr.songDuration)}</div>
-        <div className="triangle-play"></div>
+        <div className="triangle-play" style={{ transform: 'translateY(-1px)' }}></div>
         <div className="fas-info">{pr.listenTimes}</div>
       </div>
     </div>
@@ -43,7 +44,7 @@ export const StandoutMusic = () => {
     <div className="standout-ms-box flex">
       <img src="https://i1.sndcdn.com/artworks-FZScX6URzWnyTa1Z-z8MRtA-t500x500.jpg" alt=""/>
       <div className="aud-list">
-        {DIS_STANDOUT_SONG_LIST.map(s => <Song
+        {DIS_STANDOUT_SONG_LIST.map((s) => <Song
             url={s.url}
             mediaUrl={s.mediaUrl}
             key={s.key}
@@ -52,7 +53,11 @@ export const StandoutMusic = () => {
             listenTimes={s.listenTimes}
             mainArtist={s.mainArtist}
             subArtist={s.subArtist}
-            onClick={() => dispatch(setCurrentSong(s))}
+            onClick={() => {
+              dispatch(play());
+              dispatch(setCurrentSong(s));
+              dispatch(setCurrentLists(DIS_STANDOUT_SONG_LIST));
+            }}
           />
         )}
       </div>

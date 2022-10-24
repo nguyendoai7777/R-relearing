@@ -1,5 +1,14 @@
 @import "./constants.css";
+:root {
+  --slide-overlay: rgba(128, 128, 128, 0.10);
+}
 .dark-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #fff;
+  --slider-active-color: #fff;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #000;
   --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
   --standout-song-name: #fff;
@@ -30,6 +39,12 @@
   }
 }
 .light-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #000;
+  --slider-active-color: #000;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #f8f8f8;
   --standout-main-atist-hover: black;
   --standout-main-atist: #585858;
   --standout-song-name: #000 ;
@@ -60,8 +75,14 @@
   }
 }
 .pink-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #fff;
+  --slider-active-color: deeppink;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #ffaad8;
   --standout-main-atist-hover: black;
-  --standout-main-atist: #aaa;
+  --standout-main-atist: #e5e5e5;
   --standout-song-name: #fff;
   --background-color-all: #ffc6e5;
   --navbar-background-color: #000;
@@ -79,7 +100,7 @@
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ffffff47;
   --nav-active-detective: #fff;
-  --overlay-standout-color: rgba(255, 255, 255, 0.25);
+  --overlay-standout-color: #ffabd8;
   --hover-standout-color: #0000000f;
   --song-standout-reflect-color: #f1f1f1;
   .slide-gallery .skeleton-4-slide {
@@ -90,9 +111,15 @@
   }
 }
 .lisa-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #000;
+  --slider-active-color: #ff8a8a;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #f4d6cf;
   --standout-main-atist-hover: black;
-  --standout-main-atist: #aaa;
-  --standout-song-name: #fff;
+  --standout-main-atist: #737373;
+  --standout-song-name: #000;
   --background-color-all: #F2DDD8;
   --normal-text-color: #181818;
   --navbar-background-color: #fff;
@@ -111,7 +138,7 @@
   --nav-active-detective: #ff8a8a;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
-  --song-standout-reflect-color: #f1f1f1;
+  --song-standout-reflect-color: #000;
   .slide-gallery .skeleton-4-slide {
     background: #f89d881a;
     &:after {
@@ -120,9 +147,15 @@
   }
 }
 .jisoo-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #000;
+  --slider-active-color: #4a5c82;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #fff;
   --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
-  --standout-song-name: #fff;
+  --standout-song-name: #000;
   --background-color-all: #fff;
   --normal-text-color: #181818;
   --navbar-background-color: #fff;
@@ -142,7 +175,7 @@
   --view-more-ripple-color: rgba(7, 7, 7, 0.15);
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
-  --song-standout-reflect-color: #f1f1f1;
+  --song-standout-reflect-color: #000;
   .slide-gallery .skeleton-4-slide {
     background: #9898981a;
     &:after {
@@ -151,9 +184,15 @@
   }
 }
 .iu-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #000;
+  --slider-active-color: #8f5541;
+  --ripple-color-base: #fff;
+  --media-player-bg-color: #f4e6e2;
   --standout-main-atist-hover: black;
   --standout-main-atist: #aaa;
-  --standout-song-name: #fff;
+  --standout-song-name: #000;
   --background-color-all: #E6E0DE;
   --normal-text-color: #181818;
   --navbar-background-color: #fff;
@@ -172,7 +211,7 @@
   --nav-active-detective: #8f5541;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
-  --song-standout-reflect-color: #f1f1f1;
+  --song-standout-reflect-color: #000;
   .slide-gallery .skeleton-4-slide {
     background: #e6b7a840;
     &:after {
@@ -181,6 +220,11 @@
   }
 }
 .jennie-theme {
+  --volume-fill: #000;
+  --volume-danger: orangered;
+  --ctrl-icon: #000;
+  --slider-active-color: #411151;
+  --media-player-bg-color: #c4b9c7;
   --background-color-all: #BBB9C4;
   --normal-text-color: #181818;
   --navbar-background-color: #fff;
@@ -199,7 +243,7 @@
   --nav-active-detective: #411151;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
-  --song-standout-reflect-color: #f1f1f1;
+  --song-standout-reflect-color: #000;
   .slide-gallery .skeleton-4-slide {
     background: #9277aa1a;
     &:after {
