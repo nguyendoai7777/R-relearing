@@ -4,13 +4,15 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { mediaPlayerReducer } from '@store/slices/media-player.slice';
 import { playStateReducer } from '@store/slices/play-state.slice';
 import { mediaControlReducer } from './slices/loop-state.slice';
+import { selectListenedReducer } from '@store/slices/listened-history.slice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     mediaPlayer: mediaPlayerReducer,
     playState: playStateReducer,
-    loop: mediaControlReducer
+    loop: mediaControlReducer,
+    listenedHistory: selectListenedReducer
   }
 });
 

@@ -4,7 +4,7 @@
 }
 .scrollable-body {
   height: calc(100% - var(--nav-height));
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .rx-content {
   height: calc(100vh - var(--media-height));

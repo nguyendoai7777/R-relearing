@@ -18,7 +18,7 @@ export const MediaPlayer = () => {
 
   const nameRef = useRef<HTMLDivElement | null>(null);
   const [needDoubleName, setNeedDoubleName] = useState(false);
-  const [mute, setMute] = useState(false);
+  const [mute, setMute] = useState((localStorage.getItem(LOCAL_KEY.SetMute) || '0') === '1');
   const [volume, setVolume] = useState(localVolumeState);
   const [duration, setDuration] = useState(0);
   const [currentPlayingTime, setCurrentPlayingTime] = useState(0);
@@ -98,7 +98,7 @@ export const MediaPlayer = () => {
   useEffect(() => {
     const cacheVolume = +(localStorage.getItem(LOCAL_KEY.SetCacheVolume) || DEFAULT_VOLUME);
     setVolume(mute ? 0 : cacheVolume);
-
+    localStorage.setItem(LOCAL_KEY.SetMute, mute ? '1' : '0');
   }, [mute]);
 
   useEffect(() => {
@@ -107,12 +107,10 @@ export const MediaPlayer = () => {
       case 0: {  // no loop
         mp3Audio.onended = () => {
           if (crSong?.index! === crListSong.length - 1) {
-            console.log('ua 1');
             dispatch(pause());
             mp3Audio.currentTime = 0;
             dispatch(setCurrentSong(crListSong[0]));
           } else {
-            console.log('ua 2');
             onNext();
           }
         };
@@ -143,10 +141,6 @@ export const MediaPlayer = () => {
       setCurrentPlayingTime(mp3Audio.currentTime);
     };
   }, [mediaSelector]);
-
-  useEffect(() => {
-    console.log(crSong);
-  }, [crSong])
 
   useEffect(() => {
     mp3Audio.volume = volume / 100;

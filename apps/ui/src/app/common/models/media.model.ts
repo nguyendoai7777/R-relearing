@@ -18,3 +18,7 @@ export interface SongBase {
   listenTimes: string;
   subArtist: ArtisBaseInfo[]
 }
+
+export type SongItemProps = Omit<SongBase, 'artwork' | 'index'> & {
+  onClick?: () => void
+}

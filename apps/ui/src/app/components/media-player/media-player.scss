@@ -112,11 +112,3 @@
   color: var(--ctrl-icon);
   font-size: 8px;
 }
-.RippleColorTheme {
-  .MuiTouchRipple-root * { // custom ripple color
-    color: var(--ripple-color-base);
-  }
-}
-.CircleCorners .MuiTouchRipple-root * { // custom ripple color
-  border-radius: 50%;
-}

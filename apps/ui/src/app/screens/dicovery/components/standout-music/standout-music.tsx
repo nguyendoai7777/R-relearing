@@ -1,17 +1,15 @@
 import './standout-music.scss';
 import { Link } from 'react-router-dom';
 import { DIS_STANDOUT_SONG_LIST } from '@constants/mock.const';
-import { SongBase } from '@models/media.model';
+import { SongBase, SongItemProps } from '@models/media.model';
 import { useAppDispatch } from '@store/store';
 import { setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { durationConverter, stopParentEvent } from '@modules/feature.module';
 import { pause, play } from '@store/slices/play-state.slice';
+import { pushOne } from '@store/slices/listened-history.slice';
 
-export type StandoutSong = Omit<SongBase, 'artwork' | 'index'> & {
-  onClick?: () => void
-}
 
-const Song = (pr: StandoutSong) => {
+const Song = (pr: SongItemProps) => {
   return (
     <div className="standout-song fa-center fj-between cs-pointer" onClick={pr.onClick}>
       <div className="flex" style={{ maxWidth: '70%' }}>
@@ -56,6 +54,7 @@ export const StandoutMusic = () => {
             onClick={() => {
               dispatch(pause());
               dispatch(setCurrentSong(s));
+              dispatch(pushOne(s));
               const delay = setTimeout(() => {
                 dispatch(play());
                 clearTimeout(delay);

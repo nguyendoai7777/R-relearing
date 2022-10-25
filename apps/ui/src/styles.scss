@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'swiper/swiper-bundle.min.css';
-
 @font-face {
   font-family: 'FuzzyBubbles';
   src: url("assets/fonts/FuzzyBubbles-Regular.ttf");
@@ -16,10 +15,35 @@ html, * {
 body {
   // overflow: hidden;
 }
+a {
+  width: fit-content;
+}
 #root {
   background-size: 1920px;
   background-position: 26px 10px;
   background-repeat: no-repeat;
+}
+.RippleColorTheme {
+  .MuiTouchRipple-root * { // custom ripple color
+    color: var(--ripple-color-base);
+  }
+}
+.CircleCorners .MuiTouchRipple-root * { // custom ripple color
+  border-radius: 50%;
+}
+
+.base-nav {
+  text-decoration: none;
+  width: fit-content;
+  * {
+    width: fit-content;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.can-play {
+  position: relative;
 }
 .my-scrollbar {
   overflow-y: scroll !important;

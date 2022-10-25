@@ -23,9 +23,11 @@
 .align-items-center {
   align-items: center;
 }
+
 .align-items-end {
   align-items: center;
 }
+
 .justify-content-center {
   justify-content: center;
 }
@@ -57,19 +59,38 @@
   align-items: center;
   justify-content: center;
 }
+
 .flex-reverse {
   flex-direction: row-reverse;
 }
+
 .force-white-color {
   color: white !important;
 }
+
 .text-nowrap {
   white-space: nowrap;
 }
+
 .w-fit {
   width: fit-content;
 }
+
 .circle-corners {
   border-radius: 50% !important;
   overflow: hidden;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
 }

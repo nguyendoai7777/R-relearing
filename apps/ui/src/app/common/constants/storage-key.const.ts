@@ -7,4 +7,6 @@ export const LOCAL_KEY = {
   SetCacheVolume: 'SetCacheVolume',
   SetLoop: 'SetLoop',
   SetShuffle: 'SetShuffle',
+  SetHistoryList: 'SetHistoryList',
+  SetMute: 'SetMute',
 }
