@@ -83,6 +83,10 @@
   .duration-text {
     margin: 0 12px;
     font-size: 12px;
+    min-width: 60px;
+    &:first-child {
+      text-align: right;
+    }
   }
   .volume-icon {
     width: 22px;

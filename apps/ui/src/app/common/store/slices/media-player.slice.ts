@@ -13,6 +13,7 @@ const currentListSongInit = localStorage.getItem(LOCAL_KEY.SetCurrentListSong);
 if(!currentListSongInit) {
   localStorage.setItem(LOCAL_KEY.SetCurrentListSong, JSON.stringify([]));
 }
+
 const initialState: CurrentSong = {
   currentSong: currentSongInit && JSON.parse(currentSongInit) || undefined,
   currentList: currentListSongInit && JSON.parse(currentListSongInit) || [],

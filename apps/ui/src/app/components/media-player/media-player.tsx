@@ -14,7 +14,7 @@ import { DEFAULT_VOLUME } from '@constants/mock.const';
 export const MediaPlayer = () => {
   const localVolumeState = +(localStorage.getItem(LOCAL_KEY.SetVolume) || DEFAULT_VOLUME);
   const nameWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [mp3Audio, setMp3Audio] = useState(new Audio());
+  const [mp3Audio] = useState(new Audio());
 
   const nameRef = useRef<HTMLDivElement | null>(null);
   const [needDoubleName, setNeedDoubleName] = useState(false);
@@ -56,19 +56,32 @@ export const MediaPlayer = () => {
     dispatch(t ? play() : pause());
   };
 
+  const setPlayDelay = () => {
+    const delay = setTimeout(() => {
+      dispatch(play());
+      clearTimeout(delay);
+    }, 100);
+  };
+
   const onNext = () => {
-    console.log(crListSong[crSong?.index! + 1]);
-    if (crSong?.index! < crListSong.length) {
+    dispatch(pause());
+    if (crSong?.index! < crListSong.length - 1) {
+      mp3Audio.currentTime = 0;
       dispatch(setCurrentSong(crListSong[crSong?.index! + 1]));
+      setPlayDelay();
     } else {
       dispatch(setCurrentSong(crListSong[0]));
     }
+
   };
   const onPrev = () => {
+    dispatch(pause());
     if (crSong?.index! > 0) {
       dispatch(setCurrentSong(crListSong[crSong?.index! - 1]));
+      setPlayDelay();
     } else {
-      dispatch(setCurrentSong(crListSong[crListSong.length]));
+      dispatch(setCurrentSong(crListSong[crListSong.length - 1]));
+      setPlayDelay();
     }
   };
 
@@ -82,41 +95,48 @@ export const MediaPlayer = () => {
     dispatch(setShuffle(!s));
   };
 
-  const toggleMute = () => {
-    setMute(!mute);
-  };
-
   useEffect(() => {
     const cacheVolume = +(localStorage.getItem(LOCAL_KEY.SetCacheVolume) || DEFAULT_VOLUME);
     setVolume(mute ? 0 : cacheVolume);
-    return () => {
-    };
+
   }, [mute]);
 
   useEffect(() => {
     mp3Audio.loop = (mediaControlSelector.loop === 1);
-    if (mediaControlSelector.loop === 0) {
-      mp3Audio.onended = () => {
-        mp3Audio.currentTime = 0;
-        dispatch(pause());
-      };
+    switch (mediaControlSelector.loop) {
+      case 0: {  // no loop
+        mp3Audio.onended = () => {
+          if (crSong?.index! === crListSong.length - 1) {
+            console.log('ua 1');
+            dispatch(pause());
+            mp3Audio.currentTime = 0;
+            dispatch(setCurrentSong(crListSong[0]));
+          } else {
+            console.log('ua 2');
+            onNext();
+          }
+        };
+        break;
+      }
+      case 1: {
+        break;
+      }
+      case 2: { // loop all
+        mp3Audio.onended = () => {
+          mp3Audio.currentTime = 0;
+          onNext();
+        };
+        break;
+      }
     }
-    if (mediaControlSelector.loop === 2) {
-      mp3Audio.onended = () => {
-        mp3Audio.currentTime = 0;
-        dispatch(pause());
-      };
-    }
+
   }, [mediaControlSelector.loop]);
 
   useEffect(() => {
     setNeedDoubleName(nameWrapperRef.current?.offsetWidth! < nameRef.current?.offsetWidth!);
-  }, [mediaSelector]);
-
-  useEffect(() => {
     mp3Audio.src = crSong?.mediaUrl!;
     mp3Audio.loop = mediaControlSelector.loop === 1;
-    mp3Audio.onloadeddata = (e) => {
+    mp3Audio.onloadeddata = () => {
       setDuration(mp3Audio.duration);
     };
     mp3Audio.ontimeupdate = () => {
@@ -125,9 +145,18 @@ export const MediaPlayer = () => {
   }, [mediaSelector]);
 
   useEffect(() => {
+    console.log(crSong);
+  }, [crSong])
+
+  useEffect(() => {
+    mp3Audio.volume = volume / 100;
+  }, [volume]);
+
+
+  useEffect(() => {
     const p = playSelector.playing;
     if (p) {
-      mp3Audio.play();
+      void mp3Audio.play();
     } else {
       mp3Audio.pause();
     }
@@ -137,7 +166,6 @@ export const MediaPlayer = () => {
     <div className={`media-player flex`}>
       <div className="mp-left fa-center">
         {crSong && <>
-
           <img className="song-thumb" src={crSong?.artwork} alt="" title="thumbnail"/>
           <div className="info-group">
             <Link className="text-decoration-none w-fit" to={crSong?.mainArtist.profileUrl || ''}>
@@ -201,7 +229,6 @@ export const MediaPlayer = () => {
               step={1}
               max={duration}
               onChange={(_, value) => {
-                console.log(mp3Audio);
                 mp3Audio.currentTime = value as number;
                 setCurrentPlayingTime(value as number);
               }}
@@ -212,7 +239,7 @@ export const MediaPlayer = () => {
         </div>
       </div>
       <div className="mp-right fj-center align-items-end">
-        <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={toggleMute}>
+        <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={() => setMute(!mute)}>
           <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
         </svg>
         <Slider

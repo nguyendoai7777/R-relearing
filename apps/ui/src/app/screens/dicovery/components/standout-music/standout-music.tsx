@@ -5,7 +5,7 @@ import { SongBase } from '@models/media.model';
 import { useAppDispatch } from '@store/store';
 import { setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { durationConverter, stopParentEvent } from '@modules/feature.module';
-import { play } from '@store/slices/play-state.slice';
+import { pause, play } from '@store/slices/play-state.slice';
 
 export type StandoutSong = Omit<SongBase, 'artwork' | 'index'> & {
   onClick?: () => void
@@ -54,8 +54,12 @@ export const StandoutMusic = () => {
             mainArtist={s.mainArtist}
             subArtist={s.subArtist}
             onClick={() => {
-              dispatch(play());
+              dispatch(pause());
               dispatch(setCurrentSong(s));
+              const delay = setTimeout(() => {
+                dispatch(play());
+                clearTimeout(delay);
+              }, 100);
               dispatch(setCurrentLists(DIS_STANDOUT_SONG_LIST));
             }}
           />
