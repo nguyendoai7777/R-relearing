@@ -44,6 +44,7 @@
 .nav-link-routing {
   position: relative;
   display: block;
+  width: 100%;
   &.active {
     background-color: var(--nav-btn-active-bg-color);
     .nav-button {

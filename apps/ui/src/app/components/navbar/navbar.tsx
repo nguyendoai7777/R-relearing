@@ -3,7 +3,7 @@ import { Dialog, DialogTitle, Fade, Slide } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import './navbar.scss';
 
-import { CustomButtonOutlined } from '@cpns/custom-buttom/button-custom-color';
+import { CustomButtonContained, CustomButtonOutlined } from '@cpns/custom-buttom/button-custom-color';
 import { DEFAULT_THEME, THEME_CHOICE } from '@constants/theme.const';
 import { ThemeBase, ThemeChar, ThemeColor } from '@models/theme.model';
 import DIconButton from '@cpns/icon-button/icon-button';

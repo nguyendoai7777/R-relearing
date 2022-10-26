@@ -3,6 +3,9 @@
   --slide-overlay: rgba(128, 128, 128, 0.10);
 }
 .dark-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #161616;
   --volume-fill: #fff;
   --volume-danger: orangered;
   --ctrl-icon: #fff;
@@ -39,6 +42,9 @@
   }
 }
 .light-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #000;
   --volume-danger: orangered;
   --ctrl-icon: #000;
@@ -75,6 +81,9 @@
   }
 }
 .pink-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #fff;
   --volume-danger: orangered;
   --ctrl-icon: #fff;
@@ -111,6 +120,9 @@
   }
 }
 .lisa-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #000;
   --volume-danger: orangered;
   --ctrl-icon: #000;
@@ -147,6 +159,9 @@
   }
 }
 .jisoo-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #000;
   --volume-danger: orangered;
   --ctrl-icon: #000;
@@ -170,7 +185,7 @@
   --scrollbar-color: #BCC2CD;
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
-  --nav-btn-active-bg-color: #0000000d;
+  --nav-btn-active-bg-color: #4a5c8229;
   --nav-active-detective: #4a5c82;
   --view-more-ripple-color: rgba(7, 7, 7, 0.15);
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
@@ -184,6 +199,9 @@
   }
 }
 .iu-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #000;
   --volume-danger: orangered;
   --ctrl-icon: #000;
@@ -220,6 +238,9 @@
   }
 }
 .jennie-theme {
+  --text-btn-hl: #fff;
+  --focused: #1976d2;
+  --popover-bg: #fff;
   --volume-fill: #000;
   --volume-danger: orangered;
   --ctrl-icon: #000;

@@ -21,7 +21,7 @@ export const CustomButtonContained = (props: ButtonProps & CustomButtonContained
     },
   }));
   return (
-    <ColorButton variant="contained" {...props}>{props.text}</ColorButton>
+    <ColorButton className='hl-btn'  variant="contained" {...props}>{props.text}</ColorButton>
   );
 };
 
@@ -32,13 +32,16 @@ export interface CustomButtonOutlinedProps extends CsButtonBaseProps {
 }
 
 export const CustomButtonOutlined = (props: ButtonProps & CustomButtonOutlinedProps) => {
-  const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  const ColorButton = styled(Button)<ButtonProps>(() => ({
     color: props.textcolor,
     borderColor: props.textcolor,
     '&:hover': {
       backgroundColor: props.hovercolor,
-      borderColor: props.textcolor
+      borderColor: props.textcolor,
     },
+    '.MuiTouchRipple-root *': {
+      color: 'var(--nav-active-detective)'
+    }
   }));
   return (
     <ColorButton variant="outlined" {...props}>{props.text}</ColorButton>

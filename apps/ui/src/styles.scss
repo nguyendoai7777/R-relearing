@@ -31,7 +31,35 @@ a {
 .CircleCorners .MuiTouchRipple-root * { // custom ripple color
   border-radius: 50%;
 }
+.MuiButtonBase-root {
+  .MuiTouchRipple-root * {
+    color: var(--nav-active-detective) !important;
+  }
+}
 
+.active-base-controller {
+  .MuiFormLabel-root {
+    color: var(--normal-text-color);
+    opacity: .65;
+  }
+  .MuiFormLabel-root.Mui-focused {
+    color: var(--nav-active-detective);
+    opacity: 1;
+  }
+  .MuiInputBase-root.MuiInput-root {
+    color: var(--normal-text-color);
+    &:before {
+      border-bottom-color: var(--normal-text-color);
+      opacity: .65;
+    }
+    &:after {
+      border-bottom-color: var(--nav-active-detective);
+    }
+    &:hover:not(.Mui-disabled):before {
+      border-bottom: 1px solid var(--normal-text-color);
+    }
+  }
+}
 .base-nav {
   text-decoration: none;
   width: fit-content;
@@ -93,10 +121,10 @@ a {
     min-width: 800px;
     background-color: var(--search-filled-bg-color);
   }
-  .dialog-end-btn {
-    margin-left: 12px;
-    text-transform: capitalize;
-  }
+}
+.dialog-end-btn {
+  margin-left: 12px !important;
+  text-transform: capitalize !important;
 }
 .icon-button-self {
   &:hover {
@@ -123,5 +151,38 @@ a {
   &sub-artist-name, &sub-name {
     font-size: 11px;
     color: var(--standout-main-atist);
+  }
+}
+.option-ref {
+  .ref-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--ctrl-icon);
+  }
+  .mr-df {
+    margin-right: 12px;
+  }
+  .MuiPaper-root {
+    background-color: var(--search-filled-bg-color);
+    .MuiTouchRipple-root * {
+      color: var(--ripple-color-base);
+    }
+  }
+  .add-to-list {
+    .sub-menu {
+      position: absolute;
+      top: 0;
+      left: 100%;
+
+    }
+    &.active {
+      background-color: var(--nav-btn-active-bg-color);
+    }
+  }
+}
+
+.popover-base {
+  .MuiPaper-root {
+    background-color: var(--popover-bg);
   }
 }
