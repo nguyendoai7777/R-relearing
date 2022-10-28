@@ -20,8 +20,11 @@ export const listenedHistorySlice = createSlice({
   name: 'listenedHistorySlice',
   initialState,
   reducers: {
-    removeOne: (state, action: PayloadAction<number>) => {
-      state.currentHistoryList.splice(action.payload, 1);
+    removeOne: (state, { payload }: PayloadAction<string>) => {
+      const cr = JSON.parse(localStorage.getItem(LOCAL_KEY.SetHistoryList) || '[]') as SongBase[];
+      const index = cr.findIndex(s => s.key === payload);
+      console.log(cr, index );
+      state.currentHistoryList.splice(index, 1);
       localStorage.setItem(LOCAL_KEY.SetHistoryList, JSON.stringify(state.currentHistoryList));
     },
     pushOne: (state, action: PayloadAction<SongBase>) => {

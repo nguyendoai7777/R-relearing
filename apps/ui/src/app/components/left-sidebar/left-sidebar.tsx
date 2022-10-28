@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 
 export function LeftSidebar() {
   const nav = () => {
-    console.log('nav nav');
   };
   return (
     <div className="lsb-r">

@@ -9,4 +9,5 @@ export const LOCAL_KEY = {
   SetShuffle: 'SetShuffle',
   SetHistoryList: 'SetHistoryList',
   SetMute: 'SetMute',
+  PlayList: 'PlayList',
 }

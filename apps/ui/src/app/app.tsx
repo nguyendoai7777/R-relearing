@@ -7,7 +7,7 @@ import RightSidebar from '@cpns/right-sidebar/right-sidebar';
 import LeftSidebar from '@cpns/left-sidebar/left-sidebar';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_THEME } from '@constants/theme.const';
-import { APP_ROUTING } from './app.routing';
+import { APP_ROUTING, NOT_NAV_ROUTING } from './app.routing';
 
 
 export function App() {
@@ -26,7 +26,12 @@ export function App() {
             <Routes>
               <Route path="*" element={<Navigate to="discovery" replace/>}/>
               <Route path="" element={<Navigate to="discovery" replace/>}/>
-              {APP_ROUTING.map((route) => (<Route path={route.path} key={route.key} element={route.element}/>))}
+              {APP_ROUTING.map((route) => (
+                <Route path={route.path} key={route.key} element={route.element}/>
+              ))}
+              {NOT_NAV_ROUTING.map((route) => (
+                <Route path={route.path} key={route.key} element={route.element}/>
+              ))}
             </Routes>
           </div>
         </div>

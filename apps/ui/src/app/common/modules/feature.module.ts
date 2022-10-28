@@ -26,3 +26,17 @@ export const saveVolumeToLocal = (val: number) => {
   localStorage.setItem(LOCAL_KEY.SetVolume, String(val));
   localStorage.setItem(LOCAL_KEY.SetCacheVolume, String(val !== 0 ? val : DEFAULT_VOLUME));
 }
+
+export const uuid = () => {
+  const temp_url = URL.createObjectURL(new Blob());
+  const uuid = temp_url.toString();
+  URL.revokeObjectURL(temp_url);
+  return uuid.substring(uuid.lastIndexOf('/') + 1); // remove prefix (e.g. blob:null/, blob:www.test.com/, ...)
+}
+
+export const DT = {
+  now: {
+    time: ((new Date()).toTimeString()).split(' ')[0],
+    dateFull: (new Date()).toLocaleString('vi', {dateStyle: 'full'})
+  }
+}

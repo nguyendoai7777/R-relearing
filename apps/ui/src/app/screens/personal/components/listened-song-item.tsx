@@ -9,13 +9,13 @@ interface CombinePropsWithBase {
   className?: string;
   onClick: () => void;
   onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-
+  mode?: 'delete' | 'small-more';
 }
 
 type LHBProps = Omit<SongBase, 'songDuration' | 'listenTimes' | 'key' | 'index' | 'subArtist' | 'mediaUrl'>
 
 export const ListenedSongItem = (pr: LHBProps & CombinePropsWithBase) => {
-  return <div className={`listened-item fa-center ${pr.className}`}>
+  return <div className={`listened-item fa-center ${pr.className ? pr.className : ''}`}>
     <ButtonBase className="justify-content-start RippleColorTheme">
 
       <img src={pr.artwork} alt=""/>
@@ -32,7 +32,7 @@ export const ListenedSongItem = (pr: LHBProps & CombinePropsWithBase) => {
       onClick={pr.onOptionClick}
     >
       <svg>
-        <use href="#small-more"/>
+        <use href={`#${!pr.mode ? 'small-more' : 'delete'}`}/>
       </svg>
     </DIconButton>
   </div>;

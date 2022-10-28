@@ -6,6 +6,7 @@ import { ZchartScreen } from '@screens/zchart/zchart';
 import { Top100Screen } from '@screens/top-100/top-100';
 import { CategoryScreen } from '@screens/category/category';
 import { RadioScreen } from '@screens/radio/radio';
+import { PlaylistScreen } from '@screens/playlist/playlist';
 
 export const APP_ROUTING: Routes[] = [
   {
@@ -54,5 +55,13 @@ export const APP_ROUTING: Routes[] = [
     element: React.createElement(CategoryScreen),
 
   },
+];
 
+export const NOT_NAV_ROUTING: Routes[] = [
+  {
+    name: 'Playlist',
+    key: 'routes-id-7',
+    path: 'playlist/:playlistId',
+    element: React.createElement(PlaylistScreen),
+  },
 ];

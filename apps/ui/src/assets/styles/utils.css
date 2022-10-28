@@ -29,7 +29,7 @@
 }
 
 .align-items-end {
-  align-items: center;
+  align-items: flex-end;
 }
 
 .justify-content-center {
@@ -97,4 +97,16 @@
 
 .justify-content-start {
   justify-content: flex-start !important;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+.rotate-45 {
+  transform: rotate(45deg);
+}
+.rotate-180 {
+  transform: rotate(180deg);
 }

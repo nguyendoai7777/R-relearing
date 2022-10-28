@@ -5,6 +5,7 @@ import { mediaPlayerReducer } from '@store/slices/media-player.slice';
 import { playStateReducer } from '@store/slices/play-state.slice';
 import { mediaControlReducer } from './slices/loop-state.slice';
 import { selectListenedReducer } from '@store/slices/listened-history.slice';
+import { playlistReducer } from '@store/slices/playlist.slice';
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const store = configureStore({
     mediaPlayer: mediaPlayerReducer,
     playState: playStateReducer,
     loop: mediaControlReducer,
-    listenedHistory: selectListenedReducer
+    listenedHistory: selectListenedReducer,
+    playlist: playlistReducer
   }
 });
 
