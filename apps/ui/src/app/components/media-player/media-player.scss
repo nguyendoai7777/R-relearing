@@ -1,6 +1,9 @@
 @keyframes AutoTextSurfing {
-  to {
-    transform: translateX(-100%);
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100px
   }
 }
 .media-player {
@@ -61,6 +64,7 @@
       fill: var(--ctrl-icon);
     }
     &.looped {
+      background-color: var(--mp-active);
       .ctrl-icon {
         fill: var(--nav-active-detective) !important;
       }

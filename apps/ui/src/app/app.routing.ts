@@ -23,14 +23,20 @@ export const APP_ROUTING: Routes[] = [
     element: React.createElement(PersonalScreen),
 
   },
-
   {
+    name: 'Top 100',
+    key: 'routes-id-5',
+    path: 'top100',
+    element: React.createElement(Top100Screen),
+
+  },
+ /* {
     name: '#zchart',
     key: 'routes-id-3',
     path: 'zchart',
     element: React.createElement(ZchartScreen),
 
-  },
+  },*/
 
   {
     name: 'Radio',
@@ -40,13 +46,7 @@ export const APP_ROUTING: Routes[] = [
 
   },
 
-  {
-    name: 'Top 100',
-    key: 'routes-id-5',
-    path: 'top100',
-    element: React.createElement(Top100Screen),
 
-  },
 
   {
     name: 'Thể Loại',

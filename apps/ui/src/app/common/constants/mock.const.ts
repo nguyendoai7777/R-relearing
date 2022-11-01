@@ -1,4 +1,5 @@
 import { SongBase } from '@models/media.model';
+import { release } from 'os';
 
 export const DEFAULT_VOLUME = 50;
 
@@ -217,4 +218,214 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
     listenTimes: '122.2k',
     subArtist: []
   }
+];
+
+export const TOP_100_GALLERY_OBJ = {
+  1: [
+    {
+      id: 'top-100-gallery-0001',
+      name: 'Hàn Xẻng',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/e/2/8/5/e285abc72419b762fa7f3fa03f14d223.jpg',
+    },
+    {
+      id: 'top-100-gallery-0002',
+      name: 'Phim Trung Cộng',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/0/2/b/102b88eaa17035b6c1247910d24a0054.jpg',
+    },
+    {
+      id: 'top-100-gallery-0003',
+      name: 'Audiophile',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/d/6/0/3d60491e7407321dbce823a2e8588b92.jpg',
+    },
+    {
+      id: 'top-100-gallery-0004',
+      name: 'Folk',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/8/d/5/48d556485a84f1100b561623075538b8.jpg',
+    },
+    {
+      id: 'top-100-gallery-0005',
+      name: 'Phim Âu Mỹ',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/b/3/8/ab389ff054099f722894413871b08644.jpg',
+    },
+    {
+      id: 'top-100-gallery-00010',
+      name: 'Rap Việt',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/b/f/a/4bfa0b4c173b33406b4d255e79941e5d.jpg',
+    },
+  ],
+  2: [
+    {
+      id: 'top-100-gallery-0006',
+      name: 'R&B',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/e/0/4/9e047c9d089c68f60bce31b20ff59a97.jpg',
+    },
+    {
+      id: 'top-100-gallery-0007',
+      name: 'Country',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/6/f/8/66f8ddb7b4b7fe2b1b4076ea2cd05c93.jpg',
+    },
+    {
+      id: 'top-100-gallery-0008',
+      name: 'Rap US',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/9/0/5/a9055dfa409c62d934ef333b61993f01.jpg',
+    },
+    {
+      id: 'top-100-gallery-0009',
+      name: 'Trẻ',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/e/8/f/8e8f611bf05e11db1bb7c39994048509.jpg',
+    },
+    {
+      id: 'top-100-gallery-00010',
+      name: 'Rap Việt',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/b/f/a/4bfa0b4c173b33406b4d255e79941e5d.jpg',
+    },
+    {
+      id: 'top-100-gallery-00014',
+      name: 'Rock',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/8/3/5/f835eb2eabde0ef0b687ee0e71e4a37e.jpg',
+    },
+  ],
+  3: [
+    {
+      id: 'top-100-gallery-00011',
+      name: 'Dance Việt',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/8/0/0/b800a8b039fd00210f54e58b3309b46f.jpg',
+    },
+    {
+      id: 'top-100-gallery-0015',
+      name: 'Lớp Mầm',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/c/9/4/fc94328a7c216b9d9c5eb1521f893709.jpg',
+    },
+    {
+      id: 'top-100-gallery-00012',
+      name: 'Sến',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/4/3/a/843ad75cffcf672c14e9d55a52f922cc.jpg',
+    },
+    {
+      id: 'top-100-gallery-00013',
+      name: 'Christian & Gospel',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/a/3/5/4a352cf9e92b9cc794c5d9cc8b35fa30.jpg',
+    },
+    {
+      id: 'top-100-gallery-00014',
+      name: 'Rock',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/8/3/5/f835eb2eabde0ef0b687ee0e71e4a37e.jpg',
+    },
+    {
+      id: 'top-100-gallery-0005',
+      name: 'Phim Âu Mỹ',
+      release: '31/10/2022',
+      artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/b/3/8/ab389ff054099f722894413871b08644.jpg',
+    },
+  ]
+}
+
+export const TOP_100_GALLERY = [
+  {
+    id: 'top-100-gallery-0001',
+    name: 'Hàn Xẻng',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/e/2/8/5/e285abc72419b762fa7f3fa03f14d223.jpg',
+  },
+  {
+    id: 'top-100-gallery-0002',
+    name: 'Phim Trung Cộng',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/0/2/b/102b88eaa17035b6c1247910d24a0054.jpg',
+  },
+  {
+    id: 'top-100-gallery-0003',
+    name: 'Audiophile',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/d/6/0/3d60491e7407321dbce823a2e8588b92.jpg',
+  },
+  {
+    id: 'top-100-gallery-0004',
+    name: 'Folk',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/8/d/5/48d556485a84f1100b561623075538b8.jpg',
+  },
+  {
+    id: 'top-100-gallery-0005',
+    name: 'Phim Âu Mỹ',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/b/3/8/ab389ff054099f722894413871b08644.jpg',
+  },
+  {
+    id: 'top-100-gallery-0006',
+    name: 'R&B',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/e/0/4/9e047c9d089c68f60bce31b20ff59a97.jpg',
+  },
+  {
+    id: 'top-100-gallery-0007',
+    name: 'Country',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/e/0/4/9e047c9d089c68f60bce31b20ff59a97.jpg',
+  },
+  {
+    id: 'top-100-gallery-0008',
+    name: 'Rap US',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/9/0/5/a9055dfa409c62d934ef333b61993f01.jpg',
+  },
+  {
+    id: 'top-100-gallery-0009',
+    name: 'Trẻ',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/e/8/f/8e8f611bf05e11db1bb7c39994048509.jpg',
+  },
+  {
+    id: 'top-100-gallery-00010',
+    name: 'Rap Việt',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/b/f/a/4bfa0b4c173b33406b4d255e79941e5d.jpg',
+  },
+  {
+    id: 'top-100-gallery-00011',
+    name: 'Dance Việt',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/8/0/0/b800a8b039fd00210f54e58b3309b46f.jpg',
+  },
+  {
+    id: 'top-100-gallery-0015',
+    name: 'Lớp Mầm',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/c/9/4/fc94328a7c216b9d9c5eb1521f893709.jpg',
+  },
+  {
+    id: 'top-100-gallery-00012',
+    name: 'Sến',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/4/3/a/843ad75cffcf672c14e9d55a52f922cc.jpg',
+  },
+  {
+    id: 'top-100-gallery-00013',
+    name: 'Christian & Gospel',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/a/3/5/4a352cf9e92b9cc794c5d9cc8b35fa30.jpg',
+  },
+  {
+    id: 'top-100-gallery-00014',
+    name: 'Rock',
+    release: '31/10/2022',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/8/3/5/f835eb2eabde0ef0b687ee0e71e4a37e.jpg',
+  },
 ];

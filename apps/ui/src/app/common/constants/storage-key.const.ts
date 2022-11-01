@@ -10,4 +10,5 @@ export const LOCAL_KEY = {
   SetHistoryList: 'SetHistoryList',
   SetMute: 'SetMute',
   PlayList: 'PlayList',
+  PlayListLayout: 'PlayListLayout'
 }

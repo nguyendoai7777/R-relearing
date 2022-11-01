@@ -3,6 +3,7 @@
   --slide-overlay: rgba(128, 128, 128, 0.10);
 }
 .dark-theme {
+  --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #161616;
@@ -30,6 +31,7 @@
   --text-theme-picked-color: deeppink;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ffffff3b;
+  --playing-bg: rgba(255, 255, 255, 0.2);
   --nav-active-detective: #fff;
   --overlay-standout-color: #ffffff0d;
   --hover-standout-color: rgba(255, 255, 255, 0.25);
@@ -42,6 +44,7 @@
   }
 }
 .light-theme {
+  --mp-active: rgba(0, 0, 0, 0.05);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #fff;
@@ -69,6 +72,7 @@
   --text-theme-picked-color: deeppink;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #00000014;
+  --playing-bg: rgba(103, 103, 103, 0.2);
   --nav-active-detective: #676767;
   --overlay-standout-color: rgba(182, 182, 182, 0.25);
   --hover-standout-color: #0000000f;
@@ -81,6 +85,7 @@
   }
 }
 .pink-theme {
+  --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #ff9fd3;
@@ -108,6 +113,7 @@
   --text-theme-picked-color: #fff;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ffffff47;
+  --playing-bg: rgba(255, 255, 255, 0.2);
   --nav-active-detective: #fff;
   --overlay-standout-color: #ffabd8;
   --hover-standout-color: #0000000f;
@@ -120,6 +126,7 @@
   }
 }
 .lisa-theme {
+  --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #f3eae8;
@@ -147,6 +154,7 @@
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #ff8a8a33;
+  --playing-bg: rgba(255, 138, 138, 0.2);
   --nav-active-detective: #ff8a8a;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
@@ -159,6 +167,7 @@
   }
 }
 .jisoo-theme {
+  --mp-active: rgba(18, 55, 131, 0.05);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #fff;
@@ -186,6 +195,7 @@
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #4a5c8229;
+  --playing-bg: rgba(74, 92, 130, 0.2);
   --nav-active-detective: #4a5c82;
   --view-more-ripple-color: rgba(7, 7, 7, 0.15);
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
@@ -199,6 +209,7 @@
   }
 }
 .iu-theme {
+  --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #f6eeec;
@@ -226,6 +237,7 @@
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #d3ac9f4f;
+  --playing-bg: rgba(143, 85, 65, 0.2);
   --nav-active-detective: #8f5541;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;
@@ -238,6 +250,7 @@
   }
 }
 .jennie-theme {
+  --mp-active: rgba(255, 255, 255, 0.12);
   --text-btn-hl: #fff;
   --focused: #1976d2;
   --popover-bg: #f2ebff;
@@ -261,6 +274,7 @@
   --text-theme-picked-color: #ff85c7;
   --theme-picked-shadow-color: rgb(0 0 0 / 35%);
   --nav-btn-active-bg-color: #8075b329;
+  --playing-bg: rgba(65, 17, 81, 0.2);
   --nav-active-detective: #411151;
   --overlay-standout-color: rgba(255, 255, 255, 0.25);
   --hover-standout-color: #0000000f;

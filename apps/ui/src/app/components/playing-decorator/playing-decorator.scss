@@ -1,0 +1,75 @@
+.decorate-box {
+  .decorator {
+    width: calc(100% - 48px);
+    &:hover {
+      .playing-ic-wa.dc-playable {
+        opacity: 1;
+      }
+    }
+  }
+  &.is-play .off {
+    // border-radius: 50%;
+  }
+  .decorate-thumb {
+    display: flex;
+    transition: .35s;
+    overflow: hidden;
+    border-radius: 10px;
+    &.playing {
+      border-radius: 50%;
+      animation: playing 10s linear infinite;
+    }
+    &.off {
+      transition: border-radius .3s ease-out .3s;
+      animation: play-off .3s linear;
+    }
+    .decorate-img {
+      width: 100%;
+    }
+    .decorate-thumb-overlay {
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
+  .playing-ic-wa {
+    user-select: none;
+    pointer-events: none;
+    height: 60px;
+    width: 60px;
+    fill: white;
+    &.dc-playable {
+      fill: rgba(255, 255, 255, 0.65);
+      opacity: 0;
+    }
+  }
+  .dc-name {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .dc-sb-ar {
+    padding-bottom: 6px;
+    font-size: 13px;
+  }
+  .release {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+}
+@keyframes playing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes play-off {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}

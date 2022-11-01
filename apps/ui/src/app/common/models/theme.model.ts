@@ -14,3 +14,5 @@ export interface ThemeColor extends ThemeBase {
   ref: string;
   selected: boolean;
 }
+
+export type ListLayoutType = 'list' | 'grid';

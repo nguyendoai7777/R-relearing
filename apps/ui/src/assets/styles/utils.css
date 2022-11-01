@@ -95,6 +95,10 @@
   white-space: nowrap;
 }
 
+.justify-content-end {
+  justify-content: flex-end;
+}
+
 .justify-content-start {
   justify-content: flex-start !important;
 }
@@ -109,4 +113,21 @@
 }
 .rotate-180 {
   transform: rotate(180deg);
+}
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.show {
+  opacity: 1;
+  visibility: visible;
 }

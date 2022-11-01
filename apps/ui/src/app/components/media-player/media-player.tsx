@@ -232,7 +232,7 @@ export const MediaPlayer = () => {
           <div className="duration-text">{durationConverter(duration)}</div>
         </div>
       </div>
-      <div className="mp-right fj-center align-items-end">
+      <div className="mp-right fj-center align-items-center">
         <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={() => setMute(!mute)}>
           <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
         </svg>
