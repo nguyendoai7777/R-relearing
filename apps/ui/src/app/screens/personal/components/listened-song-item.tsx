@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 
 interface CombinePropsWithBase {
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
   onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   mode?: 'delete' | 'small-more';
 }

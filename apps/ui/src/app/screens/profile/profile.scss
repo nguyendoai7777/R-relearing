@@ -1,0 +1,32 @@
+.profile-col-left {
+  width: 25%;
+  margin-top: 24px;
+  .artwork {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    display: inline-flex;
+    box-shadow: 0 0 12px 3px #c1c1c1;
+    img {
+      width: 100%;
+    }
+  }
+}
+.information {
+  .name {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .real-name {
+    font-size: 13px;
+    padding-bottom: 5px;
+  }
+  .specific-note {
+    opacity: .75;
+  }
+}
+.profile-col-right {
+  padding-left: 24px;
+  width: 75%;
+  margin-top: 24px;
+}

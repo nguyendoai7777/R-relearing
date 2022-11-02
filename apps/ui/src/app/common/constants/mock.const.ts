@@ -63,65 +63,62 @@ export const DIS_RECOMMENDED_ARTIST = [
 
 export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   {
-    index: 0,
-    key: 'dis12standout12list1',
+    id: 'd00',
     url: '/media/dieu-toa',
     mainArtist: {
-      id: '13213213213',
+      id: 'phao',
       name: 'Pháo',
       profileUrl: '/profile/Pháo'
     },
     artwork: 'https://i1.sndcdn.com/artworks-FZScX6URzWnyTa1Z-z8MRtA-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/d5ceaad8a89841c61889/3616294718705515402?authen=exp=1666774524~acl=/d5ceaad8a89841c61889/*~hmac=4a2b57ae108a7ac740cefb475ecb2fdc',
+    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/d5ceaad8a89841c61889/3616294718705515402?authen=exp=1667556164~acl=/d5ceaad8a89841c61889/*~hmac=a7c524cb35515eb44ae75a456977f1b5',
     songName: 'Điêu Toa',
     songDuration: 311,
     listenTimes: '195.2k',
     subArtist: [
       {
-        id: 'dhs23s2asd4',
+        id: 'nhi',
         name: 'Nhí',
         profileUrl: '/profile/Nhí'
       },
       {
-        id: 'dhs23s2asd412',
+        id: 'timob',
         name: 'Timon',
         profileUrl: '/profile/Timon'
       }
     ]
   },
   {
-    index: 1,
     url: '/media/ANETAS',
-    key: 'dis12standout123list1',
+    id: 'd01',
     mainArtist: {
-      id: '21dscdsf3213',
+      id: 'saabirose',
       name: 'Saabirose',
       profileUrl: '/profile/Saabirose'
     },
     artwork: 'https://i1.sndcdn.com/artworks-O1s6gMSfSx71nos2-x8N42g-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/224142574017a949f006/3842614134469368309?authen=exp=1666774571~acl=/224142574017a949f006/*~hmac=6b9db140c3abfd9f4a5b5e7a4befe668',
+    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/224142574017a949f006/3842614134469368309?authen=exp=1667556109~acl=/224142574017a949f006/*~hmac=6a7557cf78b38daa4233051fc9006086',
     songName: '#ANETAS',
     songDuration: 270,
     listenTimes: '195.2k',
     subArtist: [
       {
-        id: 'dhs23s2asd4',
+        id: 'nhi',
         name: 'Nhí',
         profileUrl: '/profile/Nhí'
       },
       {
-        id: 'dhs23s2asd412',
+        id: 'timon',
         name: 'Timon',
         profileUrl: '/profile/Timon'
       }
     ]
   },
   {
-    index: 2,
     url: '/media/hoa-no-khong-mau',
-    key: 'dis12st222andout123list1',
+    id: 'd02',
     mainArtist: {
-      id: '21dscdsf32123e213',
+      id: 'ntbn',
       name: 'NTBN',
       profileUrl: '/profile/NTBN'
     },
@@ -132,33 +129,32 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
     listenTimes: '195.2k',
     subArtist: [
       {
-        id: 'dhs23s2as2sd4',
+        id: 'tilo',
         name: 'TiLo',
         profileUrl: '/profile/TiLo'
       },
       {
-        id: 'dhs23s2as11d123412',
+        id: 'timon',
         name: 'Timon',
         profileUrl: '/profile/Timon'
       },
       {
-        id: 'dhs23s2asd43123412',
+        id: 'san',
         name: 'San',
         profileUrl: '/profile/San'
       },
       {
-        id: 'dh1232ss23s2asd123412',
+        id: 'nhi',
         name: 'Nhí',
         profileUrl: '/profile/Nhí'
       }
     ]
   },
   {
-    index: 3,
     url: '/media/xich-them-chut',
-    key: 'dis12st2211232andout123list1',
+    id: 'd03',
     mainArtist: {
-      id: '221312321dxscc1dscdsf3213',
+      id: 'tlinh',
       name: 'TLinh',
       profileUrl: '/profile/TLinh'
     },
@@ -169,23 +165,22 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
     listenTimes: '195.2k',
     subArtist: [
       {
-        id: 'dhs23s22321as2sd4',
+        id: 'dmixx',
         name: 'dmixx',
         profileUrl: '/profile/dmixx'
       },
       {
-        id: 'dhs23s2111as11234d123412',
+        id: 'atrixx',
         name: 'ATrixx',
         profileUrl: '/profile/ATrixx'
       }
     ]
   },
   {
-    index: 4,
     url: '/media/dont-hurt',
-    key: '123212dswexscasdasd23',
+    id: 'd04',
     mainArtist: {
-      id: '21dscdsf32112321sbfgyhrt3',
+      id: 'tilo',
       name: 'TiLo',
       profileUrl: '/profile/TiLo'
     },
@@ -196,30 +191,35 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
     listenTimes: '2.2M',
     subArtist: [
       {
-        id: 'lndhs23s2232221as2sd4',
-        name: 'Long Nhật',
+        id: 'longnhat',
+        name: 'Long-Nhật',
         profileUrl: '/profile/Long-Nhật'
       },
     ]
   },
   {
-    index: 5,
     url: '/media/vi-em-con-thuong',
-    key: 'd2323is12st2211232andout123list1',
+    id: 'd05',
     mainArtist: {
-      id: '21dscdsf321dxcvnjhiuiporre3',
-      name: 'Lệ Quyên',
+      id: 'lequyen',
+      name: 'Lệ-Quyên',
       profileUrl: '/profile/Lệ-Quyên'
     },
     artwork: 'https://i1.sndcdn.com/artworks-000474463272-eg4f29-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-6-tf-mp3-320s1-m-zmp3.zmdcdn.me/800d794d420aab54f21b/4332586878588502797?authen=exp=1666772594~acl=/800d794d420aab54f21b/*~hmac=a1ed0f2d669fe7ed2ce01645801b0281',
+    mediaUrl: 'https://vnno-vn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/0d1b940f964f7f11265e/9047443268927609608?authen=exp=1667541440~acl=/0d1b940f964f7f11265e/*~hmac=d17c8f4edd90066c47c6e137cb4b178e',
     songName: 'Vì Em Còn Thương',
     songDuration: 280,
     listenTimes: '122.2k',
     subArtist: []
   }
 ];
-
+export const generateSongsByAmount = (loop = 100) => {
+  const l = [];
+  for(let x = 0; x < loop/DIS_STANDOUT_SONG_LIST.length; x++) {
+    l.push(...DIS_STANDOUT_SONG_LIST)
+  }
+  return l.slice(0, loop);
+}
 export const TOP_100_GALLERY_OBJ = {
   1: [
     {

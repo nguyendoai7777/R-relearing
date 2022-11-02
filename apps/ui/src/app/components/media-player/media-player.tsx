@@ -2,7 +2,7 @@ import './media-player.scss';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
 import { useEffect, useRef, useState } from 'react';
-import { durationConverter, saveVolumeToLocal } from '@modules/feature.module';
+import { durationConverter, nameConverter, saveVolumeToLocal } from '@modules/feature.module';
 import { Link } from 'react-router-dom';
 import { ButtonBase, Slider } from '@mui/material';
 import { SLIDER_SX, VOLUME_SX } from '@constants/theme.const';
@@ -64,10 +64,11 @@ export const MediaPlayer = () => {
   };
 
   const onNext = () => {
+    const currentIndex = crListSong.findIndex(e => e.id === crSong?.id);
     dispatch(pause());
-    if (crSong?.index! < crListSong.length - 1) {
+    if (currentIndex < crListSong.length - 1) {
       mp3Audio.currentTime = 0;
-      dispatch(setCurrentSong(crListSong[crSong?.index! + 1]));
+      dispatch(setCurrentSong(crListSong[currentIndex + 1]));
       setPlayDelay();
     } else {
       dispatch(setCurrentSong(crListSong[0]));
@@ -75,9 +76,10 @@ export const MediaPlayer = () => {
 
   };
   const onPrev = () => {
+    const currentIndex = crListSong.findIndex(e => e.id === crSong?.id);
     dispatch(pause());
-    if (crSong?.index! > 0) {
-      dispatch(setCurrentSong(crListSong[crSong?.index! - 1]));
+    if (currentIndex > 0) {
+      dispatch(setCurrentSong(crListSong[currentIndex - 1]));
       setPlayDelay();
     } else {
       dispatch(setCurrentSong(crListSong[crListSong.length - 1]));
@@ -105,8 +107,9 @@ export const MediaPlayer = () => {
     mp3Audio.loop = (mediaControlSelector.loop === 1);
     switch (mediaControlSelector.loop) {
       case 0: {  // no loop
+        const currentIndex = crListSong.findIndex(e => e.id === crSong?.id);
         mp3Audio.onended = () => {
-          if (crSong?.index! === crListSong.length - 1) {
+          if (currentIndex === crListSong.length - 1) {
             dispatch(pause());
             mp3Audio.currentTime = 0;
             dispatch(setCurrentSong(crListSong[0]));
@@ -163,7 +166,7 @@ export const MediaPlayer = () => {
           <img className="song-thumb" src={crSong?.artwork} alt="" title="thumbnail"/>
           <div className="info-group">
             <Link className="text-decoration-none w-fit" to={crSong?.mainArtist.profileUrl || ''}>
-              <div className="gb-artist-name text-nowrap w-fit">{crSong?.mainArtist.name}</div>
+              <div className="gb-artist-name text-nowrap w-fit">{nameConverter(crSong?.mainArtist.name)}</div>
             </Link>
             <div className={`name-wrapper ${needDoubleName ? 'auto-text' : ''}`} ref={nameWrapperRef}>
               <Link to={crSong.url} className="text-decoration-none flex">

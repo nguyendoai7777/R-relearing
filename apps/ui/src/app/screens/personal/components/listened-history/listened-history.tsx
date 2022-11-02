@@ -53,9 +53,8 @@ export const ListenedHistory = () => {
         currentHistoryList.length > 0 ? <>
           {
             currentHistoryList.map(e => <ListenedSongItem
-              key={e.key}
-              onClick={() => {
-              }}
+              key={e.id}
+              id={e.id}
               artwork={e.artwork}
               url={e.url}
               mainArtist={e.mainArtist}
@@ -79,7 +78,7 @@ export const ListenedHistory = () => {
       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem onClick={() => deleteOneSong(selectedSong?.key!)}>
+      <MenuItem onClick={() => deleteOneSong(selectedSong?.id!)}>
         <svg className="ref-icon mr-df">
           <use href="#delete"/>
         </svg>

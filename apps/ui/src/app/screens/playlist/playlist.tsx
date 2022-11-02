@@ -58,10 +58,10 @@ export const PlaylistScreen = () => {
         {
           playlist.songs.length > 0 ? <div className="flex layout-controller">
             {
-              playlist.songs.map((e) => <div className="relative sil-item" key={e.key}>
+              playlist.songs.map((e) => <div className="relative sil-item" key={e.id}>
                   <SongInDetail
-                    className={currentSong?.index === e.index ? 'playing' : ''}
-                    isPlaying={playing && currentSong?.index === e.index}
+                    className={currentSong?.id === e.id ? 'playing' : ''}
+                    isPlaying={playing && currentSong?.id === e.id}
                     subArtist={e.subArtist}
                     listenTimes={e.listenTimes}
                     songDuration={e.songDuration}
@@ -70,9 +70,9 @@ export const PlaylistScreen = () => {
                     url={e.url}
                     mainArtist={e.mainArtist}
                     songName={e.songName}
-                    onDelete={() => dispatch(removeOneToPlaylist({ childId: e.key, parentId: playlistId! }))}
+                    onDelete={() => dispatch(removeOneToPlaylist({ childId: e.id, parentId: playlistId! }))}
                     onClick={() => {
-                      if (currentSong?.index === e.index) {
+                      if (currentSong?.id === e.id) {
                         dispatch(playing ? pause() : play());
                       } else {
                         dispatch(pause());
@@ -86,7 +86,7 @@ export const PlaylistScreen = () => {
                     }}>
                     <ButtonBase
                       className="delete-button"
-                      onClick={() => dispatch(removeOneToPlaylist({ childId: e.key, parentId: playlistId! }))}>
+                      onClick={() => dispatch(removeOneToPlaylist({ childId: e.id, parentId: playlistId! }))}>
                       <svg>
                         <use href="#delete"/>
                       </svg>

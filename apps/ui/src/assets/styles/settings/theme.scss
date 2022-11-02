@@ -3,6 +3,7 @@
   --slide-overlay: rgba(128, 128, 128, 0.10);
 }
 .dark-theme {
+  --border-reflect: #424242;
   --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -44,6 +45,7 @@
   }
 }
 .light-theme {
+  --border-reflect: #d9d9d9;
   --mp-active: rgba(0, 0, 0, 0.05);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -85,6 +87,7 @@
   }
 }
 .pink-theme {
+  --border-reflect: #ffaedc;
   --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -126,6 +129,7 @@
   }
 }
 .lisa-theme {
+  --border-reflect: #ffcaca;
   --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -167,6 +171,7 @@
   }
 }
 .jisoo-theme {
+  --border-reflect: #45577d4a;
   --mp-active: rgba(18, 55, 131, 0.05);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -209,6 +214,7 @@
   }
 }
 .iu-theme {
+  --border-reflect: #8f554152;
   --mp-active: rgba(255, 255, 255, 0.25);
   --text-btn-hl: #fff;
   --focused: #1976d2;
@@ -250,6 +256,7 @@
   }
 }
 .jennie-theme {
+  --border-reflect: #4111513b;
   --mp-active: rgba(255, 255, 255, 0.12);
   --text-btn-hl: #fff;
   --focused: #1976d2;

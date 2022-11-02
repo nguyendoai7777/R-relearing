@@ -40,3 +40,7 @@ export const DT = {
     dateFull: (new Date()).toLocaleString('vi', {dateStyle: 'full'})
   }
 }
+
+export const nameConverter = (raw: string) => {
+  return raw.replace('-',' ');
+}

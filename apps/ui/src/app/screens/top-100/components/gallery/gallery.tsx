@@ -5,17 +5,11 @@ import { useEffect, useState } from 'react';
 import { uuid } from '@modules/feature.module';
 
 export const Gallery = () => {
-  const lineOne =[...TOP_100_GALLERY_OBJ[1], ...TOP_100_GALLERY_OBJ[1]];
+  const lineOne = [...TOP_100_GALLERY_OBJ[1], ...TOP_100_GALLERY_OBJ[1]];
   const lineTwo = [...TOP_100_GALLERY_OBJ[2], ...TOP_100_GALLERY_OBJ[2]];
   const lineThree = [...TOP_100_GALLERY_OBJ[3], ...TOP_100_GALLERY_OBJ[3]];
   useEffect(() => {
-    /* const line1Interval = setInterval(() => {
-       const remove = lineOne[1];
-       setLineOne(prev => [...prev, remove])
-       console.log(remove, lineOne);
-     }, 2000)*/
-    return () => {
-    };
+
   }, []);
 
   return <div className="gallery-root">

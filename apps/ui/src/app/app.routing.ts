@@ -7,6 +7,7 @@ import { Top100Screen } from '@screens/top-100/top-100';
 import { CategoryScreen } from '@screens/category/category';
 import { RadioScreen } from '@screens/radio/radio';
 import { PlaylistScreen } from '@screens/playlist/playlist';
+import { Profile } from '@screens/profile/profile';
 
 export const APP_ROUTING: Routes[] = [
   {
@@ -64,4 +65,10 @@ export const NOT_NAV_ROUTING: Routes[] = [
     path: 'playlist/:playlistId',
     element: React.createElement(PlaylistScreen),
   },
+  {
+    name: 'Nghệ sĩ',
+    key: 'routes-id-8',
+    path: 'profile/:artistId',
+    element: React.createElement(Profile),
+  }
 ];

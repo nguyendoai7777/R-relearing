@@ -24,13 +24,13 @@ export function App() {
           <Navbar/>
           <div className="scrollable-body my-scrollbar">
             <Routes>
-              <Route path="*" element={<Navigate to="discovery" replace/>}/>
+              <Route path="*" element={<Navigate to="discovery" replace/>} />
               <Route path="" element={<Navigate to="discovery" replace/>}/>
               {APP_ROUTING.map((route) => (
                 <Route path={route.path} key={route.key} element={route.element}/>
               ))}
               {NOT_NAV_ROUTING.map((route) => (
-                <Route path={route.path} key={route.key} element={route.element}/>
+                <Route path={route.path} key={route.key} element={route.element} />
               ))}
             </Routes>
           </div>

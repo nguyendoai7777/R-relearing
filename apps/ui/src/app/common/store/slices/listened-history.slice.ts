@@ -22,7 +22,7 @@ export const listenedHistorySlice = createSlice({
   reducers: {
     removeOne: (state, { payload }: PayloadAction<string>) => {
       const cr = JSON.parse(localStorage.getItem(LOCAL_KEY.SetHistoryList) || '[]') as SongBase[];
-      const index = cr.findIndex(s => s.key === payload);
+      const index = cr.findIndex(s => s.id === payload);
       console.log(cr, index );
       state.currentHistoryList.splice(index, 1);
       localStorage.setItem(LOCAL_KEY.SetHistoryList, JSON.stringify(state.currentHistoryList));
@@ -32,7 +32,7 @@ export const listenedHistorySlice = createSlice({
       if (cr.length <= 0) {
         cr.push(action.payload);
       } else {
-        const existed = cr.find(e => e.key === action.payload.key);
+        const existed = cr.find(e => e.id === action.payload.id);
         if (!existed) {
           cr.push(action.payload);
         }

@@ -45,7 +45,7 @@ export const playlistSlice = createSlice({
       const { parentId, song } = action.payload;
       const playlist = JSON.parse(localStorage.getItem(LOCAL_KEY.PlayList) || '[]') as PlaylistState[];
       const curPlaylists = playlist.find(playlist => playlist.id === parentId)!;
-      const existedSong = curPlaylists.songs.find(e => e.key === song.key);
+      const existedSong = curPlaylists.songs.find(e => e.id === song.id);
       if (!existedSong) {
         curPlaylists.songs.push(action.payload.song);
         localStorage.setItem(LOCAL_KEY.PlayList, JSON.stringify(playlist));
@@ -56,7 +56,7 @@ export const playlistSlice = createSlice({
       const { parentId, childId } = action.payload;
       const playlist = JSON.parse(localStorage.getItem(LOCAL_KEY.PlayList) || '[]') as PlaylistState[];
       const curPlaylists = playlist.find(playlist => playlist.id === parentId)!;
-      const index = curPlaylists.songs.findIndex(e => e.key === childId);
+      const index = curPlaylists.songs.findIndex(e => e.id === childId);
       curPlaylists.songs.splice(index, 1);
       state.playlists = playlist;
       localStorage.setItem(LOCAL_KEY.PlayList, JSON.stringify(playlist));

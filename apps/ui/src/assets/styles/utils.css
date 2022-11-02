@@ -36,6 +36,10 @@
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .fj-between {
   display: flex;
   justify-content: space-between;
@@ -121,7 +125,13 @@
   transform: translate(-50%, -50%);
 }
 
+.user-select-none {
+  user-select: none;
+}
 
+.disable-event {
+  pointer-events: none;
+}
 
 .hidden {
   opacity: 0;
@@ -130,4 +140,7 @@
 .show {
   opacity: 1;
   visibility: visible;
+}
+.text-center {
+  text-align: center;
 }

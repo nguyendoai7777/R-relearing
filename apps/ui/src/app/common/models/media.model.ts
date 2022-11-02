@@ -1,14 +1,8 @@
-
-export interface ArtisBaseInfo {
-  id: string;
-  name: string;
-  profileUrl: string
-}
+import { ArtisBaseInfo } from '@models/artist.model';
 
 
 export interface SongBase {
-  index: number;
-  key: string;
+  id: string;
   mainArtist: ArtisBaseInfo,
   artwork: string;
   mediaUrl: string;

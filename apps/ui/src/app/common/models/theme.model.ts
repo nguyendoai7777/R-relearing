@@ -16,3 +16,8 @@ export interface ThemeColor extends ThemeBase {
 }
 
 export type ListLayoutType = 'list' | 'grid';
+
+export interface MousePosition {
+  mouseX: number;
+  mouseY: number;
+}

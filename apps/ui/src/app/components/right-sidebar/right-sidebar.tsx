@@ -2,14 +2,10 @@ import './right-sidebar.scss';
 import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
-import { SongBase } from '@models/media.model';
-import { Link } from 'react-router-dom';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 import { SongInDetail } from '@cpns/song-in-dt/song-in-detail';
-
-
-
+import { uuid } from '@modules/feature.module';
 
 
 export function RightSidebar() {
@@ -29,10 +25,10 @@ export function RightSidebar() {
         {(currentList || []).length > 0 ?
           <>
             {currentList.map((e, i) => <SongInDetail
-              isPlaying={playing && currentSong?.index === e.index}
-              className={currentSong?.index === e.index ? 'playing' : ''}
+              isPlaying={playing && currentSong?.id === e.id}
+              className={currentSong?.id === e.id ? 'playing' : ''}
               onClick={() => {
-                if (currentSong?.index === e.index) {
+                if (currentSong?.id === e.id) {
                   dispatch(playing ? pause() : play());
                 } else {
                   dispatch(pause());
@@ -44,7 +40,7 @@ export function RightSidebar() {
                   }, 100);
                 }
               }}
-              key={e.key}
+              key={e.id + uuid()}
               url={e.url}
               mainArtist={e.mainArtist}
               subArtist={e.subArtist}

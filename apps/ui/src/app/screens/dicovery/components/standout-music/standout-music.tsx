@@ -43,9 +43,10 @@ export const StandoutMusic = () => {
       <img src="https://i1.sndcdn.com/artworks-FZScX6URzWnyTa1Z-z8MRtA-t500x500.jpg" alt=""/>
       <div className="aud-list">
         {DIS_STANDOUT_SONG_LIST.map((s) => <Song
+            id={s.id}
             url={s.url}
             mediaUrl={s.mediaUrl}
-            key={s.key}
+            key={s.id}
             songDuration={s.songDuration}
             songName={s.songName}
             listenTimes={s.listenTimes}
