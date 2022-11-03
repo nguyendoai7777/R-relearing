@@ -1,7 +1,7 @@
 import './right-sidebar.scss';
 import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
+import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 import { SongInDetail } from '@cpns/song-in-dt/song-in-detail';

@@ -14,6 +14,14 @@ export const stopParentEvent = (event: any) => {
   event.stopPropagation();
 };
 
+export const flattenArray = (array: any[]) => {
+  return array.reduce((accumulator, value) => accumulator.concat(value), []);
+}
+
+export const preventDefault = (e: any) => {
+  e.preventDefault();
+}
+
 export const durationConverter = (duration: number) => {
   const hours = ('0' + Math.floor(duration / 3600));
   const ch = Number(hours);
@@ -43,4 +51,10 @@ export const DT = {
 
 export const nameConverter = (raw: string) => {
   return raw.replace('-',' ');
+}
+
+
+export const randomHexColor = () => {
+  const c = Math.floor(Math.random()*16777215).toString(16);
+  return `#${c}`
 }

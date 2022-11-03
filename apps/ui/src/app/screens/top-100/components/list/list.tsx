@@ -4,7 +4,7 @@ import { ButtonBase } from '@mui/material';
 import { SongBase } from '@models/media.model';
 import React, { FC, MouseEvent, ReactElement, useEffect, useId, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
+import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { useAppDispatch } from '@store/store';
 import { pushOne } from '@store/slices/listened-history.slice';
@@ -16,6 +16,7 @@ export interface List100Props {
   song: SongBase;
   onContextMenu?: (e: MouseEvent) => void;
   isAtTop?: boolean;
+  onPlay?: () => void;
 }
 
 export interface ContextMenuProps {
@@ -51,7 +52,7 @@ export const ContextMenu = (pr: ContextMenuProps) => {
   </>;
 };
 
-export const List100: FC<List100Props> = ({ song, index, onContextMenu, isAtTop = true }) => {
+export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, isAtTop = true }) => {
   const { currentSong } = useSelector(selectMediaPlayer);
   const { playing } = useSelector(selectPlayState);
   const dispatch = useAppDispatch();
@@ -70,6 +71,7 @@ export const List100: FC<List100Props> = ({ song, index, onContextMenu, isAtTop 
         clearTimeout(delay);
       }, 100);
     }
+    onPlay && onPlay();
   };
 
   return <>
@@ -95,7 +97,7 @@ export const List100: FC<List100Props> = ({ song, index, onContextMenu, isAtTop 
         <div className="info flex flex-col justify-between">
           <div className="name">{song.songName}</div>
           <div className="flex">
-            <Link to={song.mainArtist.profileUrl} className="ar-name base-nav">{song.mainArtist.name}</Link>
+            <Link to={song.mainArtist.profileUrl} className="ar-name base-nav">{nameConverter(song.mainArtist.name)}</Link>
             {
               song.subArtist.length > 0 && <span className="ar-name">&nbsp;(
                 {

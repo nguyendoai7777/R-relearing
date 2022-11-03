@@ -108,6 +108,7 @@ export const ListenedHistory = () => {
       onClose={() => {
         setSubOptionRef(null);
         setSubOptionActive(false);
+        closeOption();
       }}
       MenuListProps={{
         'aria-labelledby': 'basic-button',
@@ -135,7 +136,12 @@ export const ListenedHistory = () => {
       }
 
     </Menu>
-    <CreatePlaylistDialog currentSong={selectedSong} onClose={() => setCreatePlaylist(false)} open={createPlaylist}/>
+    <CreatePlaylistDialog currentSong={selectedSong} onClose={() => {
+      setCreatePlaylist(false);
+      setSubOptionRef(null);
+      setSubOptionActive(false);
+      closeOption();
+    }} open={createPlaylist}/>
   </>;
 };
 

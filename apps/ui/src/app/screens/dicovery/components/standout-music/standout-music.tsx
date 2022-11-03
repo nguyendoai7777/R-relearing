@@ -4,7 +4,7 @@ import { DIS_STANDOUT_SONG_LIST } from '@constants/mock.const';
 import { SongBase, SongItemProps } from '@models/media.model';
 import { useAppDispatch } from '@store/store';
 import { setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
-import { durationConverter, stopParentEvent } from '@modules/feature.module';
+import { durationConverter, nameConverter, stopParentEvent } from '@modules/feature.module';
 import { pause, play } from '@store/slices/play-state.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 
@@ -13,7 +13,7 @@ const Song = (pr: SongItemProps) => {
   return (
     <div className="standout-song fa-center fj-between cs-pointer" onClick={pr.onClick}>
       <div className="flex" style={{ maxWidth: '70%' }}>
-        <Link onClick={stopParentEvent} className="main-artist" to={pr.mainArtist.profileUrl}>{pr.mainArtist.name}</Link>
+        <Link onClick={stopParentEvent} className="main-artist" to={pr.mainArtist.profileUrl}>{nameConverter(pr.mainArtist.name)}</Link>
         —
         <span className="song-name name-oversize text-nowrap">{pr.songName}</span>
         {pr.subArtist.length > 0 && <>({

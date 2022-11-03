@@ -1,5 +1,6 @@
 import { SongBase } from '@models/media.model';
 import { release } from 'os';
+import { GalleryInfinity } from '@models/share.model';
 
 export const DEFAULT_VOLUME = 50;
 
@@ -63,7 +64,7 @@ export const DIS_RECOMMENDED_ARTIST = [
 
 export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   {
-    id: 'd00',
+    id: 'dis12standout12list1',
     url: '/media/dieu-toa',
     mainArtist: {
       id: 'phao',
@@ -220,7 +221,7 @@ export const generateSongsByAmount = (loop = 100) => {
   }
   return l.slice(0, loop);
 }
-export const TOP_100_GALLERY_OBJ = {
+export const TOP_100_GALLERY_OBJ: {[key: string | number]: GalleryInfinity[]} = {
   1: [
     {
       id: 'top-100-gallery-0001',

@@ -60,11 +60,19 @@ export const playlistSlice = createSlice({
       curPlaylists.songs.splice(index, 1);
       state.playlists = playlist;
       localStorage.setItem(LOCAL_KEY.PlayList, JSON.stringify(playlist));
+    },
+    removeThis: (state, { payload }: PayloadAction<string>) => {
+      const playlist = JSON.parse(localStorage.getItem(LOCAL_KEY.PlayList) || '[]') as PlaylistState[];
+      const index = playlist.findIndex(e => e.id === payload);
+      playlist.splice(index, 1);
+      state.playlists = playlist;
+      localStorage.setItem(LOCAL_KEY.PlayList, JSON.stringify(playlist));
+      console.log(payload, index);
     }
   }
 });
 
-export const { deletePlaylist, createPlaylist, removeOneToPlaylist, addOneToPlaylist } = playlistSlice.actions;
+export const { deletePlaylist, removeThis, createPlaylist, removeOneToPlaylist, addOneToPlaylist } = playlistSlice.actions;
 export const selectPlaylist = (state: RootState) => state.playlist;
 export const playlistReducer = playlistSlice.reducer;
 

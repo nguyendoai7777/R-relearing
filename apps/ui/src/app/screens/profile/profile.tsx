@@ -5,11 +5,13 @@ import { PROFILES } from '@constants/profile.const';
 import { List100 } from '@screens/top-100/components/list/list';
 import { nameConverter, uuid } from '@modules/feature.module';
 import { useParams } from 'react-router-dom';
+import { useAppDispatch } from '@store/store';
+import { setCurrentLists } from '@store/slices/media-player.slice';
 
 export const Profile = () => {
   const { artistId } = useParams();
   const [profile, setProfile] = useState<ArtisProfile>();
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
     const data = PROFILES.find(e => e.name === artistId);
     setProfile(data);
@@ -33,6 +35,7 @@ export const Profile = () => {
             isAtTop={false}
             key={e.id + uuid()}
             song={e}
+            onPlay={() => dispatch(setCurrentLists(profile?.songs || []))}
           />))
         }
       </div>

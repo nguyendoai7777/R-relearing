@@ -31,7 +31,6 @@
   .box {
     border-radius: 5px;
     width: 100%;
-    fill: var(--nav-active-detective);
   }
   .decorate {
     height: 100%;
@@ -58,5 +57,35 @@
     z-index: 0;
     top: -8px;
     right: -8px;
+  }
+  &:hover .action-lead {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+  .action-lead {
+
+    opacity: 0;
+    transition: .25s;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-20%);
+    left: 0;
+    z-index: 4;
+    &:hover {
+      background-color: rgba(115, 115, 115, 0.2);
+    }
+    .flexible-display-button {
+      border-radius: 50% !important;
+      padding: 6px !important;
+      svg {
+        width: 30px;
+        height: 30px;
+        fill: rgba(255, 255, 255, 0.85);
+      }
+    }
   }
 }

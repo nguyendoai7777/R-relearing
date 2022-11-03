@@ -1,21 +1,30 @@
 import './top-100.scss';
 import { Gallery } from '@screens/top-100/components/gallery/gallery';
-import { ContextMenu, List100 } from '@screens/top-100/components/list/list';
-import { generateSongsByAmount } from '@constants/mock.const';
+import { List100 } from '@screens/top-100/components/list/list';
+import { DIS_STANDOUT_SONG_LIST, generateSongsByAmount } from '@constants/mock.const';
 import { uuid } from '@modules/feature.module';
-import { MouseEvent, useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonBase } from '@mui/material';
-import { MousePosition } from '@models/theme.model';
+import { useAppDispatch } from '@store/store';
+import { setCurrentLists } from '@store/slices/media-player.slice';
 
 
 export const Top100Screen = () => {
-  const [songs, setSongs] = useState(generateSongsByAmount(10));
+  const song10 = generateSongsByAmount(10).map(e => ({ ...e, id: uuid() }));
+  const song100 = generateSongsByAmount(100).map(e => ({ ...e, id: uuid() }));
+  const [songs, setSongs] = useState(song10);
+  const [mount, setMount] = useState(false);
+  const dispatch = useAppDispatch();
   const setList = () => {
-
-    setSongs(generateSongsByAmount(100));
+    setMount(!mount);
   };
 
-  const [contextMenu, setContextMenu] = useState<MousePosition | null>(null);
+  useEffect(() => {
+    setSongs(mount ? song100 : song10);
+  }, [mount]);
+
+
+  /*const [contextMenu, setContextMenu] = useState<MousePosition | null>(null);
 
   const handleContextMenu = (event: MouseEvent) => {
     event.preventDefault();
@@ -24,23 +33,26 @@ export const Top100Screen = () => {
         mouseY: event.clientY,
       }
     );
-  };
+  };*/
   return <>
     <div className="body-cc60">
       <div className="header-pai">Nhạc Việt Hôm Nay</div>
       <div>
         {songs.map((e, i) => <List100
-          key={e.id + uuid()}
+          key={e.id}
           index={i + 1}
           song={e}
+          onPlay={() => dispatch(setCurrentLists(songs))}
         />)}
       </div>
       <div className="flex justify-content-center">
-        <ButtonBase className="load-btn" onClick={setList}>Xem 100</ButtonBase>
+        <ButtonBase className="load-btn" onClick={setList}>{mount ? 'Thu Gọn' : 'Xem 100'}</ButtonBase>
       </div>
       <div className="header-pai">Khám phá TOP 100</div>
-      <div><Gallery/></div>
+      <Gallery/>
     </div>
+    {/*
     <ContextMenu open={contextMenu !== null} position={contextMenu}>eadasd</ContextMenu>
+*/}
   </>;
 };

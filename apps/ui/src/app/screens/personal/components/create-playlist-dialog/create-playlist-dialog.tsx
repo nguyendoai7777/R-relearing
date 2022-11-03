@@ -51,8 +51,9 @@ export const CreatePlaylistDialog: FC<CreatePlaylistDialogProps> = ({ open, onCl
         <br/>
         <div className="text-field-with-icon relative">
           <FormControl fullWidth variant="standard">
-            <InputLabel htmlFor="create-playlist">Amount</InputLabel>
+            <InputLabel htmlFor="create-playlist">Tên Playlist</InputLabel>
             <Input
+              autoFocus
               error={invalidName}
               id="create-playlist"
               value={playlistName}
