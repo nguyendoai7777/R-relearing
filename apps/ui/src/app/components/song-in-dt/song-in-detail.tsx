@@ -12,13 +12,14 @@ interface CombinePropsWithBase {
   isPlaying: boolean;
   onDelete?: () => void;
   children?: ReactElement;
+  onDbClick?: () => void;
 }
 
 type Props = Partial<SongBase>
 
 export const SongInDetail = (pr: Props & CombinePropsWithBase) => {
 
-  return <div className={`fa-center sil ${pr.className ? pr.className : ''}`}>
+  return <div className={`fa-center sil ${pr.className ? pr.className : ''}`} onDoubleClick={() => pr.onDbClick && pr.onDbClick()}>
     <div className="can-play" onClick={pr.onClick}>
       <img src={pr.artwork} alt=""/>
       <div className="playable">

@@ -6,6 +6,7 @@ import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 import { SongInDetail } from '@cpns/song-in-dt/song-in-detail';
 import { uuid } from '@modules/feature.module';
+import { SongBase } from '@models/media.model';
 
 
 export function RightSidebar() {
@@ -14,6 +15,19 @@ export function RightSidebar() {
   const { currentList, currentSong } = useAppSelector(selectMediaPlayer);
   const { playing } = useAppSelector(selectPlayState);
 
+  const playSong = (e: SongBase) => {
+    if (currentSong?.id === e.id) {
+      dispatch(playing ? pause() : play());
+    } else {
+      dispatch(pause());
+      dispatch(setCurrentSong(e));
+      dispatch(pushOne(e));
+      const delay = setTimeout(() => {
+        dispatch(play());
+        clearTimeout(delay);
+      }, 100);
+    }
+  }
 
   useEffect(() => {
     scopeStyle.current?.setAttribute('__right_sidebar_style_scope', '');
@@ -25,21 +39,10 @@ export function RightSidebar() {
         {(currentList || []).length > 0 ?
           <>
             {currentList.map((e, i) => <SongInDetail
+              onDbClick={() => playSong(e)}
               isPlaying={playing && currentSong?.id === e.id}
               className={currentSong?.id === e.id ? 'playing' : ''}
-              onClick={() => {
-                if (currentSong?.id === e.id) {
-                  dispatch(playing ? pause() : play());
-                } else {
-                  dispatch(pause());
-                  dispatch(setCurrentSong(e));
-                  dispatch(pushOne(e));
-                  const delay = setTimeout(() => {
-                    dispatch(play());
-                    clearTimeout(delay);
-                  }, 100);
-                }
-              }}
+              onClick={() => playSong(e)}
               key={e.id + uuid()}
               url={e.url}
               mainArtist={e.mainArtist}

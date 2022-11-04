@@ -1,7 +1,7 @@
 import { SongBase } from '@models/media.model';
 import { ButtonBase } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { stopParentEvent } from '@modules/feature.module';
+import { nameConverter, stopParentEvent } from '@modules/feature.module';
 import DIconButton from '@cpns/icon-button/icon-button';
 import React, { MouseEvent } from 'react';
 import { useAppSelector } from '@store/store';
@@ -13,13 +13,17 @@ interface CombinePropsWithBase {
   onOptionClick: (e: MouseEvent<HTMLButtonElement>) => void;
   mode?: 'delete' | 'small-more';
   isPlaying?: boolean;
+  onDoubleClick?: () => void;
 }
 
 type LHBProps = Omit<SongBase, 'songDuration' | 'listenTimes' | 'key' | 'index' | 'subArtist' | 'mediaUrl'>
 
 export const ListenedSongItem = (pr: LHBProps & CombinePropsWithBase) => {
   const { currentSong } = useAppSelector(selectMediaPlayer);
-  return <div className={`listened-item fa-center ${pr.className ? pr.className : ''} ${currentSong?.id === pr.id ? 'selected' : ''}`}>
+  return <div
+    className={`listened-item fa-center ${pr.className ? pr.className : ''} ${currentSong?.id === pr.id ? 'selected' : ''}`}
+    onDoubleClick={() => pr.onDoubleClick && pr.onDoubleClick()}
+  >
     <ButtonBase className="justify-content-start RippleColorTheme" onClick={(e) => {
       pr.onClick && pr.onClick(e);
     }}>
@@ -34,7 +38,7 @@ export const ListenedSongItem = (pr: LHBProps & CombinePropsWithBase) => {
         <Link className="text-decoration-none name text-ellipsis" to={pr.url} onClick={stopParentEvent}>
           {pr.songName}
         </Link>
-        <Link className="base-nav artist" to={pr.mainArtist.profileUrl} onClick={stopParentEvent}>{pr.mainArtist.name}</Link>
+        <Link className="base-nav artist" to={pr.mainArtist.profileUrl} onClick={stopParentEvent}>{nameConverter(pr.mainArtist.name)}</Link>
       </div>
     </ButtonBase>
     <DIconButton

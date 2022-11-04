@@ -1,15 +1,16 @@
-import { MouseEvent, useEffect, useId, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { pushOne, removeOne, selectListenedList } from '@store/slices/listened-history.slice';
 import { ListenedSongItem } from '@screens/personal/components/listened-song-item';
 import { Menu, MenuItem } from '@mui/material';
 import { CreatePlaylistDialog } from '@screens/personal/components/create-playlist-dialog/create-playlist-dialog';
 import { SongBase } from '@models/media.model';
-import { addOneToPlaylist, PlaylistState, removeOneToPlaylist } from '@store/slices/playlist.slice';
+import { addOneToPlaylist, PlaylistState } from '@store/slices/playlist.slice';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
-import { AnimationController } from '@modules/animate.module';
+import { onActivateEffect } from '@modules/animate.module';
+
 export const ListenedHistory = () => {
   const [optionRef, setOptionRef] = useState<null | HTMLElement>(null);
   const [subOptionRef, setSubOptionRef] = useState<null | HTMLElement>(null);
@@ -35,7 +36,7 @@ export const ListenedHistory = () => {
     setSelectedSong(null);
   };
 
-  const playThisSong = (e: any, s: SongBase) => {
+  const playThisSong = (s: SongBase, e?: any) => {
     if ((currentSong?.id || '') === s.id) {
       dispatch(playing ? pause() : play());
     } else {
@@ -47,8 +48,9 @@ export const ListenedHistory = () => {
         dispatch(setCurrentLists(currentHistoryList));
         clearTimeout(delay);
       }, 100);
+      e && onActivateEffect(e, s.artwork);
     }
-    AnimationController.onActivateEffect(e)
+
   };
 
   const addOneSongToPlaylist = (song: SongBase, parentId: string) => {
@@ -78,7 +80,7 @@ export const ListenedHistory = () => {
               url={e.url}
               mainArtist={e.mainArtist}
               songName={e.songName}
-              onClick={(ev) => playThisSong(ev, e)}
+              onClick={(ev) => playThisSong(e, ev)}
               isPlaying={playing && e.id === currentSong?.id}
               onOptionClick={(ev) => onSelectSong(ev, e)}
             />)

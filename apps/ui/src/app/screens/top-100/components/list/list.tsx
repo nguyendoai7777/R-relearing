@@ -74,7 +74,7 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
   };
 
   return <>
-    <div className="list-root fa-center" onContextMenu={onContextMenu}>
+    <div className="list-root fa-center" onDoubleClick={selectedPlayingSong} onContextMenu={onContextMenu}>
       {isAtTop && <>
         <div className={`order fa-center justify-content-center ${index === 1 || index === 2 || index === 3 ? `order-${index}` : ''}`}><span>{index}</span></div>
         <div className="status flex-center-center">--</div>

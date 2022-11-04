@@ -9,7 +9,7 @@ import { ListLayoutType } from '@models/theme.model';
 import { PlayingDecorator } from '@cpns/playing-decorator/playing-decorator';
 import { SongInDetail } from '@cpns/song-in-dt/song-in-detail';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
-import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
+import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 
 
@@ -79,6 +79,7 @@ export const PlaylistScreen = () => {
                         dispatch(pushOne(e));
                         const delay = setTimeout(() => {
                           dispatch(play());
+                          dispatch(setCurrentLists(playlist.songs))
                           clearTimeout(delay);
                         }, 101);
                       }

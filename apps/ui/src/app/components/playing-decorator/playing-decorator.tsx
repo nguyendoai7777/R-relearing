@@ -1,7 +1,6 @@
 import './playing-decorator.scss';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
-import { selectLoopState } from '@store/slices/loop-state.slice';
 import { selectMediaPlayer } from '@store/slices/media-player.slice';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ export interface PlayingDecoratorProps {
 export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
   const [clicked, setClicked] = useState(0);
   const { playing } = useAppSelector(selectPlayState);
-  const mediaControlSelector = useAppSelector(selectLoopState);
   const mediaSelector = useAppSelector(selectMediaPlayer);
   const crs = mediaSelector.currentSong;
   const dispatch = useAppDispatch();
@@ -25,7 +23,6 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
 
   useEffect(() => {
     setClicked(clicked + 1);
-    console.log(clicked, clicked > 0, (!playing && clicked > 0) ? 'off' : '');
   }, [playing]);
 
   return <div {...pr} className={`decorate-box${playing ? ' is-play' : ''} ${pr.className ? pr.className : ''}`}>
