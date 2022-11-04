@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom';
-import { ButtonBase, styled, Tooltip, tooltipClasses, TooltipProps, withStyles, Zoom } from '@mui/material';
+import { ButtonBase, Zoom } from '@mui/material';
 import './playlist.scss';
-import { DIS_STANDOUT_SONG_LIST } from '@constants/mock.const';
-import { useSelector } from 'react-redux';
 import { PlaylistState, removeThis, selectPlaylist } from '@store/slices/playlist.slice';
 import { useEffect } from 'react';
 import { randomHexColor } from '@modules/feature.module';
 import { ColourTooltip } from '@cpns/colour-tooltip/colour-tooltip';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
-import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
+import { pause, play } from '@store/slices/play-state.slice';
+import { setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { pushOne } from '@store/slices/listened-history.slice';
 
 export interface PlaylistItemEvent {
@@ -63,12 +61,8 @@ const PlaylistItem = (pr: Omit<PlaylistState, 'createAt'> & PlaylistItemEvent) =
 };
 
 export const Playlist = () => {
-  const { playlists } = useSelector(selectPlaylist);
+  const { playlists } = useAppSelector(selectPlaylist);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    console.log('playlist: ', playlists);
-  }, []);
 
   return <>
     <div className="flex flex-wrap" style={{ margin: '0 -6px 0 -12px' }}>

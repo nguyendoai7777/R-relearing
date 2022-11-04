@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'swiper/swiper-bundle.min.css';
 @import 'assets/styles/settings/common';
-
 @font-face {
   font-family: 'FuzzyBubbles';
   src: url("assets/fonts/FuzzyBubbles-Regular.ttf");
@@ -23,7 +22,6 @@ body {
 a {
   width: fit-content;
 }
-
 #root {
   background-size: 1920px;
   background-position: 26px 10px;
@@ -227,6 +225,9 @@ a {
   background-color: var(--right-sb-background-color);
   width: calc(100% / 3 - 12px);
   margin: 6px;
+  &.selected {
+    background-color: var(--nav-btn-active-bg-color);
+  }
   button {
     width: calc(100% - 40px);
   }
@@ -259,4 +260,13 @@ a {
   .ic-active {
     opacity: 1;
   }
+}
+/*---------------------animate-----------------------*/
+
+.animate-root {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: deeppink;
+  border-radius: 50%;
 }

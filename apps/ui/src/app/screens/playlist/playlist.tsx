@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './playlist.scss';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { ButtonBase } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { PlaylistState, removeOneToPlaylist, selectPlaylist } from '@store/slices/playlist.slice';
@@ -17,7 +16,7 @@ import { pushOne } from '@store/slices/listened-history.slice';
 export const PlaylistScreen = () => {
   const { playlistId } = useParams();
   const dispatch = useAppDispatch();
-  const playlistSelector = useSelector(selectPlaylist);
+  const playlistSelector = useAppSelector(selectPlaylist);
   const { playing } = useAppSelector(selectPlayState);
   const { currentList, currentSong } = useAppSelector(selectMediaPlayer);
   const [playlist, setPlaylist] = useState<PlaylistState | undefined>();

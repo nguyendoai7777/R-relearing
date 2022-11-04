@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { ButtonBase } from '@mui/material';
 import { SongBase } from '@models/media.model';
 import React, { FC, MouseEvent, ReactElement, useEffect, useId, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
+import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
-import { useAppDispatch } from '@store/store';
+import { useAppDispatch, useAppSelector } from '@store/store';
 import { pushOne } from '@store/slices/listened-history.slice';
 import { durationConverter, nameConverter } from '@modules/feature.module';
 import { MousePosition } from '@models/theme.model';
@@ -53,8 +52,8 @@ export const ContextMenu = (pr: ContextMenuProps) => {
 };
 
 export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, isAtTop = true }) => {
-  const { currentSong } = useSelector(selectMediaPlayer);
-  const { playing } = useSelector(selectPlayState);
+  const { currentSong } = useAppSelector(selectMediaPlayer);
+  const { playing } = useAppSelector(selectPlayState);
   const dispatch = useAppDispatch();
   const uuid = useId();
 
