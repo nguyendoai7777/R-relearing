@@ -53,5 +53,20 @@ export const Mp3 =  {
     url: 'https://vnno-vn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/0d1b940f964f7f11265e/9047443268927609608?authen=exp=1667967305~acl=/0d1b940f964f7f11265e/*~hmac=9ab478645e1e7ca16b7e2b1634b7b87c',
     id: 'mms3f34fq23f'
   },
-
+  GacLaiAuLo: {
+    url: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/d464f572f7321e6c4723/6312152371323804959?authen=exp=1667968345~acl=/d464f572f7321e6c4723/*~hmac=8f3164567d37b57ffa9cb1035a0e9889',
+    id: '123scd34f6gd'
+  },
+  InTheDark: {
+    url: 'https://vnno-vn-6-tf-mp3-s1-m-zmp3.zmdcdn.me/e8aaa7bca5fc4ca215ed/2171074828001164415?authen=exp=1667968439~acl=/e8aaa7bca5fc4ca215ed/*~hmac=8ab0af0f81eda4508600c68936d33a0d',
+    id: 'indthe23sdak'
+  },
+  ViYeu1Luc3Anh: {
+    url: 'https://vnno-vn-6-tf-mp3-s1-m-zmp3.zmdcdn.me/9a9e0aca1a8bf3d5aa9a/7586508097953847682?authen=exp=1667968490~acl=/9a9e0aca1a8bf3d5aa9a/*~hmac=28f2c8d57fd0df5aad463cdc909652cb',
+    id: 'yen123le3dvg'
+  },
+  LungLo: {
+    url: 'https://vnno-pt-4-tf-mp3-s1-m-zmp3.zmdcdn.me/8bc21cd71e97f7c9ae86/5341590171259058232?authen=exp=1667968942~acl=/8bc21cd71e97f7c9ae86/*~hmac=5285c9f33d14303bb28ee5aa85d7d147',
+    id: 'ds2dg5ddd3d1'
+  }
 }

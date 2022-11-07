@@ -94,7 +94,7 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
           </div>
         </ButtonBase>
         <div className="info flex flex-col justify-between">
-          <div className="name">{song.songName}</div>
+          <div className="name text-ellipsis">{song.songName}</div>
           <div className="flex">
             <Link to={song.mainArtist.profileUrl} className="ar-name base-nav">{nameConverter(song.mainArtist.name)}</Link>
             {

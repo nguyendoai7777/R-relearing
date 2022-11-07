@@ -25,7 +25,7 @@ export const NavButton: FC<NavButtonProps> = ({ textColor, iconRef, text, onClic
           <use href={`#${iconRef}`}/>
         </svg>
       }
-      <div className="nav-text" style={{color: textColor, textTransform: 'capitalize'}}>{text}</div>
+      <div className="nav-text text-nowrap" style={{color: textColor, textTransform: 'capitalize'}}>{text}</div>
     </Button>
   );
 };

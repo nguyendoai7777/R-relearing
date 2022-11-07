@@ -11,7 +11,7 @@ export const PersonalScreen = () => {
   const onCreateNewPlaylist = () => {};
 
   return <>
-    <div className="body-cc60">
+    <div className="body-cc60 personal">
       <div className="header-pai fj-between align-items-center">
         Đã nghe gần đây
         <ButtonBase className="heading-button">

@@ -62,6 +62,7 @@ export const DIS_RECOMMENDED_ARTIST = [
   },
 ];
 
+
 export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   {
     id: Mp3.DieuToa.id,
@@ -214,14 +215,129 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
     subArtist: []
   }
 ];
+
+export const TOP_100_ALL: SongBase[] = [
+  ...DIS_STANDOUT_SONG_LIST,
+  {
+    url: '/media/gac-lai-au-lo',
+    id: Mp3.GacLaiAuLo.id,
+    mainArtist: {
+      id: 'miu-le',
+      name: 'Miu-Lê',
+      profileUrl: '/profile/Miu-Lê'
+    },
+    artwork: 'https://i1.sndcdn.com/artworks-4F34gYJVW9Qa4X0o-rv6uPA-t500x500.jpg',
+    mediaUrl: Mp3.GacLaiAuLo.url,
+    songName: 'Gác Lại Âu Lo',
+    songDuration: 316,
+    listenTimes: '2.23M',
+    subArtist: [
+      {
+        id: 'san',
+        name: 'San',
+        profileUrl: '/profile/San'
+      },
+      {
+        id: 'timon',
+        name: 'Timon',
+        profileUrl: '/profile/Timon'
+      },
+    ]
+  },
+  {
+    url: '/media/in-the-dark',
+    id: Mp3.InTheDark.id,
+    mainArtist: {
+      id: 'tia',
+      name: 'Tia',
+      profileUrl: '/profile/Tia'
+    },
+    artwork: 'https://i1.sndcdn.com/artworks-R2CiqpWpW7zLsveJ-5pBwzA-t500x500.jpg',
+    mediaUrl: Mp3.InTheDark.url,
+    songName: 'In The Dark',
+    songDuration: 214,
+    listenTimes: '1.03M',
+    subArtist: [
+      {
+        id: 'ba',
+        name: 'Bảo-Anh',
+        profileUrl: '/profile/Bảo-Anh'
+      },
+      {
+        id: 'timon',
+        name: 'Timon',
+        profileUrl: '/profile/Timon'
+      },
+      {
+        id: 'nhi',
+        name: 'Nhí',
+        profileUrl: '/profile/Nhí'
+      },
+    ]
+  },
+  {
+    url: '/media/vi-yeu-1-luc-3-anh',
+    id: Mp3.ViYeu1Luc3Anh.id,
+    mainArtist: {
+      id: 'yen-le',
+      name: 'Yến-Lê',
+      profileUrl: '/profile/Yến-Lê'
+    },
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/c/c/f/e/ccfe8b5a6fae272663e612daaa1e5208.jpg',
+    mediaUrl: Mp3.ViYeu1Luc3Anh.url,
+    songName: 'Vì Yêu Ai Đó Quá Nhiều',
+    songDuration: 316,
+    listenTimes: '2.23M',
+    subArtist: [
+      {
+        id: 'dope-b',
+        name: 'Dope-B',
+        profileUrl: '/profile/Dope-B'
+      },
+      {
+        id: 'timon',
+        name: 'Timon',
+        profileUrl: '/profile/Timon'
+      },
+      {
+        id: 'vac',
+        name: 'Vac',
+        profileUrl: '/profile/Vac'
+      },
+    ]
+  },
+  {
+    url: '/media/lung-lo',
+    id: Mp3.LungLo.id,
+    mainArtist: {
+      id: 'y-tien',
+      name: 'Ý-Tiên',
+      profileUrl: '/profile/Ý-Tiên'
+    },
+    artwork: 'https://i1.sndcdn.com/artworks-000513902004-p24rpe-t500x500.jpg',
+    mediaUrl: Mp3.LungLo.url,
+    songName: 'Lửng Lơ',
+    songDuration: 306,
+    listenTimes: '5.53M',
+    subArtist: [
+      {
+        id: 'tilo',
+        name: 'TiLo',
+        profileUrl: '/profile/TiLo'
+      }
+    ]
+  },
+];
+
+
 export const generateSongsByAmount = (loop = 100) => {
   const l = [];
-  for(let x = 0; x < loop/DIS_STANDOUT_SONG_LIST.length; x++) {
-    l.push(...DIS_STANDOUT_SONG_LIST)
+  for (let x = 0; x < loop / TOP_100_ALL.length; x++) {
+    l.push(...TOP_100_ALL);
   }
   return l.slice(0, loop);
-}
-export const TOP_100_GALLERY_OBJ: {[key: string | number]: GalleryInfinity[]} = {
+};
+export const TOP_100_GALLERY_OBJ: { [key: string | number]: GalleryInfinity[] } = {
   1: [
     {
       id: 'top-100-gallery-0001',
@@ -336,7 +452,7 @@ export const TOP_100_GALLERY_OBJ: {[key: string | number]: GalleryInfinity[]} = 
       artwork: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/b/3/8/ab389ff054099f722894413871b08644.jpg',
     },
   ]
-}
+};
 
 export const TOP_100_GALLERY = [
   {

@@ -12,19 +12,19 @@ import { pushOne } from '@store/slices/listened-history.slice';
 const Song = (pr: SongItemProps) => {
   return (
     <div className="standout-song fa-center fj-between cs-pointer" onClick={pr.onClick}>
-      <div className="flex" style={{ maxWidth: '70%' }}>
-        <Link onClick={stopParentEvent} className="main-artist" to={pr.mainArtist.profileUrl}>{nameConverter(pr.mainArtist.name)}</Link>
+      <div className="flex song-wrapper">
+        <Link onClick={stopParentEvent} className="main-artist text-nowrap" to={pr.mainArtist.profileUrl}>{nameConverter(pr.mainArtist.name)}</Link>
         —
         <span className="song-name name-oversize text-nowrap">{pr.songName}</span>
-        {pr.subArtist.length > 0 && <>({
+        {pr.subArtist.length > 0 && <span className="sub-art">({
           pr.subArtist.map((sa, i) => (
             <span key={sa.id} className="divider-x text-nowrap">
-              <Link onClick={stopParentEvent} className="sub-artist" to={sa.profileUrl}>{sa.name}</Link>
-              <span className="div-x"> x&nbsp;</span>
+              <Link onClick={stopParentEvent} className="sub-artist" to={sa.profileUrl}>{nameConverter(sa.name)}</Link>
+              <span className="div-x">&nbsp;x&nbsp;</span>
             </span>
           ))
         })
-        </>
+        </span>
         }
       </div>
       <div className="tail fa-center">

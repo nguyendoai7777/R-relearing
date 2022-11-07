@@ -4,23 +4,28 @@
   border-radius: 10px;
   background-color: var(--overlay-standout-color);
   img {
-    width: 25%;
+    width: 240px;
+    height: 240px;
     border-radius: 10px;
   }
   .aud-list {
     margin-left: 12px;
     flex: 1;
-    width: calc(75% - 24px);
+    width: calc(100% - 252px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
 }
 .standout-song {
   color: var(--song-standout-reflect-color);
   padding: 10px 7px;
   border-radius: 6px;
   transition: .2s;
+  .song-wrapper {
+    width: 100%;
+  }
   &:last-child {
     margin-bottom: 0;
   }

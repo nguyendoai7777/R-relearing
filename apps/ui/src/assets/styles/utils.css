@@ -129,6 +129,12 @@
   user-select: none;
 }
 
+.disable-event-all {
+  pointer-events: none;
+}
+.disable-event-all * {
+  pointer-events: none;
+}
 .disable-event {
   pointer-events: none;
 }

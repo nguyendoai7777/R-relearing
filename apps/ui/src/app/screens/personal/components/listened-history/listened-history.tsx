@@ -48,6 +48,7 @@ export const ListenedHistory = () => {
         dispatch(setCurrentLists(currentHistoryList));
         clearTimeout(delay);
       }, 100);
+      console.log('animation tao dau');
       e && onActivateEffect(e, s.artwork);
     }
 

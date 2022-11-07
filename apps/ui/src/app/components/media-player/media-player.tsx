@@ -10,6 +10,8 @@ import { LOCAL_KEY } from '@constants/storage-key.const';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { selectLoopState, setLoop, setShuffle, UnionLoop } from '@store/slices/loop-state.slice';
 import { DEFAULT_VOLUME } from '@constants/mock.const';
+import RightSidebar from '@cpns/right-sidebar/right-sidebar';
+import { BottomNav } from '@cpns/bottom-nav/bottom-nav';
 
 export const MediaPlayer = () => {
   const localVolumeState = +(localStorage.getItem(LOCAL_KEY.SetVolume) || DEFAULT_VOLUME);
@@ -187,7 +189,30 @@ export const MediaPlayer = () => {
         }
       </div>
       <div className="mp-center">
-        <div className="control-head fj-center align-items-center">
+        <div className={`control-head fj-center relative align-items-center${crSong ? '' : ' disable-event-all'}`}>
+          <ButtonBase className="mobile-vol-btn absolute">
+            <div className="relative flex mobile-vol-root">
+              <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={() => setMute(!mute)}>
+                <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
+              </svg>
+              <div className="mobile-volume absolute">
+                <Slider
+                  orientation="vertical"
+                  style={{ height: '100px' }}
+                  className=""
+                  aria-label="time-indicator"
+                  size="small"
+                  value={volume}
+                  min={0}
+                  step={1}
+                  max={100}
+                  onChange={(_, value) => onVolumeChange(value as number)}
+                  onWheel={(e) => onWheelChange(e)}
+                  sx={VOLUME_SX}
+                />
+              </div>
+            </div>
+          </ButtonBase>
           <ButtonBase className={`RippleColorTheme circle-corners ctrl-btn ${mediaControlSelector.shuffle ? 'looped' : ''}`} onClick={setShuffleState}>
             <svg className="ctrl-icon">
               <use href="#shuffle"/>
@@ -215,7 +240,7 @@ export const MediaPlayer = () => {
             {mediaControlSelector.loop === 1 && <div className="loop-1-sym">1</div>}
           </ButtonBase>
         </div>
-        <div className="fj-center align-items-center">
+        <div className="time-controller fj-center align-items-center">
           <div className="duration-text">{durationConverter(currentPlayingTime)}</div>
           <div className="control-main">
             <Slider
@@ -251,6 +276,27 @@ export const MediaPlayer = () => {
           onWheel={(e) => onWheelChange(e)}
           sx={VOLUME_SX}
         />
+      </div>
+      <div className="info-nav">
+        <div className="flex align-items-center info-detail">
+          <div className="flex align-items-center texting">
+            <div className="s-name">{crSong?.songName}</div>
+            <div className="s-name">&nbsp;—&nbsp;</div>
+            <div className="s-name text-ellipsis">{crSong?.mainArtist.name}</div>
+          </div>
+          <div className="actions">
+            <ButtonBase className="action-button" centerRipple>
+              <svg><use href="#pauseable" /></svg>
+            </ButtonBase>
+            <ButtonBase className="action-button" centerRipple>
+              <svg><use href="#pauseable" /></svg>
+            </ButtonBase>
+            <ButtonBase className="action-button" centerRipple>
+              <svg><use href="#pauseable" /></svg>
+            </ButtonBase>
+          </div>
+        </div>
+        <BottomNav/>
       </div>
     </div>
 

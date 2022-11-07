@@ -32,31 +32,31 @@ export const APP_ROUTING: Routes[] = [
     element: React.createElement(Top100Screen),
 
   },
- /* {
-    name: '#zchart',
-    key: 'routes-id-3',
-    path: 'zchart',
-    element: React.createElement(ZchartScreen),
+  /* {
+     name: '#zchart',
+     key: 'routes-id-3',
+     path: 'zchart',
+     element: React.createElement(ZchartScreen),
 
-  },*/
+   },
 
-  {
-    name: 'Radio',
-    key: 'routes-id-4',
-    path: 'radio',
-    element: React.createElement(RadioScreen),
+   {
+     name: 'Radio',
+     key: 'routes-id-4',
+     path: 'radio',
+     element: React.createElement(RadioScreen),
 
-  },
+   },
 
 
 
-  {
-    name: 'Thể Loại',
-    key: 'routes-id-6',
-    path: 'category',
-    element: React.createElement(CategoryScreen),
+   {
+     name: 'Thể Loại',
+     key: 'routes-id-6',
+     path: 'category',
+     element: React.createElement(CategoryScreen),
 
-  },
+   },*/
 ];
 
 export const NOT_NAV_ROUTING: Routes[] = [

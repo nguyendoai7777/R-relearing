@@ -12,6 +12,7 @@
   height: calc(100vh - var(--media-height));
   overflow: hidden;
   background-color: var(--left-sb-background-color);
+  transition: all 0.25s;
   .logo {
     height: var(--nav-height);
   }

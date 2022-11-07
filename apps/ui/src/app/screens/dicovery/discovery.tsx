@@ -17,15 +17,22 @@ const SWIPER_OPTION: SwiperOptions = {
   loop: true,
   zoom: true,
   modules: [Autoplay],
-  spaceBetween: 25,
-  slidesPerView: 3,
+
 };
 
 
 export const DiscoveryScreen = () => {
   const [gallery, setGallery] = useState<typeof SLIDE_LIST[0][]>([]);
   const [swiperController, setSwiperController] = useState<SwiperClass>();
+  const [deviceType, setDeviceType] = useState<'m' | 'd'>('d');
+
   useEffect(() => {
+    window.onresize = (e) => {
+      setDeviceType(innerWidth <= 1024 ? 'm' : 'd');
+    };
+    window.onload = () => {
+      setDeviceType(innerWidth <= 1024 ? 'm' : 'd');
+    }
     setTimeout(() => {
       setGallery(SLIDE_LIST);
     }, 2000);
@@ -56,6 +63,8 @@ export const DiscoveryScreen = () => {
               </svg>
             </DIconButton>
             <Swiper
+              spaceBetween={25}
+              slidesPerView={innerWidth <= 1024 ? 1 : 3}
               style={{ 'borderRadius': '10px' }}
               {...SWIPER_OPTION}
               onSwiper={(swiper) => setSwiperController(swiper)}
@@ -70,9 +79,9 @@ export const DiscoveryScreen = () => {
             </Swiper>
           </> :
           <div className="fj-between">
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
-            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded" height={211}/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
+            <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
           </div>
         }
       </div>
