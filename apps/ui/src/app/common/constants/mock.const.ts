@@ -1,6 +1,6 @@
 import { SongBase } from '@models/media.model';
-import { release } from 'os';
 import { GalleryInfinity } from '@models/share.model';
+import { Mp3 } from '@constants/urls.constant';
 
 export const DEFAULT_VOLUME = 50;
 
@@ -64,7 +64,7 @@ export const DIS_RECOMMENDED_ARTIST = [
 
 export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   {
-    id: 'dis12standout12list1',
+    id: Mp3.DieuToa.id,
     url: '/media/dieu-toa',
     mainArtist: {
       id: 'phao',
@@ -72,7 +72,7 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
       profileUrl: '/profile/Pháo'
     },
     artwork: 'https://i1.sndcdn.com/artworks-FZScX6URzWnyTa1Z-z8MRtA-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/d5ceaad8a89841c61889/3616294718705515402?authen=exp=1667556164~acl=/d5ceaad8a89841c61889/*~hmac=a7c524cb35515eb44ae75a456977f1b5',
+    mediaUrl: Mp3.DieuToa.url,
     songName: 'Điêu Toa',
     songDuration: 311,
     listenTimes: '195.2k',
@@ -91,14 +91,14 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   },
   {
     url: '/media/ANETAS',
-    id: 'd01',
+    id: Mp3.ANETAS.id,
     mainArtist: {
       id: 'saabirose',
       name: 'Saabirose',
       profileUrl: '/profile/Saabirose'
     },
     artwork: 'https://i1.sndcdn.com/artworks-O1s6gMSfSx71nos2-x8N42g-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/224142574017a949f006/3842614134469368309?authen=exp=1667556109~acl=/224142574017a949f006/*~hmac=6a7557cf78b38daa4233051fc9006086',
+    mediaUrl: Mp3.ANETAS.url,
     songName: '#ANETAS',
     songDuration: 270,
     listenTimes: '195.2k',
@@ -117,14 +117,14 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   },
   {
     url: '/media/hoa-no-khong-mau',
-    id: 'd02',
+    id: Mp3.HoaNoKMau.id,
     mainArtist: {
       id: 'ntbn',
       name: 'NTBN',
       profileUrl: '/profile/NTBN'
     },
     artwork: 'https://i1.sndcdn.com/artworks-wm48h3Evg0qzqlZg-0w1wSw-t500x500.jpg',
-    mediaUrl: 'https://vnno-zn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/4db8650ff2481b164259/4758962640532716914?authen=exp=1666774713~acl=/4db8650ff2481b164259/*~hmac=989ac3091cc0f76478c431e32e5005f5',
+    mediaUrl: Mp3.HoaNoKMau.url,
     songName: 'Hoa Nở Không Màu',
     songDuration: 303,
     listenTimes: '195.2k',
@@ -153,14 +153,14 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   },
   {
     url: '/media/xich-them-chut',
-    id: 'd03',
+    id: Mp3.XichThemChut.id,
     mainArtist: {
       id: 'tlinh',
       name: 'TLinh',
       profileUrl: '/profile/TLinh'
     },
     artwork: 'https://i1.sndcdn.com/artworks-vyY6kcyCf4zQzqns-MTiGzg-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-6-tf-mp3-s1-m-zmp3.zmdcdn.me/1bfea7eba5ab4cf515ba/7406183255557410196?authen=exp=1666774602~acl=/1bfea7eba5ab4cf515ba/*~hmac=f1457bcb84f24d95316acf6122d81c16',
+    mediaUrl: Mp3.XichThemChut.url,
     songName: 'Xích Thêm Chút',
     songDuration: 251,
     listenTimes: '195.2k',
@@ -179,14 +179,14 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   },
   {
     url: '/media/dont-hurt',
-    id: 'd04',
+    id: Mp3.DontHurt.id,
     mainArtist: {
       id: 'tilo',
       name: 'TiLo',
       profileUrl: '/profile/TiLo'
     },
     artwork: 'https://i1.sndcdn.com/artworks-000618197671-cmuxhh-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-s1-m-zmp3.zmdcdn.me/f29a9da833efdab183fe/2118481351287420251?authen=exp=1666775539~acl=/f29a9da833efdab183fe/*~hmac=dd919b7f7aa7cd2c3ea17c8cf3e4c988',
+    mediaUrl: Mp3.DontHurt.url,
     songName: 'Don\'t Hurt',
     songDuration: 265,
     listenTimes: '2.2M',
@@ -200,14 +200,14 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
   },
   {
     url: '/media/vi-em-con-thuong',
-    id: 'd05',
+    id: Mp3.ViEmConThuong.id,
     mainArtist: {
       id: 'lequyen',
       name: 'Lệ-Quyên',
       profileUrl: '/profile/Lệ-Quyên'
     },
     artwork: 'https://i1.sndcdn.com/artworks-000474463272-eg4f29-t500x500.jpg',
-    mediaUrl: 'https://vnno-vn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/0d1b940f964f7f11265e/9047443268927609608?authen=exp=1667541440~acl=/0d1b940f964f7f11265e/*~hmac=d17c8f4edd90066c47c6e137cb4b178e',
+    mediaUrl: Mp3.ViEmConThuong.url,
     songName: 'Vì Em Còn Thương',
     songDuration: 280,
     listenTimes: '122.2k',

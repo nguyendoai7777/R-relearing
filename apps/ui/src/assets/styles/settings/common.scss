@@ -1,5 +1,5 @@
 @mixin FontSize($size) {
   display: inline-block !important;
-  height: calc($size + 3px) !important;
+  height: $size !important;
   font-size: $size !important;
 }

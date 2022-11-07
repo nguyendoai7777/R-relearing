@@ -153,7 +153,7 @@ export function Navbar() {
         </div>
         <div className="main-actions fa-center">
           <DIconButton onClick={() => setOpenDialog(true)} shape="circle" siz="60px" cls="action-button">
-            <img width="34px" src="../../../assets/imgs/theme.svg" alt=""/>
+            <img width="34px" src="assets/imgs/theme.svg" alt=""/>
           </DIconButton>
           <DIconButton shape="circle" siz="60px" cls="action-button">
             <svg className="icon-style">

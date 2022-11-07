@@ -8,6 +8,7 @@ import LeftSidebar from '@cpns/left-sidebar/left-sidebar';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_THEME } from '@constants/theme.const';
 import { APP_ROUTING, NOT_NAV_ROUTING } from './app.routing';
+import { DiscoveryScreen } from '@screens/dicovery/discovery';
 
 
 export function App() {
@@ -25,7 +26,7 @@ export function App() {
           <div className="scrollable-body my-scrollbar">
             <Routes>
               <Route path="*" element={<Navigate to="discovery" replace/>} />
-              <Route path="" element={<Navigate to="discovery" replace/>}/>
+              <Route path="" element={<DiscoveryScreen />}/>
               {APP_ROUTING.map((route) => (
                 <Route path={route.path} key={route.key} element={route.element}/>
               ))}

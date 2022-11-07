@@ -4,9 +4,11 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve --host=0.0.0.0",
-    "build": "nx build",
-    "test": "nx test"
+    "build": "nx build ui --buildLibsFromSource --prod",
+    "test": "nx test",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://nguyendoai7777.github.io/zing-page/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -35,6 +37,7 @@
     "@types/node": "16.11.7",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "gh-pages": "^4.0.0",
     "nx": "14.8.1",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
