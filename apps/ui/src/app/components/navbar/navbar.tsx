@@ -108,7 +108,7 @@ export function Navbar() {
     <>
       <div className="d-navbar" ref={navRef}>
         <div className="fa-center nav-leading">
-          <Link to="discovery" className="text-decoration-none">
+          <Link to="discovery" className="text-decoration-none back-home">
             <DIconButton
               shape="circle" siz="60px"
               cls="action-button">

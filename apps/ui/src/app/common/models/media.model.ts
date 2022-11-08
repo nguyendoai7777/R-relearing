@@ -10,7 +10,8 @@ export interface SongBase {
   songDuration: number;
   url: string;
   listenTimes: string;
-  subArtist: ArtisBaseInfo[]
+  subArtist: ArtisBaseInfo[],
+  lyric?: string
 }
 
 export type SongItemProps = Omit<SongBase, 'artwork' | 'index'> & {

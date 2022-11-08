@@ -1,17 +1,17 @@
 import './media-player.scss';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
+import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { useEffect, useRef, useState } from 'react';
 import { durationConverter, nameConverter, saveVolumeToLocal } from '@modules/feature.module';
 import { Link } from 'react-router-dom';
-import { ButtonBase, Slider } from '@mui/material';
-import { SLIDER_SX, VOLUME_SX } from '@constants/theme.const';
+import { ButtonBase, Slider, SwipeableDrawer } from '@mui/material';
+import { MB_VOLUME_SX, SLIDER_SX, VOLUME_SX } from '@constants/theme.const';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { selectLoopState, setLoop, setShuffle, UnionLoop } from '@store/slices/loop-state.slice';
 import { DEFAULT_VOLUME } from '@constants/mock.const';
-import RightSidebar from '@cpns/right-sidebar/right-sidebar';
 import { BottomNav } from '@cpns/bottom-nav/bottom-nav';
+import { List100 } from '@screens/top-100/components/list/list';
 
 export const MediaPlayer = () => {
   const localVolumeState = +(localStorage.getItem(LOCAL_KEY.SetVolume) || DEFAULT_VOLUME);
@@ -24,6 +24,12 @@ export const MediaPlayer = () => {
   const [volume, setVolume] = useState(localVolumeState);
   const [duration, setDuration] = useState(0);
   const [currentPlayingTime, setCurrentPlayingTime] = useState(0);
+  const [detailOfSong, setDetailOfSong] = useState(true);
+  const [deviceWidth, setDeviceWidth] = useState(innerWidth - 24);
+  const [showBody, setShowBody] = useState(false);
+  const [displayLyric, setDisplayLyric] = useState(false);
+  const [displayCurrentList, setDisplayCurrentList] = useState(false);
+
 
   const playSelector = useAppSelector(selectPlayState);
   const mediaControlSelector = useAppSelector(selectLoopState);
@@ -99,6 +105,21 @@ export const MediaPlayer = () => {
     dispatch(setShuffle(!s));
   };
 
+  const container = window !== undefined ? () => window.document.body : undefined;
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setDetailOfSong(newOpen);
+  };
+
+  useEffect(() => {
+    window.onresize = () => {
+      setDeviceWidth(innerWidth - 24);
+    };
+    window.onload = () => {
+      setDeviceWidth(innerWidth - 24);
+    };
+  }, []);
+
   useEffect(() => {
     const cacheVolume = +(localStorage.getItem(LOCAL_KEY.SetCacheVolume) || DEFAULT_VOLUME);
     setVolume(mute ? 0 : cacheVolume);
@@ -151,7 +172,6 @@ export const MediaPlayer = () => {
     mp3Audio.volume = volume / 100;
   }, [volume]);
 
-
   useEffect(() => {
     const p = playSelector.playing;
     if (p) {
@@ -160,6 +180,30 @@ export const MediaPlayer = () => {
       mp3Audio.pause();
     }
   }, [playSelector.playing]);
+  useEffect(() => {
+    if (displayLyric || displayCurrentList) {
+      setShowBody(true);
+    }
+    if (!displayLyric && !displayCurrentList) {
+      setShowBody(false);
+    }
+
+  }, [displayLyric, displayCurrentList]);
+  useEffect(() => {
+    if (displayCurrentList) {
+      setDisplayLyric(false);
+    }
+  }, [displayCurrentList]);
+
+  useEffect(() => {
+    if (displayLyric) {
+      setDisplayCurrentList(false);
+    }
+  }, [displayLyric]);
+
+  const injectHTML = () => ({
+    __html: crSong?.lyric || ''
+  });
 
   return <>
     <div className={`media-player flex`}>
@@ -264,41 +308,191 @@ export const MediaPlayer = () => {
         <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={() => setMute(!mute)}>
           <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
         </svg>
-        <Slider
-          className="volume"
-          aria-label="time-indicator"
-          size="small"
-          value={volume}
-          min={0}
-          step={1}
-          max={100}
-          onChange={(_, value) => onVolumeChange(value as number)}
-          onWheel={(e) => onWheelChange(e)}
-          sx={VOLUME_SX}
-        />
+
       </div>
       <div className="info-nav">
-        <div className="flex align-items-center info-detail">
+        <div className="flex align-items-center info-detail" onClick={toggleDrawer(true)}>
           <div className="flex align-items-center texting">
             <div className="s-name">{crSong?.songName}</div>
-            <div className="s-name">&nbsp;—&nbsp;</div>
-            <div className="s-name text-ellipsis">{crSong?.mainArtist.name}</div>
           </div>
-          <div className="actions">
-            <ButtonBase className="action-button" centerRipple>
-              <svg><use href="#pauseable" /></svg>
+          <div className={`actions${crSong ? '' : ' disable-event-all'}`}>
+            <ButtonBase
+              className="action-button"
+              centerRipple
+              onClick={(e) => {
+                e.stopPropagation();
+                onPrev();
+              }}>
+              <svg style={{ transform: 'rotate(180deg)' }}>
+                <use href="#mb-np"/>
+              </svg>
             </ButtonBase>
-            <ButtonBase className="action-button" centerRipple>
-              <svg><use href="#pauseable" /></svg>
+            <ButtonBase
+              className="action-button"
+              centerRipple onClick={(e) => {
+              e.stopPropagation();
+              setPlaying();
+            }}>
+              <svg>
+                <use href={`#mb-${playSelector.playing ? 'pause' : 'play'}`}/>
+              </svg>
             </ButtonBase>
-            <ButtonBase className="action-button" centerRipple>
-              <svg><use href="#pauseable" /></svg>
+            <ButtonBase
+              className="action-button"
+              centerRipple
+              onClick={(e) => {
+                e.stopPropagation();
+                onNext();
+              }}>
+              <svg>
+                <use href="#mb-np"/>
+              </svg>
             </ButtonBase>
           </div>
         </div>
         <BottomNav/>
       </div>
     </div>
+    <SwipeableDrawer
+      className="bottom-sheet-root"
+      container={container}
+      anchor="bottom"
+      open={detailOfSong}
+      onClose={toggleDrawer(false)}
+      onOpen={toggleDrawer(true)}
+      swipeAreaWidth={0}
+      disableSwipeToOpen={false}
+      ModalProps={{
+        keepMounted: true,
+      }}
+    >
+      <div className="bottom-sheet">
+        <div className="touch-bar" onClick={() => setDetailOfSong(false)}></div>
+        <div className="detail-sheet">
+          <div className="heading-spacing"></div>
+          <div className="body my-scrollbar scrollable-body">
+            <div className="sticky-heading">
+              <div className={`current-song-detail relative${showBody ? ' display-lyric' : ''}`}>
+                <img
+                  src={crSong?.artwork}
+                  style={{
+                    transition: '.2s',
+                    width: `${showBody ? 80 : deviceWidth - 24}px`,
+                    height: `${showBody ? 80 : deviceWidth - 24}px`
+                  }}
+                  alt=""/>
+                <div className={`current-playing-info${showBody ? ' show-lyrics' : ''}`}>
+                  <div className="cur-sname">{crSong?.songName}</div>
+                  <div className="ar-name">{nameConverter(crSong?.mainArtist.name || '')}</div>
+                </div>
+              </div>
+            </div>
+            {!showBody ? <>
+              <div className="cur-sname">{crSong?.songName}</div>
+              <div className="ar-name">{nameConverter(crSong?.mainArtist.name)}</div>
+            </> : <div className="lyric-list">
+              {displayLyric && <div style={{ padding: '6px 0 12px 0' }} dangerouslySetInnerHTML={injectHTML()}></div>}
+              {displayCurrentList && <div style={{ padding: '6px 0 12px 0' }}>
+                {/* can extract to new component*/}
+                {
+                  crListSong.map((e, i) => <List100
+                    key={e.id}
+                    index={i + 1}
+                    song={e}
+                  />)
+                }
 
+                {/**/}
+              </div>}
+            </div>}
+
+          </div>
+          <div className="bottom-actions">
+            <div className="time-control">
+              <div className="control-main inline-flex">
+                <Slider
+                  aria-label="time-indicator"
+                  size="small"
+                  value={currentPlayingTime}
+                  min={0}
+                  step={1}
+                  max={duration}
+                  onChange={(_, value) => {
+                    mp3Audio.currentTime = value as number;
+                    setCurrentPlayingTime(value as number);
+                  }}
+                  sx={SLIDER_SX}
+                />
+              </div>
+              <div className="flex justify-between">
+                <div className="duration-text">{durationConverter(currentPlayingTime)}</div>
+                <div className="duration-text">{durationConverter(duration)}</div>
+              </div>
+            </div>
+            <div className={`main-controller flex justify-content-center${crSong ? '' : ' disable-event-all'}`}>
+              <ButtonBase style={{ width: '47px' }} className="action-button" centerRipple onClick={onPrev}>
+                <svg style={{ transform: 'rotate(180deg)' }}>
+                  <use href="#mb-np"/>
+                </svg>
+              </ButtonBase>
+              <ButtonBase className="action-button" centerRipple onClick={setPlaying}>
+                <svg>
+                  <use href={`#mb-${playSelector.playing ? 'pause' : 'play'}`}/>
+                </svg>
+              </ButtonBase>
+              <ButtonBase style={{ width: '47px' }} className="action-button" centerRipple onClick={onNext}>
+                <svg>
+                  <use href="#mb-np"/>
+                </svg>
+              </ButtonBase>
+            </div>
+            <div className="volume-control flex align-items-center">
+              <svg className="mn-vol-icon">
+                <use href="#mb-min-vol"/>
+              </svg>
+              <Slider
+                style={{ marginRight: '12px' }}
+                aria-label="volume-indicator"
+                value={volume}
+                min={0}
+                step={1}
+                max={100}
+                onChange={(_, value) => onVolumeChange(value as number)}
+                onWheel={(e) => onWheelChange(e)}
+                sx={MB_VOLUME_SX}
+              />
+              <svg className="mn-vol-icon">
+                <use href="#mb-max-vol"/>
+              </svg>
+            </div>
+            <div className="flex justify-between end-control">
+              <ButtonBase className="end-control-btn _1" onClick={() => setDisplayLyric(!displayLyric)}>
+                <svg>
+                  <use href={`#lyric${displayLyric ? '-active' : ''}`}/>
+                </svg>
+              </ButtonBase>
+              <div className="flex align-items-center">
+                <ButtonBase className={`end-action-control-btn ${mediaControlSelector.shuffle ? 'looped' : ''}`} onClick={setShuffleState}>
+                  <svg className="">
+                    <use href="#shuffle"/>
+                  </svg>
+                </ButtonBase>
+                <ButtonBase className={`end-action-control-btn relative ${mediaControlSelector.loop !== 0 ? 'looped' : ''}`} onClick={setLoopState}>
+                  <svg className="">
+                    <use href={`#loop${mediaControlSelector.loop === 1 ? '-1' : ''}`}/>
+                  </svg>
+                  {mediaControlSelector.loop === 1 && <div className="loop-1-sym">1</div>}
+                </ButtonBase>
+              </div>
+              <ButtonBase className="end-control-btn" onClick={() => setDisplayCurrentList(!displayCurrentList)}>
+                <svg>
+                  <use href={`#mb-list${displayCurrentList ? '-active' : ''}`}/>
+                </svg>
+              </ButtonBase>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SwipeableDrawer>
   </>;
 };

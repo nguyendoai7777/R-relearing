@@ -217,6 +217,83 @@ export const DIS_STANDOUT_SONG_LIST: SongBase[] = [
 ];
 
 export const TOP_100_ALL: SongBase[] = [
+  {
+    url: '/media/trai-tim-ton-thuong',
+    id: Mp3.TraiTimTonThuong.id,
+    mainArtist: {
+      id: 'lequyen',
+      name: 'Lệ-Quyên',
+      profileUrl: '/profile/Lệ-Quyên'
+    },
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/b/7/1/4/b714f0e447b3ec8c9f903c4963e52422.jpg',
+    mediaUrl: Mp3.TraiTimTonThuong.url,
+    songName: 'Trái Tim Tổn Thương',
+    songDuration: 321,
+    listenTimes: '12k',
+    subArtist: [],
+    lyric: `
+      <div class="lyric-line">Hôm nay em rất đau </div>
+      <div class="lyric-line">Con tim như úa màu </div>
+      <div class="lyric-line">Còn lại gì để vương vấn nữa đâu </div>
+      <div class="lyric-line">Thôi đành buông tay </div>
+      <div class="lyric-line">Hôm nay em rất đau </div>
+      <div class="lyric-line">Con tim như nhũn nhàu </div>
+      <div class="lyric-line">Đường vào như càng giá băng hơn </div>
+      <div class="lyric-line">Em đã đánh mất cả thanh xuân </div>
+      <div class="lyric-line">Chỉ để yêu một người vô tâm </div>
+      <div class="lyric-line">Giờ đành tự mình lặng thầm </div>
+      <div class="lyric-line">Xoá đi nỗi buồn </div>
+      <div class="lyric-line">Anh mang theo cả trời bơ vơ </div>
+      <div class="lyric-line">Ngu ngơ nước mắt càng vụn vỡ </div>
+      <div class="lyric-line">Đợi chờ một cơn mưa </div>
+      <div class="lyric-line">Xóa tan bao lầm lỡ </div>
+      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
+      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
+      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
+      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
+      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
+      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
+      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
+      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
+      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
+      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
+      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
+      <div class="lyric-line">Em ôm trái tim đã tổn thương </div>
+      <div class="lyric-line">Em đã đánh mất cả thanh xuân </div>
+      <div class="lyric-line">Chỉ để yêu một người vô tâm </div>
+      <div class="lyric-line">Giờ đành tự mình lặng thầm </div>
+      <div class="lyric-line">Xoá đi nỗi buồn </div>
+      <div class="lyric-line">Anh mang theo cả trời bơ vơ </div>
+      <div class="lyric-line">Ngu ngơ nước mắt càng vụn vỡ </div>
+      <div class="lyric-line">Đợi chờ một cơn mưa </div>
+      <div class="lyric-line">Xóa tan bao lầm lỡ </div>
+      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
+      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
+      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
+      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
+      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
+      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
+      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
+      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
+      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
+      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
+      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
+      <div class="lyric-line">Hôm nay trái tim đã tổn thương </div>
+      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
+      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
+      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
+      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
+      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
+      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
+      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
+      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
+      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
+      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
+      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
+      <div class="lyric-line">Hôm nay trái tim đã tổn thương </div>
+      <div class="lyric-line">Em ôm trái tim đã tổn thương </div>
+    `
+  },
   ...DIS_STANDOUT_SONG_LIST,
   {
     url: '/media/gac-lai-au-lo',

@@ -68,5 +68,9 @@ export const Mp3 =  {
   LungLo: {
     url: 'https://vnno-pt-4-tf-mp3-s1-m-zmp3.zmdcdn.me/8bc21cd71e97f7c9ae86/5341590171259058232?authen=exp=1667968942~acl=/8bc21cd71e97f7c9ae86/*~hmac=5285c9f33d14303bb28ee5aa85d7d147',
     id: 'ds2dg5ddd3d1'
+  },
+  TraiTimTonThuong: {
+    url: 'https://vnno-vn-6-tf-mp3-320s1-m-zmp3.zmdcdn.me/4c679431e071092f5060/6879351094073685936?authen=exp=1668061047~acl=/4c679431e071092f5060/*~hmac=822eda05609ef5d67509305e1a738670',
+    id: 'ds2dg5ddd3d1'
   }
 }

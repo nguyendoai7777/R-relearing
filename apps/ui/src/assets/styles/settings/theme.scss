@@ -3,6 +3,7 @@
   --slide-overlay: rgba(128, 128, 128, 0.10);
 }
 .dark-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #000;
   --tooltip-text: #fff;
   --border-reflect: #424242;
@@ -47,6 +48,7 @@
   }
 }
 .light-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #525252;
   --tooltip-text: #fff;
   --border-reflect: #d9d9d9;
@@ -91,6 +93,7 @@
   }
 }
 .pink-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: deeppink;
   --tooltip-text: #fff;
   --border-reflect: #ffaedc;
@@ -135,6 +138,7 @@
   }
 }
 .lisa-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #ff8a8a;
   --tooltip-text: #fff;
   --border-reflect: #ffcaca;
@@ -179,6 +183,7 @@
   }
 }
 .jisoo-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #4a5c82;
   --tooltip-text: #fff;
   --border-reflect: #45577d4a;
@@ -224,6 +229,7 @@
   }
 }
 .iu-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #8f5541;
   --tooltip-text: #fff;
   --border-reflect: #8f554152;
@@ -268,6 +274,7 @@
   }
 }
 .jennie-theme {
+  --audio-control-fill: #484848;
   --tooltip-bg: #411151;
   --tooltip-text: #fff;
   --border-reflect: #4111513b;

@@ -98,3 +98,30 @@ export const VOLUME_SX = {
     opacity: 0.2,
   },
 };
+
+export const MB_VOLUME_SX = {
+  color: 'var(--audio-control-fill)',
+  height: 4,
+  '& .MuiSlider-thumb': {
+    width: 10,
+    height: 10,
+    backgroundColor: 'var(--audio-control-fill)',
+    // transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+    '&:before': {
+      boxShadow: '0 2px 12px 0 var(--audio-control-fill)',
+    },
+    '&:hover, &.Mui-focusVisible': {
+      boxShadow: '0px 0px 0px 8px  var(--slide-overlay)',
+    },
+    '&.Mui-active': {
+      width: 15,
+      height: 15,
+    },
+  },
+  '& .MuiSlider-track': {
+    backgroundColor: 'var(--audio-control-fill)'
+  },
+  '& .MuiSlider-rail': {
+    opacity: 0.2,
+  },
+};

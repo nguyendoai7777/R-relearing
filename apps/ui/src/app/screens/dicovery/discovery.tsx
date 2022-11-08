@@ -24,14 +24,14 @@ const SWIPER_OPTION: SwiperOptions = {
 export const DiscoveryScreen = () => {
   const [gallery, setGallery] = useState<typeof SLIDE_LIST[0][]>([]);
   const [swiperController, setSwiperController] = useState<SwiperClass>();
-  const [deviceType, setDeviceType] = useState<'m' | 'd'>('d');
+  const [deviceWidth, setDeviceType] = useState(innerWidth);
 
   useEffect(() => {
     window.onresize = (e) => {
-      setDeviceType(innerWidth <= 1024 ? 'm' : 'd');
+      setDeviceType(innerWidth);
     };
     window.onload = () => {
-      setDeviceType(innerWidth <= 1024 ? 'm' : 'd');
+      setDeviceType(innerWidth);
     }
     setTimeout(() => {
       setGallery(SLIDE_LIST);
@@ -44,7 +44,7 @@ export const DiscoveryScreen = () => {
           <>
             <DIconButton
               className="slide-controller-btn cs-pointer flex-center-center"
-              style={{ left: '-25px' }}
+              style={{ left: `${deviceWidth <= 1024 ? '0' : '-25px' }` }}
               siz="60px"
               onClick={() => swiperController!.slidePrev()}
             >
@@ -54,7 +54,7 @@ export const DiscoveryScreen = () => {
             </DIconButton>
             <DIconButton
               className="slide-controller-btn cs-pointer flex-center-center"
-              style={{ right: '-25px' }}
+              style={{ right: `${deviceWidth <= 1024 ? '0' : '-25px' }` }}
               siz="60px"
               onClick={() => swiperController!.slideNext()}
             >
@@ -64,7 +64,7 @@ export const DiscoveryScreen = () => {
             </DIconButton>
             <Swiper
               spaceBetween={25}
-              slidesPerView={innerWidth <= 1024 ? 1 : 3}
+              slidesPerView={deviceWidth <= 768 ? 1 : 3}
               style={{ 'borderRadius': '10px' }}
               {...SWIPER_OPTION}
               onSwiper={(swiper) => setSwiperController(swiper)}
@@ -77,12 +77,12 @@ export const DiscoveryScreen = () => {
                 </SwiperSlide>
               )}
             </Swiper>
-          </> :
-          <div className="fj-between">
+          </> : (deviceWidth <= 768) ? <Skeleton className="skeleton-4-slide skeleton-1-slide" animation="wave" variant="rounded"/> : <div className="fj-between">
             <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
             <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
             <Skeleton className="skeleton-4-slide" animation="wave" variant="rounded"/>
           </div>
+
         }
       </div>
       <div className="body-cc60">

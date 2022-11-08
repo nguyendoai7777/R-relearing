@@ -20,7 +20,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1234;
+    z-index: 1000;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -35,6 +35,9 @@
     width: calc(100% / 3 - 17px);
     border-radius: 10px;
     height: 150px;
+  }
+  .skeleton-1-slide {
+    width: 100%;
   }
 }
 .g-body {

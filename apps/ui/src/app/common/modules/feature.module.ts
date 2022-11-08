@@ -49,7 +49,7 @@ export const DT = {
   }
 }
 
-export const nameConverter = (raw: string) => {
+export const nameConverter = (raw = "") => {
   return raw.replace('-',' ');
 }
 

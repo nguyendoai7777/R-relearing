@@ -96,9 +96,9 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
         <div className="info flex flex-col justify-between">
           <div className="name text-ellipsis">{song.songName}</div>
           <div className="flex">
-            <Link to={song.mainArtist.profileUrl} className="ar-name base-nav">{nameConverter(song.mainArtist.name)}</Link>
+            <Link to={song.mainArtist.profileUrl} className="ar-name base-nav text-nowrap">{nameConverter(song.mainArtist.name)}</Link>
             {
-              song.subArtist.length > 0 && <span className="ar-name">&nbsp;(
+              song.subArtist.length > 0 && <span className="ar-name text-nowrap">&nbsp;(
                 {
                   song.subArtist.map(e => <span className="divider-x" key={e.id}>
                 <Link to={e.profileUrl} className=" base-nav">{nameConverter(e.name)}</Link>
@@ -109,7 +109,7 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
             }
           </div>
         </div>
-        <div className="remaining">
+        <div className="remaining album-name">
           <Link className="base-nav" to="tada">unknown name</Link>
         </div>
         <div className="remaining action flex justify-content-end align-items-center">
