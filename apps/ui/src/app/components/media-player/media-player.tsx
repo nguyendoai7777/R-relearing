@@ -1,8 +1,8 @@
 import './media-player.scss';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
-import { useEffect, useRef, useState } from 'react';
-import { durationConverter, nameConverter, saveVolumeToLocal } from '@modules/feature.module';
+import { createRef, RefObject, useEffect, useRef, useState } from 'react';
+import { durationConverter, isAppleFk, nameConverter, saveVolumeToLocal } from '@modules/feature.module';
 import { Link } from 'react-router-dom';
 import { ButtonBase, Slider, SwipeableDrawer } from '@mui/material';
 import { MB_VOLUME_SX, SLIDER_SX, VOLUME_SX } from '@constants/theme.const';
@@ -11,33 +11,38 @@ import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { selectLoopState, setLoop, setShuffle, UnionLoop } from '@store/slices/loop-state.slice';
 import { DEFAULT_VOLUME } from '@constants/mock.const';
 import { BottomNav } from '@cpns/bottom-nav/bottom-nav';
-import { List100 } from '@screens/top-100/components/list/list';
+import { SongBase } from '@models/media.model';
+import { ListenedSongItem } from '@screens/personal/components/listened-song-item';
+import { pushOne } from '@store/slices/listened-history.slice';
+import { onActivateEffect } from '@modules/animate.module';
 
 export const MediaPlayer = () => {
   const localVolumeState = +(localStorage.getItem(LOCAL_KEY.SetVolume) || DEFAULT_VOLUME);
   const nameWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [mp3Audio] = useState(new Audio());
-
   const nameRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [mp3Audio] = useState(new Audio());
   const [needDoubleName, setNeedDoubleName] = useState(false);
   const [mute, setMute] = useState((localStorage.getItem(LOCAL_KEY.SetMute) || '0') === '1');
   const [volume, setVolume] = useState(localVolumeState);
   const [duration, setDuration] = useState(0);
   const [currentPlayingTime, setCurrentPlayingTime] = useState(0);
-  const [detailOfSong, setDetailOfSong] = useState(true);
+  const [detailOfSong, setDetailOfSong] = useState(false);
   const [deviceWidth, setDeviceWidth] = useState(innerWidth - 24);
   const [showBody, setShowBody] = useState(false);
   const [displayLyric, setDisplayLyric] = useState(false);
   const [displayCurrentList, setDisplayCurrentList] = useState(false);
-
-
+  const [cacheScrollPosition, setCacheScrollPosition] = useState(0);
   const playSelector = useAppSelector(selectPlayState);
   const mediaControlSelector = useAppSelector(selectLoopState);
   const mediaSelector = useAppSelector(selectMediaPlayer);
   const crSong = mediaSelector.currentSong;
   const crListSong = mediaSelector.currentList;
   const dispatch = useAppDispatch();
-
+  const refs = crListSong.reduce((acc: SongBase & { [key: string | number]: RefObject<unknown> | any; }, value, i) => {
+    acc[value.id] = createRef();
+    return acc;
+  }, {} as SongBase & { [key: string | number]: RefObject<unknown> | any; }) as SongBase & { [key: string | number]: RefObject<unknown> | any; };
 
   const onVolumeChange = (value: number) => {
     setVolume(value);
@@ -111,6 +116,23 @@ export const MediaPlayer = () => {
     setDetailOfSong(newOpen);
   };
 
+  const playThisSong = (s: SongBase, e?: any) => {
+    if ((crSong?.id || '') === s.id) {
+      dispatch(playSelector.playing ? pause() : play());
+    } else {
+      dispatch(pause());
+      dispatch(setCurrentSong(s));
+      dispatch(pushOne(s));
+      const delay = setTimeout(() => {
+        dispatch(play());
+        dispatch(setCurrentLists(crListSong));
+        clearTimeout(delay);
+      }, 100);
+      e && onActivateEffect(e, s.artwork);
+    }
+
+  };
+
   useEffect(() => {
     window.onresize = () => {
       setDeviceWidth(innerWidth - 24);
@@ -118,14 +140,33 @@ export const MediaPlayer = () => {
     window.onload = () => {
       setDeviceWidth(innerWidth - 24);
     };
+    window.onpopstate = () => {
+      toggleDrawer(false)();
+    };
+    if (innerWidth <= 700) {
+      const html = document.querySelector('html');
+      html!.classList.add('on-mb');
+    }
   }, []);
+
+  useEffect(() => {
+    if (detailOfSong && displayCurrentList && showBody) {
+      const current = crListSong.find(e => e.id === crSong?.id);
+      const currentIndex = crListSong.findIndex(e => e.id === crSong?.id);
+      if (current) {
+        const { height } = refs[current.id].current.getBoundingClientRect() as DOMRect;
+        scrollContainerRef.current?.scrollTo({ top: ((currentIndex <= 0 ? 1 : currentIndex) - 1) * height, left: 0, behavior: 'smooth' });
+      }
+
+    }
+  }, [detailOfSong, displayCurrentList, showBody]);
+
 
   useEffect(() => {
     const cacheVolume = +(localStorage.getItem(LOCAL_KEY.SetCacheVolume) || DEFAULT_VOLUME);
     setVolume(mute ? 0 : cacheVolume);
     localStorage.setItem(LOCAL_KEY.SetMute, mute ? '1' : '0');
   }, [mute]);
-
   useEffect(() => {
     mp3Audio.loop = (mediaControlSelector.loop === 1);
     switch (mediaControlSelector.loop) {
@@ -155,7 +196,6 @@ export const MediaPlayer = () => {
     }
 
   }, [mediaControlSelector.loop]);
-
   useEffect(() => {
     setNeedDoubleName(nameWrapperRef.current?.offsetWidth! < nameRef.current?.offsetWidth!);
     mp3Audio.src = crSong?.mediaUrl!;
@@ -167,11 +207,9 @@ export const MediaPlayer = () => {
       setCurrentPlayingTime(mp3Audio.currentTime);
     };
   }, [mediaSelector]);
-
   useEffect(() => {
     mp3Audio.volume = volume / 100;
   }, [volume]);
-
   useEffect(() => {
     const p = playSelector.playing;
     if (p) {
@@ -194,12 +232,26 @@ export const MediaPlayer = () => {
       setDisplayLyric(false);
     }
   }, [displayCurrentList]);
-
   useEffect(() => {
     if (displayLyric) {
       setDisplayCurrentList(false);
     }
   }, [displayLyric]);
+  useEffect(() => {
+    detailOfSong && displayLyric && scrollContainerRef && scrollContainerRef.current && scrollContainerRef.current?.scrollTo({ top: cacheScrollPosition + 6, left: 0, behavior: 'smooth' });
+  }, [detailOfSong, displayLyric]);
+  useEffect(() => {
+    const html = document.querySelector('html');
+
+    if (detailOfSong) {
+      html!.classList.add('on-mb');
+    } else {
+      if (!document.body.classList.contains('on-mb')) {
+        html!.classList.remove('on-mb');
+      }
+    }
+  }, [detailOfSong]);
+
 
   const injectHTML = () => ({
     __html: crSong?.lyric || ''
@@ -240,20 +292,22 @@ export const MediaPlayer = () => {
                 <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
               </svg>
               <div className="mobile-volume absolute">
-                <Slider
-                  orientation="vertical"
-                  style={{ height: '100px' }}
-                  className=""
-                  aria-label="time-indicator"
-                  size="small"
-                  value={volume}
-                  min={0}
-                  step={1}
-                  max={100}
-                  onChange={(_, value) => onVolumeChange(value as number)}
-                  onWheel={(e) => onWheelChange(e)}
-                  sx={VOLUME_SX}
-                />
+                <div className="mc-fv">
+                  <Slider
+                    orientation="vertical"
+                    style={{ height: '100px' }}
+                    className=""
+                    aria-label="time-indicator"
+                    size="medium"
+                    value={volume}
+                    min={0}
+                    step={1}
+                    max={100}
+                    onChange={(_, value) => onVolumeChange(value as number)}
+                    onWheel={(e) => onWheelChange(e)}
+                    sx={VOLUME_SX}
+                  />
+                </div>
               </div>
             </div>
           </ButtonBase>
@@ -308,7 +362,18 @@ export const MediaPlayer = () => {
         <svg className={`volume-icon cs-pointer ${volume >= 65 ? 'waring' : ''}`} onClick={() => setMute(!mute)}>
           <use href={`#volume-${volume === 0 ? 'mute' : volume < 30 ? 'min' : volume >= 30 && volume < 75 ? 'medium' : 'max'}`}/>
         </svg>
-
+        <Slider
+          className="volume"
+          aria-label="time-indicator"
+          size="small"
+          value={volume}
+          min={0}
+          step={1}
+          max={100}
+          onChange={(_, value) => onVolumeChange(value as number)}
+          onWheel={(e) => onWheelChange(e)}
+          sx={VOLUME_SX}
+        />
       </div>
       <div className="info-nav">
         <div className="flex align-items-center info-detail" onClick={toggleDrawer(true)}>
@@ -370,7 +435,8 @@ export const MediaPlayer = () => {
         <div className="touch-bar" onClick={() => setDetailOfSong(false)}></div>
         <div className="detail-sheet">
           <div className="heading-spacing"></div>
-          <div className="body my-scrollbar scrollable-body">
+          <div ref={scrollContainerRef} onScroll={() => displayLyric && setCacheScrollPosition((scrollContainerRef.current?.scrollTop || 0))}
+               className="body my-scrollbar scrollable-body">
             <div className="sticky-heading">
               <div className={`current-song-detail relative${showBody ? ' display-lyric' : ''}`}>
                 <img
@@ -391,21 +457,25 @@ export const MediaPlayer = () => {
               <div className="cur-sname">{crSong?.songName}</div>
               <div className="ar-name">{nameConverter(crSong?.mainArtist.name)}</div>
             </> : <div className="lyric-list">
-              {displayLyric && <div style={{ padding: '6px 0 12px 0' }} dangerouslySetInnerHTML={injectHTML()}></div>}
-              {displayCurrentList && <div style={{ padding: '6px 0 12px 0' }}>
-                {/* can extract to new component*/}
+              <div className={displayLyric ? 'd-block' : 'd-none'} style={{ padding: '6px 0 12px 0' }} dangerouslySetInnerHTML={injectHTML()}></div>
+              <div className={`mb-t100 listened-list ${displayCurrentList ? 'd-block' : 'd-none'}`} style={{ padding: `6px ${isAppleFk() ? 24 : 14}px 12px 0` }}>
                 {
-                  crListSong.map((e, i) => <List100
+                  crListSong.map((e, i) => <ListenedSongItem
+                    isMobile={true}
+                    ref={refs[e.id]}
                     key={e.id}
-                    index={i + 1}
-                    song={e}
+                    id={e.id}
+                    artwork={e.artwork}
+                    url={e.url}
+                    mainArtist={e.mainArtist}
+                    songName={e.songName}
+                    onClick={(ev) => playThisSong(e, ev)}
+                    isPlaying={playSelector.playing && e.id === crSong?.id}
                   />)
                 }
-
-                {/**/}
-              </div>}
-            </div>}
-
+              </div>
+            </div>
+            }
           </div>
           <div className="bottom-actions">
             <div className="time-control">
@@ -429,7 +499,9 @@ export const MediaPlayer = () => {
                 <div className="duration-text">{durationConverter(duration)}</div>
               </div>
             </div>
-            <div className={`main-controller flex justify-content-center${crSong ? '' : ' disable-event-all'}`}>
+            <div
+              style={{ paddingTop: `${isAppleFk() ? 30 : 6}px` }}
+              className={`main-controller flex justify-content-center${crSong ? '' : ' disable-event-all'}`}>
               <ButtonBase style={{ width: '47px' }} className="action-button" centerRipple onClick={onPrev}>
                 <svg style={{ transform: 'rotate(180deg)' }}>
                   <use href="#mb-np"/>
@@ -446,7 +518,7 @@ export const MediaPlayer = () => {
                 </svg>
               </ButtonBase>
             </div>
-            <div className="volume-control flex align-items-center">
+            {!isAppleFk() && <div className="volume-control flex align-items-center">
               <svg className="mn-vol-icon">
                 <use href="#mb-min-vol"/>
               </svg>
@@ -464,8 +536,8 @@ export const MediaPlayer = () => {
               <svg className="mn-vol-icon">
                 <use href="#mb-max-vol"/>
               </svg>
-            </div>
-            <div className="flex justify-between end-control">
+            </div>}
+            <div className="flex justify-between end-control" style={{ paddingTop: `${isAppleFk() ? 24 : 12}px` }}>
               <ButtonBase className="end-control-btn _1" onClick={() => setDisplayLyric(!displayLyric)}>
                 <svg>
                   <use href={`#lyric${displayLyric ? '-active' : ''}`}/>

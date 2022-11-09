@@ -12,7 +12,6 @@ export const Top100Album = () => {
     const TOTAL_100 = flattenArray(Object.values(TOP_100_GALLERY_OBJ)) as GalleryInfinity[];
     const current = TOTAL_100.find(obj => obj.id === top100Id);
     setDetail(current);
-    console.log(TOTAL_100, current);
 
   }, [])
   return <>

@@ -1,4 +1,5 @@
 import { ArtisBaseInfo } from '@models/artist.model';
+import { RefObject } from 'react';
 
 
 export interface SongBase {
@@ -11,7 +12,7 @@ export interface SongBase {
   url: string;
   listenTimes: string;
   subArtist: ArtisBaseInfo[],
-  lyric?: string
+  lyric?: string;
 }
 
 export type SongItemProps = Omit<SongBase, 'artwork' | 'index'> & {

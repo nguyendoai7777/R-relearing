@@ -12,6 +12,7 @@ html, * {
   margin: 0;
   user-select: none;
   color: var(--normal-text-color);
+  scroll-behavior: smooth;
 }
 body {
   // overflow: hidden;
@@ -269,6 +270,21 @@ a {
   height: 40px;
   background-color: deeppink;
   border-radius: 50%;
+  z-index: 1201;
+}
+.on-mb {
+  .listened-item button {
+    width: 100%;
+  }
+  .animate-root {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+.mb-t100 {
+  .is-playing {
+    background-color: rgb(159 159 159 / 25%);
+  }
 }
 /*  ------------------  Responsive ---------------------- */
 @media screen and (min-width: 1684px) {
@@ -360,6 +376,22 @@ a {
     }
   }
 }
+
+.personal .playlist-item-root {
+  @media screen and (min-width: 600px) {
+    width: calc(33.3333333333% - 24px);
+  }
+  @media screen and (min-width: 880px) {
+    width: calc(25% - 24px);
+  }
+  @media screen and (min-width: 1000px) {
+    width: calc(20% - 24px);
+  }
+  @media screen and (min-width: 1250px) {
+    width: calc(100% / 6 - 24px);
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .personal .listened-list {
     .listened-item {
@@ -368,15 +400,20 @@ a {
   }
 }
 @media screen and (max-width: 1060px) {
-  .body-cc60 .list-root .main {
-    .info {
-      width: 70%;
-    }
-    .remaining {
-      &.album-name {
-        display: none;
+  .body-cc60, .mb-t100 {
+    .list-root .main {
+      .info {
+        width: 70%;
+      }
+      .remaining {
+        &.album-name {
+          display: none;
+        }
       }
     }
+  }
+  .dialog-main .MuiDialog-paper {
+    min-width: calc(100% - 48px);
   }
 }
 @media screen and (max-width: 1024px) {
@@ -407,6 +444,12 @@ a {
     }
   }
 }
+
+@media screen and (max-width: 888px) {
+  .color-picker-group .color-picker-box {
+    width: calc(25% - 24px) !important;
+  }
+}
 @media screen and (max-width: 768px) {
   #base-var {
     --media-height: 110px !important;
@@ -419,21 +462,40 @@ a {
       width: calc(100%);
     }
   }
-  .body-cc60 .list-root {
-    .status {
-      display: none;
+  .body-cc60, .mb-t100 {
+    .list-root {
+      .status {
+        display: none;
+      }
+      .main {
+        margin-left: 0;
+      }
+      .order {
+        display: none;
+        /*font-size: 31px;
+        width: 60px;*/
+      }
     }
-    .main {
-      margin-left: 0;
-    }
-    .order {
-      display: none;
-      /*font-size: 31px;
-      width: 60px;*/
+  }
+
+  .popover-base .MuiPaper-root {
+    width: calc(100% - 48px);
+    .d-wrapper {
+      min-width: 100% !important;
     }
   }
 }
 @media screen and (max-width: 600px) {
+  .color-picker-group {
+    &.gr-av {
+      .avatar-background-picker {
+        width: calc(100% / 2 - 24px) !important;
+      }
+    }
+    .color-picker-box {
+      width: calc(100% / 3 - 24px) !important;
+    }
+  }
   .lsb-r {
     display: none;
   }

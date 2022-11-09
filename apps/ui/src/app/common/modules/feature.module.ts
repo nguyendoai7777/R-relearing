@@ -1,7 +1,6 @@
 import { ThemeBase } from '@models/theme.model';
 import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_VOLUME } from '@constants/mock.const';
-
 export const setTheme = (theme: ThemeBase) => {
   document.body.className = `${theme.id}`;
   const root = document.querySelector('#root')! as HTMLDivElement;
@@ -18,8 +17,24 @@ export const flattenArray = (array: any[]) => {
   return array.reduce((accumulator, value) => accumulator.concat(value), []);
 }
 
-export const preventDefault = (e: any) => {
-  e.preventDefault();
+export const getDeviceType = () => {
+  const detail = navigator.userAgent;
+  const [, os, device] = (detail.split('(')[0]).split('/');
+  const osDetail = {
+    name: os.split('/'),
+    version: os.split('/')
+  }
+
+}
+export const isAppleFk = () => {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
 }
 
 export const durationConverter = (duration: number) => {
@@ -58,3 +73,4 @@ export const randomHexColor = () => {
   const c = Math.floor(Math.random()*16777215).toString(16);
   return `#${c}`
 }
+

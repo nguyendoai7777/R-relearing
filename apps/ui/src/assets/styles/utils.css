@@ -147,6 +147,12 @@
   opacity: 1;
   visibility: visible;
 }
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
 .text-center {
   text-align: center;
 }

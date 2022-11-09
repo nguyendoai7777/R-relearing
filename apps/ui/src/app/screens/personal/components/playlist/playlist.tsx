@@ -23,9 +23,7 @@ const PlaylistItem = (pr: Omit<PlaylistState, 'createAt'> & PlaylistItemEvent) =
 
     <ButtonBase className="playlist-item">
       {pr.songs.length > 0 ? <img className="box" src={pr.songs[0].artwork} alt=""/> :
-        <svg className="box" fill={randomHexColor()}>
-          <use href="#square-skeleton"/>
-        </svg>
+        <img className="box" alt="" src="assets/imgs/pe.svg" style={{backgroundColor: randomHexColor()}} />
       }
 
     </ButtonBase>
@@ -65,7 +63,7 @@ export const Playlist = () => {
   const dispatch = useAppDispatch();
 
   return <>
-    <div className="flex flex-wrap" style={{ margin: '0 -6px 0 -12px' }}>
+    <div className="flex flex-wrap" style={{ margin: '0 -6px 0 -12px', paddingBottom: '24px' }}>
       {
         playlists.map((e, i) =>
           <PlaylistItem

@@ -48,7 +48,6 @@ export const ListenedHistory = () => {
         dispatch(setCurrentLists(currentHistoryList));
         clearTimeout(delay);
       }, 100);
-      console.log('animation tao dau');
       e && onActivateEffect(e, s.artwork);
     }
 
@@ -75,6 +74,7 @@ export const ListenedHistory = () => {
         currentHistoryList.length > 0 ? <>
           {
             currentHistoryList.map(e => <ListenedSongItem
+              isMobile={false}
               key={e.id}
               id={e.id}
               artwork={e.artwork}

@@ -67,7 +67,6 @@ export const playlistSlice = createSlice({
       playlist.splice(index, 1);
       state.playlists = playlist;
       localStorage.setItem(LOCAL_KEY.PlayList, JSON.stringify(playlist));
-      console.log(payload, index);
     }
   }
 });

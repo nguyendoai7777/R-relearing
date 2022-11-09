@@ -27,7 +27,7 @@ export function onActivateEffect(params: MouseEvent<HTMLElement>, imgSrc: string
     { x: ball.x, y: ball.y },
     { x: x * 2, y: 500 },
     { x: ball.x * 2, y: 700 },
-    { x: innerWidth - 50 - 159, y: notAtBottom ? 70 : -70 }
+    { x: innerWidth <= 700 ? innerWidth : innerWidth - 50 - 159, y: notAtBottom ? 70 : -70 }
   ];
   const reDrawPosition = () => {
     animateRoot.style.left = ball.x + 'px';
@@ -74,5 +74,8 @@ export function onActivateEffect(params: MouseEvent<HTMLElement>, imgSrc: string
     moveElement();
   };
   animate();
-
+  const dl = setTimeout(() => {
+    animateRoot.remove();
+    clearTimeout(dl);
+  }, 2000);
 }

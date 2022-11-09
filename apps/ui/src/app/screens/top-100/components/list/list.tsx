@@ -2,7 +2,7 @@ import './list.scss';
 import { Link } from 'react-router-dom';
 import { ButtonBase } from '@mui/material';
 import { SongBase } from '@models/media.model';
-import React, { FC, MouseEvent, ReactElement, useEffect, useId, useRef, useState } from 'react';
+import React, { FC, forwardRef, MouseEvent, ReactElement, RefObject, useEffect, useId, useRef, useState } from 'react';
 import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { useAppDispatch, useAppSelector } from '@store/store';
@@ -16,6 +16,7 @@ export interface List100Props {
   onContextMenu?: (e: MouseEvent) => void;
   isAtTop?: boolean;
   onPlay?: () => void;
+  className?: string;
 }
 
 export interface ContextMenuProps {
@@ -51,11 +52,10 @@ export const ContextMenu = (pr: ContextMenuProps) => {
   </>;
 };
 
-export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, isAtTop = true }) => {
+export const List100 = forwardRef<HTMLDivElement, List100Props>(({song, onPlay, index, onContextMenu, isAtTop, className}, ref) => {
   const { currentSong } = useAppSelector(selectMediaPlayer);
   const { playing } = useAppSelector(selectPlayState);
   const dispatch = useAppDispatch();
-  const uuid = useId();
 
 
   const selectedPlayingSong = () => {
@@ -74,7 +74,7 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
   };
 
   return <>
-    <div className="list-root fa-center" onDoubleClick={selectedPlayingSong} onContextMenu={onContextMenu}>
+    <div ref={ref} className={`list-root fa-center${className ? ' ' + className : ''}${currentSong?.id === song.id ? ' is-playing' : ''}`} onDoubleClick={selectedPlayingSong} onContextMenu={onContextMenu}>
       {isAtTop && <>
         <div className={`order fa-center justify-content-center ${index === 1 || index === 2 || index === 3 ? `order-${index}` : ''}`}><span>{index}</span></div>
         <div className="status flex-center-center">--</div>
@@ -121,7 +121,6 @@ export const List100: FC<List100Props> = ({ song, onPlay, index, onContextMenu, 
           </ButtonBase>
         </div>
       </div>
-
     </div>
   </>;
-};
+});
