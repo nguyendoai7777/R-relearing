@@ -1,5 +1,6 @@
 import { ArtisBaseInfo, ArtisProfile } from '@models/artist.model';
 import { uuid } from '@modules/feature.module';
+import { Mp3 } from '@constants/urls.constant';
 
 export const PROFILES: ArtisProfile[] = [
   {
@@ -97,7 +98,7 @@ export const PROFILES: ArtisProfile[] = [
     subArtwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/e/5/9/5e59302e5881708cb601c335894fbfe5.jpg',
     songs: [
       {
-        id: 'asdasdasdas222',
+        id: Mp3.DeNho1ThoiTaDaYeu.id,
         url: '/media/die-nho-1-thoi-ta-da-yeu',
         mainArtist: {
           id: '13213213213',
@@ -105,14 +106,14 @@ export const PROFILES: ArtisProfile[] = [
           profileUrl: '/profile/Lệ-Quyên'
         },
         artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/covers/0/7/07c1bec1955a6d2c4b0ce8f651885d77_1305855806.jpg',
-        mediaUrl: 'https://vnno-zn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/830527f193b57aeb23a4/8979537513251570212?authen=exp=1667555511~acl=/830527f193b57aeb23a4/*~hmac=e69faed2fb7ea46df87044ea7223bc5c',
+        mediaUrl: Mp3.DeNho1ThoiTaDaYeu.url,
         songName: 'Để Nhớ Một Thời Ta Đã Yêu',
         songDuration: 280,
         listenTimes: '195.2k',
         subArtist: []
       },
       {
-        id: 'lqsad2asdasdas',
+        id:  Mp3.ViEmConThuong.id,
         url: '/media/vi-em-con-thuong',
         mainArtist: {
           id: 'lquyen',
@@ -120,14 +121,14 @@ export const PROFILES: ArtisProfile[] = [
           profileUrl: '/profile/Lệ-Quyên'
         },
         artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/e/4/c/9e4c1683182e0a4c7394835da9c953a6.jpg',
-        mediaUrl: 'https://vnno-vn-6-tf-mp3-320s1-m-zmp3.zmdcdn.me/800d794d420aab54f21b/4332586878588502797?authen=exp=1667555216~acl=/800d794d420aab54f21b/*~hmac=d5b348a95462548784a779c6d5f09022',
+        mediaUrl:  Mp3.ViEmConThuong.url,
         songName: 'Vì Em Còn Thương',
         songDuration: 281,
         listenTimes: '195.2k',
         subArtist: []
       },
       {
-        id: 'sssssdsadasdasdas',
+        id: Mp3.XemNhuTaChuaTung.id,
         url: '/media/xem-nhu-ta-chua-tung',
         mainArtist: {
           id: 'lequyen',
@@ -135,7 +136,7 @@ export const PROFILES: ArtisProfile[] = [
           profileUrl: '/profile/Lệ-Quyên'
         },
         artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/7/3/a/1/73a1b73208c4b50b6abef00b6a3907f8.jpg',
-        mediaUrl: 'https://vnno-zn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/3d06d027fa60133e4a71/2360371217814562533?authen=exp=1667555755~acl=/3d06d027fa60133e4a71/*~hmac=b097baa315aeaecf7b9423e794f16bce',
+        mediaUrl: Mp3.XemNhuTaChuaTung.url,
         songName: 'Xem Như Ta Chưa Từng',
         songDuration: 197,
         listenTimes: '195.2k',

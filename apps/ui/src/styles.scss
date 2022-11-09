@@ -287,6 +287,28 @@ a {
   }
 }
 /*  ------------------  Responsive ---------------------- */
+.personal .playlist-item-root {
+  @media screen and (min-width: 600px) {
+    width: calc(33.3333333333% - 24px);
+  }
+  @media screen and (min-width: 880px) {
+    width: calc(25% - 24px);
+  }
+  @media screen and (min-width: 1000px) {
+    width: calc(20% - 24px);
+  }
+  @media screen and (min-width: 1250px) {
+    width: calc(100% / 6 - 24px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .personal .listened-list {
+    .listened-item {
+      width: calc(50% - 12px);
+    }
+  }
+}
 @media screen and (min-width: 1684px) {
   .standout-ms-box {
     img {
@@ -303,6 +325,16 @@ a {
     }
   }
 }
+
+@media screen and (max-width: 1670px) {
+  .artist-box-group {
+    margin: 7px -7px 0 -7px !important;
+    .recommended-item {
+      width: calc(100% / 6 - 14px) !important;
+      margin: 7px !important;
+    }
+  }
+}
 @media screen and (max-width: 1616px) {
   .standout-song {
     .tail {
@@ -313,22 +345,7 @@ a {
     }
   }
 }
-@media screen and (max-width: 1462px) {
-  .standout-song {
-    .sub-art {
-      display: none;
-    }
-  }
-}
-@media screen and (max-width: 1670px) {
-  .artist-box-group {
-    margin: 7px -7px 0 -7px !important;
-    .recommended-item {
-      width: calc(100% / 6 - 14px) !important;
-      margin: 7px !important;
-    }
-  }
-}
+
 @media screen and (max-width: 1500px) {
   .artist-box-group {
     .recommended-item {
@@ -340,6 +357,22 @@ a {
   }
   .slide-gallery .skeleton-4-slide {
     height: 120px;
+  }
+}
+@media screen and (max-width: 1462px) {
+  .standout-song {
+    .sub-art {
+      display: none;
+    }
+  }
+  .list-root .main .remaining {
+    &.album-name {
+      margin-left: auto;
+    }
+    &.action {
+      width: 70px;
+      font-size: 12px;
+    }
   }
 }
 @media screen and (max-width: 1400px) {
@@ -377,28 +410,7 @@ a {
   }
 }
 
-.personal .playlist-item-root {
-  @media screen and (min-width: 600px) {
-    width: calc(33.3333333333% - 24px);
-  }
-  @media screen and (min-width: 880px) {
-    width: calc(25% - 24px);
-  }
-  @media screen and (min-width: 1000px) {
-    width: calc(20% - 24px);
-  }
-  @media screen and (min-width: 1250px) {
-    width: calc(100% / 6 - 24px);
-  }
-}
 
-@media screen and (max-width: 1200px) {
-  .personal .listened-list {
-    .listened-item {
-      width: calc(50% - 12px);
-    }
-  }
-}
 @media screen and (max-width: 1060px) {
   .body-cc60, .mb-t100 {
     .list-root .main {
@@ -414,6 +426,12 @@ a {
   }
   .dialog-main .MuiDialog-paper {
     min-width: calc(100% - 48px);
+  }
+  .profile-songs {
+    display: none;
+  }
+  .mb-personal {
+    display: block !important;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -486,6 +504,28 @@ a {
   }
 }
 @media screen and (max-width: 600px) {
+  .detail-info {
+    flex-direction: column;
+    .profile-col-left.information {
+      width: 100%;
+      display: flex;
+      .artwork {
+        width: 50%;
+      }
+      .right-info {
+        margin-left: 24px;
+      }
+    }
+    .profile-col-right {
+      width: 100%;
+      padding: 0;
+      .description {
+        text-indent: 24px;
+        text-align: justify;
+      }
+    }
+  }
+
   .color-picker-group {
     &.gr-av {
       .avatar-background-picker {
@@ -503,6 +543,7 @@ a {
     display: none;
   }
   .main .d-navbar .search-box {
+
     margin-left: 0;
   }
   .media-player {
@@ -514,3 +555,4 @@ a {
     }
   }
 }
+

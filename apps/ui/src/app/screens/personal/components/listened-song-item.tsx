@@ -38,7 +38,7 @@ export const ListenedSongItem = forwardRef<HTMLDivElement, CombinePropsWithBase 
       </div>
       <div className="info flex flex-col">
         <Link className="text-decoration-none name text-ellipsis" to={pr.url} onClick={stopParentEvent}>
-          {pr.songName} {String(pr.isMobile)}
+          {pr.songName}
         </Link>
         <Link className="base-nav artist" to={pr.mainArtist.profileUrl} onClick={stopParentEvent}>{nameConverter(pr.mainArtist.name)}</Link>
       </div>

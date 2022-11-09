@@ -18,17 +18,34 @@ export const Profile = () => {
   }, [artistId]);
 
   return <div className="body-cc60">
-    {profile ? <div className="flex">
-      <div className="profile-col-left information">
-        <div className="artwork">
-          <img src={profile?.artwork} alt=""/>
+    {profile ? <>
+      <div className="flex detail-info">
+        <div className="profile-col-left information">
+          <div className="artwork">
+            <img src={profile?.artwork} alt="" />
+          </div>
+          <div className="right-info">
+            <div className="name text-center">{nameConverter(profile?.name)}</div>
+            <div className="real-name text-center">Tên thật: <i>{profile?.realName}</i></div>
+            <div className="real-name text-center">Ngày sinh: <i className="specific-note">{profile?.birthdate}</i></div>
+          </div>
         </div>
-        <div className="name text-center">{nameConverter(profile?.name)}</div>
-        <div className="real-name text-center">Tên thật: <i>{profile?.realName}</i></div>
-        <div className="real-name text-center">Ngày sinh: <i className="specific-note">{profile?.birthdate}</i></div>
+        <div className="profile-col-right">
+          <div className="description">{profile?.description}</div>
+          <div className="profile-songs">
+            <div className="sub-header-pai">Bài hát</div>
+            {
+              (profile?.songs.length || 0) > 0 && (profile?.songs || []).map((e => <List100
+                isAtTop={false}
+                key={e.id + uuid()}
+                song={e}
+                onPlay={() => dispatch(setCurrentLists(profile?.songs || []))}
+              />))
+            }
+          </div>
+        </div>
       </div>
-      <div className="profile-col-right">
-        <div className="description">{profile?.description}</div>
+      <div className="mb-personal">
         <div className="sub-header-pai">Bài hát</div>
         {
           (profile?.songs.length || 0) > 0 && (profile?.songs || []).map((e => <List100
@@ -39,7 +56,7 @@ export const Profile = () => {
           />))
         }
       </div>
-    </div> : <div className='text-center'>Chưa làm data cho ngệ sĩ này!</div>}
+    </> : <div className="text-center">Chưa làm data cho ngệ sĩ này!</div>}
 
   </div>;
 };

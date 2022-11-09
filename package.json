@@ -8,7 +8,7 @@
     "test": "nx test",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://nguyendoai7777.github.io/zing-page/",
+  "homepage": "https://nguyendoai7777.github.io/zing/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
