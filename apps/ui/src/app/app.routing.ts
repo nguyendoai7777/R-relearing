@@ -9,6 +9,7 @@ import { RadioScreen } from '@screens/radio/radio';
 import { PlaylistScreen } from '@screens/playlist/playlist';
 import { Profile } from '@screens/profile/profile';
 import { Top100Album } from '@screens/top-100-album/top-100-album';
+import { Visualization } from '@screens/visualization/visualization';
 
 export const APP_ROUTING: Routes[] = [
   {
@@ -78,5 +79,11 @@ export const NOT_NAV_ROUTING: Routes[] = [
     key: 'routes-id-9',
     path: '/top100/album/:top100Id',
     element: React.createElement(Top100Album),
+  },
+  {
+    name: 'Audio Visualizations',
+    key: 'routes-id-10',
+    path: '/ana',
+    element: React.createElement(Visualization),
   }
 ];

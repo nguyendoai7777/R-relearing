@@ -70,7 +70,7 @@ export const Mp3 =  {
     id: 'ds2dg5ddd3d1'
   },
   TraiTimTonThuong: {
-    url: 'https://vnno-vn-6-tf-mp3-320s1-m-zmp3.zmdcdn.me/4c679431e071092f5060/6879351094073685936?authen=exp=1668061047~acl=/4c679431e071092f5060/*~hmac=822eda05609ef5d67509305e1a738670',
+    url: 'https://vnno-vn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/4c679431e071092f5060/6879351094073685936?authen=exp=1668233933~acl=/4c679431e071092f5060/*~hmac=13abebff24cbc03759d547f3a97b1031',
     id: 'ds2dg5ddd3d1'
   },
   DeNho1ThoiTaDaYeu: {

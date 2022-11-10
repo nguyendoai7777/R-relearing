@@ -16,6 +16,8 @@ import { ListenedSongItem } from '@screens/personal/components/listened-song-ite
 import { pushOne } from '@store/slices/listened-history.slice';
 import { onActivateEffect } from '@modules/animate.module';
 
+type SongRef = { [key: string | number]: RefObject<unknown> | any; }
+
 export const MediaPlayer = () => {
   const localVolumeState = +(localStorage.getItem(LOCAL_KEY.SetVolume) || DEFAULT_VOLUME);
   const nameWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -39,10 +41,10 @@ export const MediaPlayer = () => {
   const crSong = mediaSelector.currentSong;
   const crListSong = mediaSelector.currentList;
   const dispatch = useAppDispatch();
-  const refs = crListSong.reduce((acc: SongBase & { [key: string | number]: RefObject<unknown> | any; }, value, i) => {
+  const refs = crListSong.reduce((acc: SongBase & SongRef, value, i) => {
     acc[value.id] = createRef();
     return acc;
-  }, {} as SongBase & { [key: string | number]: RefObject<unknown> | any; }) as SongBase & { [key: string | number]: RefObject<unknown> | any; };
+  }, {} as SongBase & SongRef) as SongBase & SongRef;
 
   const onVolumeChange = (value: number) => {
     setVolume(value);
