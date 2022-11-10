@@ -145,3 +145,6 @@ export const PROFILES: ArtisProfile[] = [
     ]
   }
 ]
+
+export const audioContext = new AudioContext();
+export const  audioElement = document.querySelector('audio')!;

@@ -5,11 +5,10 @@ import { useAppSelector } from '@store/store';
 import { mediaControlSlice } from '@store/slices/loop-state.slice';
 import { selectMediaPlayer } from '@store/slices/media-player.slice';
 import { selectPlayState } from '@store/slices/play-state.slice';
+import { audioContext, audioElement } from '@constants/profile.const';
 
 export const Visualization = () => {
-  const audioElement = document.querySelector('audio')!;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const audioCtx = new AudioContext();
   let analyser: AnalyserNode;
   let audioSource: MediaElementAudioSourceNode;
   let ctx: CanvasRenderingContext2D;
@@ -20,20 +19,22 @@ export const Visualization = () => {
   let barHeight = 10;
   let x = 0;
   let barColor = 'deeppink';
-
+  let recursive = 0;
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-
+  const { playing } = useAppSelector(selectPlayState);
   const animate = () => {
-    requestAnimationFrame(animate);
+    recursive = requestAnimationFrame(animate);
     x = 0;
     if (ctx) {
-      ctx.clearRect(0, 0, canvasRef!.current!.width, canvasRef!.current!.height);
+      ctx.clearRect(0, 0, (canvasRef?.current?.width || 0), (canvasRef?.current?.height || 0));
       analyser!.getByteFrequencyData(dataArray);
       for (let i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
+        ctx.fillStyle = 'pink';
+        ctx.fillRect(x, (canvasRef?.current?.height || barHeight) - barHeight - 2, barWidth, 5);
         ctx.fillStyle = barColor;
-        ctx.fillRect(x, canvasRef!.current!.height - barHeight, barWidth, barHeight);
+        ctx.fillRect(x, (canvasRef?.current?.height || barHeight) - barHeight, barWidth, barHeight);
         x += barWidth + 4;
       }
     }
@@ -42,23 +43,25 @@ export const Visualization = () => {
 
   useEffect(() => {
     audioElement.crossOrigin = 'anonymous';
-    audioSource = audioCtx.createMediaElementSource(audioElement);
-    analyser = audioCtx.createAnalyser();
+    audioSource = audioContext.createMediaElementSource(audioElement);
+    analyser = audioContext.createAnalyser();
     audioSource.connect(analyser);
-    analyser.connect(audioCtx.destination);
+    analyser.connect(audioContext.destination);
     analyser.fftSize = 256;
     bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
     barWidth = (SCREEN_SIZE) / bufferLength - 4;
     audioElement.load();
-    animate();
+
     audioElement.addEventListener('loadedmetadata', () => {
       setDuration(audioElement.duration);
-    })
+    });
     audioElement.addEventListener('timeupdate', () => {
       setCurrentTime(audioElement.currentTime);
-    })
-    return () => {}
+    });
+    return () => {
+      cancelAnimationFrame(recursive);
+    };
   }, []);
 
   useEffect(() => {
@@ -69,6 +72,10 @@ export const Visualization = () => {
     }
   }, []);
 
+  useEffect(() => {
+
+    animate();
+  }, [playing]);
 
 
   return <div className="body-cc60">
@@ -81,7 +88,7 @@ export const Visualization = () => {
       <canvas style={{
         borderBottom: '1px solid var(--tooltip-bg)'
       }} ref={canvasRef}></canvas>
-      <div className="duration" style={{width: currentTime / duration * 100 + '%'}}></div>
+      <div className="duration" style={{ width: currentTime / duration * 100 + '%' }}></div>
     </div>
   </div>;
 };
