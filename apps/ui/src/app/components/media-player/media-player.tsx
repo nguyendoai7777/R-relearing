@@ -23,7 +23,7 @@ export const MediaPlayer = () => {
   const nameWrapperRef = useRef<HTMLDivElement | null>(null);
   const nameRef = useRef<HTMLDivElement | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const [mp3Audio] = useState(new Audio());
+  const mp3Audio = document.querySelector('audio')!;
   const [needDoubleName, setNeedDoubleName] = useState(false);
   const [mute, setMute] = useState((localStorage.getItem(LOCAL_KEY.SetMute) || '0') === '1');
   const [volume, setVolume] = useState(localVolumeState);
@@ -203,11 +203,12 @@ export const MediaPlayer = () => {
     mp3Audio.src = crSong?.mediaUrl!;
     mp3Audio.loop = mediaControlSelector.loop === 1;
     mp3Audio.onloadeddata = () => {
-      setDuration(mp3Audio.duration);
+      setDuration(mp3Audio.duration || 0);
     };
     mp3Audio.ontimeupdate = () => {
       setCurrentPlayingTime(mp3Audio.currentTime);
     };
+
   }, [mediaSelector]);
   useEffect(() => {
     mp3Audio.volume = volume / 100;
@@ -260,6 +261,7 @@ export const MediaPlayer = () => {
   });
 
   return <>
+
     <div className={`media-player flex`}>
       <div className="mp-left fa-center">
         {crSong && <>
