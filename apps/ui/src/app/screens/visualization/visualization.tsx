@@ -16,26 +16,25 @@ export const Visualization = () => {
   let bufferLength = 0;
   let dataArray: Uint8Array;
   let barWidth = 0;
-
-  const { playing } = useAppSelector(selectPlayState);
-
   const SCREEN_SIZE = (innerWidth - 240 - 330 - 120);
   let barHeight = 10;
   let x = 0;
+  let barColor = 'deeppink';
+
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const animate = () => {
-    // requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
     x = 0;
     if (ctx) {
-
       ctx.clearRect(0, 0, canvasRef!.current!.width, canvasRef!.current!.height);
       analyser!.getByteFrequencyData(dataArray);
       for (let i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i] ?? 10;
-        ctx.fillStyle = 'deeppink';
+        barHeight = dataArray[i];
+        ctx.fillStyle = barColor;
         ctx.fillRect(x, canvasRef!.current!.height - barHeight, barWidth, barHeight);
         x += barWidth + 4;
-        console.log({x, barWidth, barHeight});
       }
     }
   };
@@ -47,36 +46,42 @@ export const Visualization = () => {
     analyser = audioCtx.createAnalyser();
     audioSource.connect(analyser);
     analyser.connect(audioCtx.destination);
-    analyser.fftSize = 128;
+    analyser.fftSize = 256;
     bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
+    barWidth = (SCREEN_SIZE) / bufferLength - 4;
+    audioElement.load();
+    animate();
+    audioElement.addEventListener('loadedmetadata', () => {
+      setDuration(audioElement.duration);
+    })
+    audioElement.addEventListener('timeupdate', () => {
+      setCurrentTime(audioElement.currentTime);
+    })
+    return () => {}
   }, []);
 
   useEffect(() => {
     ctx = (canvasRef!.current!.getContext('2d')!);
     if (canvasRef && canvasRef.current) {
       canvasRef.current.width = (innerWidth - 240 - 330 - 120);
-      canvasRef.current.height = 400;
+      canvasRef.current.height = 300;
     }
   }, []);
 
-  useEffect(() => {
-    ctx = (canvasRef!.current!.getContext('2d')!);
-    analyser = audioCtx.createAnalyser();
-    bufferLength = analyser.frequencyBinCount;
-    dataArray = new Uint8Array(bufferLength);
-    console.log(`cay lam r`, canvasRef?.current?.width);
-    barWidth = (canvasRef?.current?.width || SCREEN_SIZE) / bufferLength ;
-    if (playing) {
-      animate();
-    }
-  }, [playing]);
 
 
   return <div className="body-cc60">
 
-    <canvas style={{
-      border: '1px solid var(--tooltip-bg)'
-    }} ref={canvasRef}></canvas>
+    <div className="visualization relative flex" onClick={() => {
+      console.log('clicked');
+      barColor = 'black';
+      console.log(barColor);
+    }}>
+      <canvas style={{
+        borderBottom: '1px solid var(--tooltip-bg)'
+      }} ref={canvasRef}></canvas>
+      <div className="duration" style={{width: currentTime / duration * 100 + '%'}}></div>
+    </div>
   </div>;
 };
