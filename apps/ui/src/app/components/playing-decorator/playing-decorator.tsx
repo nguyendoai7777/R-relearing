@@ -22,10 +22,14 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
   };
 
   useEffect(() => {
-    setClicked(clicked + 1);
+    if(playing) {
+      setClicked(2)
+    } else {
+      setClicked(clicked + 1);
+    }
   }, [playing]);
-
-  return <div {...pr} className={`decorate-box${playing ? ' is-play' : ''} ${pr.className ? pr.className : ''}`}>
+  
+  return <div {...pr} className={`decorate-box${playing ? ' is-play' : ''} ${pr.className ? ' '+pr.className : ''}`}>
     <div className="decorator relative">
       <div
         className={`decorate-thumb cs-pointer relative ${playing ? 'playing' : ''} ${(!playing && clicked > 1) ? 'off' : ''}`}

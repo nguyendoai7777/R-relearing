@@ -10,6 +10,7 @@
   height: var(--media-height);
   background: var(--media-player-bg-color);
   .mp-left {
+    padding-left: 5px;
     width: 20%;
     max-width: 20%;
     .song-thumb {
@@ -128,7 +129,7 @@
     }
   }
   .info-group {
-    padding: 0 24px;
+    padding: 0 12px;
   }
   .s-name {
     padding-top: 6px;

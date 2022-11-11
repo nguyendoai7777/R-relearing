@@ -83,7 +83,7 @@ export const NOT_NAV_ROUTING: Routes[] = [
   {
     name: 'Audio Visualizations',
     key: 'routes-id-10',
-    path: '/ana',
+    path: '/s/:songId',
     element: React.createElement(Visualization),
   }
 ];

@@ -113,7 +113,7 @@ export const PROFILES: ArtisProfile[] = [
         subArtist: []
       },
       {
-        id:  Mp3.ViEmConThuong.id,
+        id: Mp3.ViEmConThuong.id,
         url: '/media/vi-em-con-thuong',
         mainArtist: {
           id: 'lquyen',
@@ -121,7 +121,7 @@ export const PROFILES: ArtisProfile[] = [
           profileUrl: '/profile/Lệ-Quyên'
         },
         artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/e/4/c/9e4c1683182e0a4c7394835da9c953a6.jpg',
-        mediaUrl:  Mp3.ViEmConThuong.url,
+        mediaUrl: Mp3.ViEmConThuong.url,
         songName: 'Vì Em Còn Thương',
         songDuration: 281,
         listenTimes: '195.2k',
@@ -144,7 +144,17 @@ export const PROFILES: ArtisProfile[] = [
       },
     ]
   }
-]
+];
 
 export const audioContext = new AudioContext();
-export const  audioElement = document.querySelector('audio')!;
+export const audioElement = document.querySelector('audio')!;
+audioElement.crossOrigin = 'anonymous';
+export const audioSource = audioContext.createMediaElementSource(audioElement);
+export const analyser = audioContext.createAnalyser();
+audioSource.connect(analyser);
+analyser.connect(audioContext.destination);
+analyser.fftSize = 128;
+export const SCREEN_SIZE = (innerWidth - 240 - 330 - 120);
+export const bufferLength = analyser.frequencyBinCount;
+export const dataArray = new Uint8Array(bufferLength);
+export const barWidth = (820 + 4) / bufferLength - 4;

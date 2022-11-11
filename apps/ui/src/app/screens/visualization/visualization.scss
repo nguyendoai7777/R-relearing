@@ -1,0 +1,13 @@
+.s-detail {
+  overflow: hidden;
+  .s-info {
+    width: 300px;
+    margin-left: 50px;
+    .decorator {
+      width: inherit;
+    }
+  /*  img {
+      width: 350px;
+    }*/
+  }
+}

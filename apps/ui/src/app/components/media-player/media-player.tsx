@@ -41,7 +41,8 @@ export const MediaPlayer = () => {
   const crSong = mediaSelector.currentSong;
   const crListSong = mediaSelector.currentList;
   const dispatch = useAppDispatch();
-  const refs = crListSong.reduce((acc: SongBase & SongRef, value, i) => {
+
+  const refs = crListSong.reduce((acc: SongBase & SongRef, value) => {
     acc[value.id] = createRef();
     return acc;
   }, {} as SongBase & SongRef) as SongBase & SongRef;
@@ -271,7 +272,7 @@ export const MediaPlayer = () => {
               <div className="gb-artist-name text-nowrap w-fit">{nameConverter(crSong?.mainArtist.name)}</div>
             </Link>
             <div className={`name-wrapper ${needDoubleName ? 'auto-text' : ''}`} ref={nameWrapperRef}>
-              <Link to={crSong.url} className="text-decoration-none flex">
+              <Link to={`/s/${crSong.id}`} className="text-decoration-none flex">
                 <div className="gb-song-name text-nowrap w-fit" ref={nameRef}>{crSong?.songName}</div>
                 {needDoubleName && <div className="gb-song-name text-nowrap w-fit">&nbsp;&nbsp;&nbsp;&nbsp;{crSong?.songName}</div>}
               </Link>
@@ -464,7 +465,7 @@ export const MediaPlayer = () => {
               <div className={displayLyric ? 'd-block' : 'd-none'} style={{ padding: '6px 0 12px 0' }} dangerouslySetInnerHTML={injectHTML()}></div>
               <div className={`mb-t100 listened-list ${displayCurrentList ? 'd-block' : 'd-none'}`} style={{ padding: `6px ${isAppleFk() ? 24 : 14}px 12px 0` }}>
                 {
-                  crListSong.map((e, i) => <ListenedSongItem
+                  crListSong.map((e) => <ListenedSongItem
                     isMobile={true}
                     ref={refs[e.id]}
                     key={e.id}
