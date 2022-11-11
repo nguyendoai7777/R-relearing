@@ -17,7 +17,7 @@ export interface List100Props {
   isAtTop?: boolean;
   onPlay?: () => void;
   className?: string;
-  onAdd?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onAdd?: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export interface ContextMenuProps {

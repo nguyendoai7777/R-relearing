@@ -277,14 +277,12 @@ a {
     background-color: rgb(159 159 159 / 25%);
   }
 }
-
 .visualization .duration {
   position: absolute;
   bottom: -27px;
   left: 0;
   height: 25px;
   background-color: var(--nav-active-detective);
-
 }
 /*---------------------animate-----------------------*/
 .animate-root {
@@ -295,7 +293,6 @@ a {
   border-radius: 50%;
   z-index: 1201;
 }
-
 /*  ------------------  Responsive ---------------------- */
 .personal .playlist-item-root {
   @media screen and (min-width: 600px) {
@@ -311,7 +308,6 @@ a {
     width: calc(100% / 6 - 24px);
   }
 }
-
 @media screen and (max-width: 1200px) {
   .personal .listened-list {
     .listened-item {
@@ -335,7 +331,6 @@ a {
     }
   }
 }
-
 @media screen and (max-width: 1670px) {
   .artist-box-group {
     margin: 7px -7px 0 -7px !important;
@@ -355,7 +350,6 @@ a {
     }
   }
 }
-
 @media screen and (max-width: 1500px) {
   .artist-box-group {
     .recommended-item {
@@ -419,8 +413,6 @@ a {
     }
   }
 }
-
-
 @media screen and (max-width: 1060px) {
   .body-cc60, .mb-t100 {
     .list-root .main {
@@ -442,6 +434,9 @@ a {
   }
   .mb-personal {
     display: block !important;
+  }
+  .main {
+    justify-content: space-between;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -472,7 +467,6 @@ a {
     }
   }
 }
-
 @media screen and (max-width: 888px) {
   .color-picker-group .color-picker-box {
     width: calc(25% - 24px) !important;
@@ -505,11 +499,24 @@ a {
       }
     }
   }
-
   .popover-base .MuiPaper-root {
     width: calc(100% - 48px);
     .d-wrapper {
       min-width: 100% !important;
+    }
+  }
+  .playlist-list {
+    flex-direction: column !important;
+    .decorate-box {
+      width: 100% !important;
+      display: flex;
+      .decorator {
+        width: 50% !important;
+        margin-left: 12px !important;
+      }
+    }
+    .layout-controller {
+      width: 100% !important;
     }
   }
 }
@@ -535,7 +542,6 @@ a {
       }
     }
   }
-
   .color-picker-group {
     &.gr-av {
       .avatar-background-picker {
@@ -553,7 +559,6 @@ a {
     display: none;
   }
   .main .d-navbar .search-box {
-
     margin-left: 0;
   }
   .media-player {
@@ -562,6 +567,11 @@ a {
     }
     .info-nav {
       display: block !important;
+    }
+  }
+  .mb-personal {
+    .list-root .main .duration {
+      display: none;
     }
   }
 }

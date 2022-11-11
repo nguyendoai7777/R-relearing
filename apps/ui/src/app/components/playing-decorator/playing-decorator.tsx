@@ -74,7 +74,7 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
           <span className="div-x">&nbsp;x&nbsp;</span>
         </div>)}
       </div>
-      <div className="release">Phát hành: 29/04/2022 - {currentTime} / {duration}</div>
+      <div className="release">Phát hành: 29/04/2022</div>
     </div>
 
   </div>;
