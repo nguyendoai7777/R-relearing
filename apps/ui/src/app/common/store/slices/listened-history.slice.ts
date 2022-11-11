@@ -32,6 +32,7 @@ export const listenedHistorySlice = createSlice({
         cr.push(action.payload);
       } else {
         const existed = cr.find(e => e.id === action.payload.id);
+        // const existed = cr.find(e => e.songName === action.payload.songName);
         if (!existed) {
           cr.push(action.payload);
         }

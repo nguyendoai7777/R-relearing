@@ -60,7 +60,7 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
         <use href="#playable"/>
       </svg>
       <div className={`circular-progress ${playing ? 'playing' : ''}`}>
-        <div className="ink-circular-progress" style={{ background: `conic-gradient(var(--nav-active-detective) ${currentTime / duration * 100 * 3.6}deg, var(--background-color-all) 0deg)` }}></div>
+        <div className="ink-circular-progress" style={{ background: `conic-gradient(var(--nav-active-detective) ${currentTime / duration * 100 * 3.6}deg, transparent 0deg)` }}></div>
       </div>
       <div className={`border-protected${playing ? ' playing' : ''}`}></div>
 

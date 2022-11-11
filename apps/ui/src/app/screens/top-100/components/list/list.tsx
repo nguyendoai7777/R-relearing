@@ -2,7 +2,7 @@ import './list.scss';
 import { Link } from 'react-router-dom';
 import { ButtonBase } from '@mui/material';
 import { SongBase } from '@models/media.model';
-import React, { FC, forwardRef, MouseEvent, ReactElement, RefObject, useEffect, useId, useRef, useState } from 'react';
+import React, { forwardRef, MouseEvent, ReactElement, useEffect, useRef, useState } from 'react';
 import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { useAppDispatch, useAppSelector } from '@store/store';
@@ -17,6 +17,7 @@ export interface List100Props {
   isAtTop?: boolean;
   onPlay?: () => void;
   className?: string;
+  onAdd?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ContextMenuProps {
@@ -52,7 +53,7 @@ export const ContextMenu = (pr: ContextMenuProps) => {
   </>;
 };
 
-export const List100 = forwardRef<HTMLDivElement, List100Props>(({song, onPlay, index, onContextMenu, isAtTop, className}, ref) => {
+export const List100 = forwardRef<HTMLDivElement, List100Props>(({onAdd, song, onPlay, index, onContextMenu, isAtTop, className}, ref) => {
   const { currentSong } = useAppSelector(selectMediaPlayer);
   const { playing } = useAppSelector(selectPlayState);
   const dispatch = useAppDispatch();
@@ -114,7 +115,7 @@ export const List100 = forwardRef<HTMLDivElement, List100Props>(({song, onPlay, 
         </div>
         <div className="remaining action flex justify-content-end align-items-center">
           <span className="duration">{durationConverter(song.songDuration)}</span>
-          <ButtonBase className="button">
+          <ButtonBase className="button" onClick={(e) => onAdd && onAdd(e)}>
             <svg>
               <use href="#add"/>
             </svg>

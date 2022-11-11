@@ -1,6 +1,6 @@
 .decorate-box {
+  padding: 10px;
   .decorator {
-    width: calc(100% - 48px);
     &:hover {
       .playing-ic-wa.dc-playable {
         opacity: 1;
@@ -10,8 +10,7 @@
   .circular-progress {
     z-index: 0;
     position: absolute;
-    inset: 0;
-    margin: -10px;
+    inset: -5px;
     border-radius: 15px;
     transition: border-radius .3s ease-out .3s;
     &.playing {
@@ -31,7 +30,7 @@
   }
   .border-protected {
     position: absolute;
-    inset: -3px;
+    inset: -2px;
     background: var(--background-color-all);
     border-radius: 10px;
     transition: border-radius .3s ease-out .3s;
@@ -39,9 +38,6 @@
       border-radius: 50%;
       transition: .3s;
     }
-  }
-  &.is-play .off {
-    // border-radius: 50%;
   }
   .decorate-thumb {
     display: flex;

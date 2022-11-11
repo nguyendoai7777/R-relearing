@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, KeyboardEvent } from 'react';
 import { Dialog, FormControl, Input, InputLabel } from '@mui/material';
 import './create-playlist-dialog.scss';
 import { CustomButtonOutlined } from '@cpns/custom-buttom/button-custom-color';
@@ -24,7 +24,10 @@ export const CreatePlaylistDialog: FC<CreatePlaylistDialogProps> = ({ open, onCl
     setInvalidName(false);
   };
 
-  const handleListItemClick = (value: string) => {
+  const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === "Enter") {
+      onCreate();
+    }
   };
 
   const onCreate = () => {
@@ -53,6 +56,7 @@ export const CreatePlaylistDialog: FC<CreatePlaylistDialogProps> = ({ open, onCl
           <FormControl fullWidth variant="standard">
             <InputLabel htmlFor="create-playlist">Tên Playlist</InputLabel>
             <Input
+              onKeyUp={handleEnter}
               autoFocus
               error={invalidName}
               id="create-playlist"

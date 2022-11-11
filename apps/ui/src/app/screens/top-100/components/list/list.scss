@@ -16,7 +16,7 @@
     background-color: var(--nav-btn-active-bg-color);
     .action {
       .duration {
-        display: none;
+
       }
       .button {
         display: flex !important;
@@ -96,7 +96,7 @@
     }
     .action {
       .button {
-        display: none;
+        margin-left: 24px;
         border-radius: 4px;
         padding: 10px;
         transition: .2s;

@@ -1,6 +1,7 @@
 import { ArtisBaseInfo, ArtisProfile } from '@models/artist.model';
 import { uuid } from '@modules/feature.module';
 import { Mp3 } from '@constants/urls.constant';
+import { TOP_100_ALL } from '@constants/mock.const';
 
 export const PROFILES: ArtisProfile[] = [
   {
@@ -97,6 +98,7 @@ export const PROFILES: ArtisProfile[] = [
     artwork: 'https://nhachot.vn/wp-content/uploads/2020/02/top-7-bai-hat-hay-nhat-moi-thoi-dai-cua-le-quyen-2020-1.jpg',
     subArtwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/e/5/9/5e59302e5881708cb601c335894fbfe5.jpg',
     songs: [
+      TOP_100_ALL[0],
       {
         id: Mp3.DeNho1ThoiTaDaYeu.id,
         url: '/media/die-nho-1-thoi-ta-da-yeu',
