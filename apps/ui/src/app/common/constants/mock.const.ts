@@ -7,13 +7,13 @@ export const DEFAULT_VOLUME = 50;
 export const DIS_HISTORY_SEARCH = [
   {
     img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/c/3/5/3/c3537dcaeb2c551b523f92344023680c.jpg',
-    href: '../history/asdasdasdasd',
-    id: 'dhs23s2asd4'
+    href: '/profile/Hà-Nhi',
+    id: 'hanhi'
   },
   {
     img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/9/e/4/c/9e4c1683182e0a4c7394835da9c953a6.jpg',
-    href: '../history/asdasdasda3f ',
-    id: 'dhs23s2assds'
+    href: '/profile/Lệ-Quyên',
+    id: 'lequyen'
   },
 ];
 
@@ -231,7 +231,7 @@ export const TOP_100_ALL: SongBase[] = [
     songDuration: 321,
     listenTimes: '12k',
     subArtist: [],
-    lyric: `
+    /*lyric: `
       <div class="lyric-line">Hôm nay em rất đau </div>
       <div class="lyric-line">Con tim như úa màu </div>
       <div class="lyric-line">Còn lại gì để vương vấn nữa đâu </div>
@@ -292,7 +292,306 @@ export const TOP_100_ALL: SongBase[] = [
       <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
       <div class="lyric-line">Hôm nay trái tim đã tổn thương </div>
       <div class="lyric-line">Em ôm trái tim đã tổn thương </div>
-    `
+    `*/
+  },
+  {
+    url: '/media/ai-roi-cung-se-khac',
+    id: Mp3.AiRoiCungSeKhac.id,
+    mainArtist: {
+      id: 'hanhi',
+      name: 'Hà-Nhi',
+      profileUrl: '/profile/Hà-Nhi'
+    },
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/e/7/a/a/e7aabe73d132476135be33977eeb1006.jpg',
+    mediaUrl: Mp3.AiRoiCungSeKhac.url,
+    songName: 'Ai Rồi Cũng Sẽ Khác',
+    songDuration: 273,
+    listenTimes: '85.5k',
+    subArtist: [],
+    /*lyric: `
+      <div class="lyric-line">Ai rồi cũng sẽ khác </div>
+      <div class="lyric-line">Theo tháng năm dần trôi </div>
+      <div class="lyric-line">Yêu đến mấy cũng buông </div>
+      <div class="lyric-line">Khi người ta thay lòng </div>
+      <div class="lyric-line">Tin vào cả thế giới </div>
+      <div class="lyric-line">Đến lúc em nhận ra </div>
+      <div class="lyric-line">Bao câu hứa năm xưa tan vào mưa </div>
+      <div class="lyric-line">Trong lòng em vẫn thế </div>
+      <div class="lyric-line">Vẫn của anh ngày xưa </div>
+      <div class="lyric-line">Nhưng anh đã quên em </div>
+      <div class="lyric-line">Quên nụ hôn ban đầu </div>
+      <div class="lyric-line">Bao chặng đường gian khó </div>
+      <div class="lyric-line">Ta đã qua cùng nhau </div>
+      <div class="lyric-line">Sao anh nói chia tay cho lòng đau </div>
+      <div class="lyric-line">Rồi cũng đến lúc </div>
+      <div class="lyric-line">Mình buông tay nhau </div>
+      <div class="lyric-line">Hạnh phúc kết thúc </div>
+      <div class="lyric-line">Chỉ một màu đen tối </div>
+      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi anh </div>
+      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
+      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
+      <div class="lyric-line">Người chắc có lẽ </div>
+      <div class="lyric-line">Không nặng lòng như tôi </div>
+      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
+      <div class="lyric-line">Tìm cách xóa đi </div>
+      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
+      <div class="lyric-line">Ai rồi cũng sẽ khác </div>
+      <div class="lyric-line">Theo tháng năm dần trôi </div>
+      <div class="lyric-line">Yêu đến mấy cũng buông </div>
+      <div class="lyric-line">Khi người ta thay lòng </div>
+      <div class="lyric-line">Tin vào cả thế giới </div>
+      <div class="lyric-line">Đến lúc anh nhận ra </div>
+      <div class="lyric-line">Bao câu hứa năm xưa tan vào mưa </div>
+      <div class="lyric-line">Trong lòng em vẫn thế </div>
+      <div class="lyric-line">Vẫn của anh ngày xưa </div>
+      <div class="lyric-line">Nhưng anh đã quên em </div>
+      <div class="lyric-line">Quên nụ hôn ban đầu </div>
+      <div class="lyric-line">Bao chặng đường gian khó </div>
+      <div class="lyric-line">Ta đã qua cùng nhau </div>
+      <div class="lyric-line">Sao anh nói chia ly cho lòng đau </div>
+      <div class="lyric-line">Rồi cũng đến lúc </div>
+      <div class="lyric-line">Mình buông tay nhau </div>
+      <div class="lyric-line">Hạnh phúc kết thúc </div>
+      <div class="lyric-line">Chỉ một màu đen tối </div>
+      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi em </div>
+      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
+      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
+      <div class="lyric-line">Người chắc có lẽ </div>
+      <div class="lyric-line">Không nặng lòng như tôi </div>
+      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
+      <div class="lyric-line">Tìm cách xóa đi </div>
+      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
+      <div class="lyric-line">Rồi cũng đến lúc </div>
+      <div class="lyric-line">Mình buông tay nhau </div>
+      <div class="lyric-line">Hạnh phúc kết thúc </div>
+      <div class="lyric-line">Chỉ một màu đen tối </div>
+      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi em </div>
+      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
+      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
+      <div class="lyric-line">Người chắc có lẽ </div>
+      <div class="lyric-line">Không nặng lòng như tôi </div>
+      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
+      <div class="lyric-line">Tìm cách xóa đi </div>
+      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
+      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
+      <div class="lyric-line">Tìm cách xóa đi </div>
+      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
+    `*/
+  },
+  {
+    url: '/media/co-don-tren-sofa',
+    id: Mp3.CoDonTrenSofa.id,
+    mainArtist: {
+      id: 'hongocha',
+      name: 'Hồ-Ngọc-Hà',
+      profileUrl: '/profile/Hồ-Ngọc-Hà'
+    },
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/1/7/f/1/17f17c49523af7fd7827ce1e2981b412.jpg',
+    mediaUrl: Mp3.CoDonTrenSofa.url,
+    songName: 'Cô Đơn Trên Sofa',
+    songDuration: 263,
+    listenTimes: '25.1k',
+    subArtist: [],
+    lyric: [
+      {
+        text: 'Cô đơn trên sofa, con tim như tan ra',
+        time: 20
+      },
+      {
+        text: 'Dẫn lối em trôi theo một khúc ca buồn',
+        time: 24
+      },
+      {
+        text: 'Giữa căn phòng, ánh đèn chợt tắt',
+        time: 28
+      },
+      {
+        text: 'Che đi giọt buồn sắp rơi',
+        time: 31
+      },
+      {
+        text: 'Cô đơn trên sofa, sao anh yêu cô ta?',
+        time: 37
+      },
+      {
+        text: 'Chẳng phải anh yêu em hơn cả anh mà?',
+        time: 41
+      },
+      {
+        text: 'Để cho thanh xuân này chợt tắt',
+        time: 46
+      },
+      {
+        text: 'Trên mi giọt nước mắt rơi',
+        time: 48.68
+      },
+      {
+        text: 'Thì ra là thế, tình nào là tình chẳng mờ phai tháng năm',
+         time: 54.2
+      },
+      {
+        text: 'Một ngày vẫn trôi, đôi môi em phai màu nắng',
+        time: 58.4
+      },
+      {
+        text: 'Nếu không em thì anh có buồn?',
+        time: 62.4
+      },
+      {
+        text: 'Hóa ra chỉ mình em đáng thương',
+        time: 66.5
+      },
+      {
+        text: 'Đừng buông lời hứa rồi lại vờ rằng dường như anh đã quên',
+        time: 71
+      },
+      {
+        text: 'Đừng tìm đến em gieo tương tư xong lại đi',
+        time: 75
+      },
+      {
+        text: 'Nắng xuyên qua hàng mi rối bời',
+        time: 79.5
+      },
+      {
+        text: 'Giữ tim em vài giây cuối thôi',
+        time: 83.2
+      },
+      {
+        text: 'Để em được ngã lưng lên một chiếc sofa',
+        time: 87
+      },
+      {
+        text: 'Để nghe một phút tim yên bình đến kỳ lạ',
+        time: 91
+      },
+      {
+        text: 'Để em được sống vô tư như một bông hoa, giữa bầu trời kiêu sa',
+        time: 95
+      },
+      {
+        text: 'Cho em thôi miệt mài nghĩ suy',
+        time: 101
+      },
+      {
+        text: 'Người ơi hãy nói em nghe một lý do đi',
+        time: 104
+      },
+      {
+        text: 'Vì sao lại để em vương sầu trên khóe mi?',
+        time: 108
+      },
+      {
+        text: 'Vì sao lại biến cô đơn thành giông tố, nỗi buồn sóng vỗ?',
+        time: 112
+      },
+      {
+        text: 'Tâm hồn em trôi lênh đênh trong căn phòng',
+        time: 118
+      },
+      {
+        text: 'Rồi lại rơi xuống trên sofa',
+        time: 121.12
+      },
+      {
+        text: 'Rồi lại rơi xuống trên sofa',
+        time: 124.48
+      },
+      {
+        text: 'Rồi lại rơi xuống trên sofa',
+        time: 129.46
+      },
+      {
+        text: 'Rồi lại rơi xuống trên sofa',
+        time: 133.48
+      },
+
+      {
+        text: 'Cô đơn trên sofa, sao anh yêu cô ta?',
+        time: 138.72
+      },
+      {
+        text: 'Chẳng phải anh yêu em hơn cả anh mà?',
+        time: 143.54
+      },
+      {
+        text: 'Để cho thanh xuân này chợt tắt',
+        time: 147.55
+      },
+      {
+        text: 'Trên mi giọt nước mắt rơi',
+        time: 150.9
+      },
+
+      {
+        text: 'Thì ra là thế, tình nào là tình chẳng mờ phai tháng năm',
+        time: 155.46
+      },
+      {
+        text: 'Một ngày vẫn trôi, đôi môi em phai màu nắng',
+        time: 160.2
+      },
+      {
+        text: 'Nếu không em thì anh có buồn?',
+        time: 164.4
+      },
+      {
+        text: 'Hóa ra chỉ mình em đáng thương',
+        time: 168.16
+      },
+      {
+        text: 'Đừng buông lời hứa rồi lại vờ rằng dường như anh đã quên',
+        time: 173.09
+      },
+      {
+        text: 'Đừng tìm đến em gieo tương tư xong lại đi',
+        time: 177.21
+      },
+      {
+        text: 'Nắng xuyên qua hàng mi rối bời',
+        time: 181
+      },
+      {
+        text: 'Giữ tim em vài giây cuối thôi',
+        time: 185.57
+      },
+      {
+        text: 'Để em được ngã lưng lên một chiếc sofa',
+        time: 188.9
+      },
+      {
+        text: 'Để nghe một phút tim yên bình đến kỳ lạ',
+        time: 193.5
+      },
+      {
+        text: 'Để em được sống vô tư như một bông hoa, giữa bầu trời kiêu sa',
+        time: 197.66
+      },
+      {
+        text: 'Cho em thôi miệt mài nghĩ suy',
+        time: 202.9
+      },
+      {
+        text: 'Người ơi hãy nói em nghe một lý do đi',
+        time: 205.96
+      },
+      {
+        text: 'Vì sao lại để em vương sầu trên khóe mi?',
+        time: 210.35
+      },
+      {
+        text: 'Vì sao lại biến cô đơn thành giông tố, nỗi buồn sóng vỗ?',
+        time: 214.65
+      },
+      {
+        text: 'Tâm hồn em trôi lênh đênh trong căn phòng',
+        time: 220.11
+      },
+      {
+        text: '[End - quẩy nhạc đi]',
+        time: 223
+      },
+    ]
   },
   ...DIS_STANDOUT_SONG_LIST,
   {

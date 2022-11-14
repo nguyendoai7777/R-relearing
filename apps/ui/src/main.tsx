@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename="zing"> {/* basename="zing" */}
+    <BrowserRouter basename=""> {/* basename="zing" */}
       <App/>
     </BrowserRouter>
   </Provider>

@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './visualization.scss';
-import { useAppSelector } from '@store/store';
-import { selectMediaPlayer } from '@store/slices/media-player.slice';
-import { selectPlayState } from '@store/slices/play-state.slice';
-import { analyser, audioElement, barWidth, bufferLength, dataArray, SCREEN_SIZE } from '@constants/profile.const';
+import { analyser, audioElement, barWidth, bufferLength } from '@constants/profile.const';
 import { useParams } from 'react-router-dom';
 import { SongBase } from '@models/media.model';
 import { PlayingDecorator } from '@cpns/playing-decorator/playing-decorator';
+import { injectHTML } from '@modules/feature.module';
+import { TOP_100_ALL } from '@constants/mock.const';
 
 let recursive: undefined | number = 0;
 
@@ -19,13 +18,11 @@ export const Visualization = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [info, setInfo] = useState<SongBase>();
-  const { playing } = useAppSelector(selectPlayState);
   const { songId } = useParams();
 
-  const { currentList } = useAppSelector(selectMediaPlayer);
   let hue = 0;
   const getInfo = () => {
-    const currentSong = currentList.find(e => e.id === songId);
+    const currentSong = TOP_100_ALL.find(e => e.id === songId);
     setInfo(currentSong);
   };
 
@@ -62,17 +59,18 @@ export const Visualization = () => {
     audioElement.addEventListener('timeupdate', () => {
       setCurrentTime(audioElement.currentTime);
     });
-    animate();
+    if (innerWidth >= 600) {
+      animate();
+    }
     return () => {
-      cancelAnimationFrame(recursive as number);
-      recursive = undefined;
+      if (innerWidth >= 600) {
+        cancelAnimationFrame(recursive as number);
+        recursive = undefined;
+      }
     };
   }, []);
 
-
-
   return <div className="body-cc60">
-
     <div className="flex s-detail justify-between">
       <div className="visualization relative flex">
         <canvas style={{
@@ -81,7 +79,11 @@ export const Visualization = () => {
         }} ref={canvasRef}></canvas>
         <div className="duration" style={{ width: currentTime / duration * 100 + '%' }}></div>
       </div>
-      <PlayingDecorator className="s-info" />
+      <PlayingDecorator className="s-info" style={{ minWidth: '300px' }} currentsong={info} />
+    </div>
+    <div className="lyrics-box">
+      <div className="header-pai">Lời bài hát</div>
+      <div className="lyrics"></div>
     </div>
   </div>;
 };

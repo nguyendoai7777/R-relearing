@@ -145,6 +145,38 @@ export const PROFILES: ArtisProfile[] = [
         subArtist: []
       },
     ]
+  },
+  {
+    id: 'hanhi',
+    name: 'Hà-Nhi',
+    birthdate: '02/04/1981',
+    nativePlace: 'Hà Nội',
+    realName: 'Hà-Nhi',
+    profileUrl: '/profile/Hà-Nhi',
+    description: `Sinh ra và lớn lên trong một gia đình không có truyền thống nghệ thuật nhưng Hà Nhi bộc lộ năng khiếu ca hát và niềm đam mê với âm nhạc từ rất bé.
+      Năm 2015, cô được công chúng biết đến khi tham gia cuộc thi VietNam Idol. Dù dừng lại tại vòng 4 nhưng cô đã để lại một dấu ấn tốt đẹp trong lòng khán giả qua giọng hát và cá tính âm nhạc của mình.
+      Với chất giọng đầy nội lực, khả năng xử lý ca khúc tốt, Hà Nhi hứa hẹn là nhân tố triển vọng của âm nhạc Việt. Tuy nhiên những sản phẩm âm nhạc sau đó của cô không được thành công như mong đợi.
+      Năm 2022, Hà Nhi ra mắt ca khúc "Ai Rồi Cũng Sẽ Khác".
+      Ngoài ra, cô gây ấn tượng với những bản cover như "Từng Cho Nhau", "Ảo Mộng Tình Yêu"...`,
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/c/5/d/b/c5dbc8fad12e47094496041efa689f21.jpg',
+    subArtwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/e/5/9/5e59302e5881708cb601c335894fbfe5.jpg',
+    songs: [
+      TOP_100_ALL[1]
+    ]
+  },
+  {
+    id: 'hongocha',
+    name: 'Hồ-Ngọc-Hà',
+    birthdate: ' 25 tháng 11, 1984 (37 tuổi)',
+    nativePlace: 'Huế',
+    realName: 'Hồ Ngọc Hà',
+    profileUrl: '/profile/Hà-Nhi',
+    description: `Hồ Ngọc Hà hay Hà Hồ là một nữ ca sĩ, diễn viên, người mẫu và giám khảo chương trình người Việt Nam. Hà Hồ bắt đầu sự nghiệp người mẫu từ năm 15 tuổi với chiều cao ấn tượng 1m72 và đạt nhiều giải thưởng. Cô chuyển sang ca hát bằng việc ra mắt album đầu tay 24 giờ 7 ngày năm 2004`,
+    artwork: 'https://data.chiasenhac.com/data/cover/41/40073.jpg',
+    subArtwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/e/5/9/5e59302e5881708cb601c335894fbfe5.jpg',
+    songs: [
+      TOP_100_ALL[2]
+    ]
   }
 ];
 

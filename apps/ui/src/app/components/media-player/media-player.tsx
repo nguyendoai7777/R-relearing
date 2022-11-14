@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '@store/store';
 import { selectMediaPlayer, setCurrentLists, setCurrentSong } from '@store/slices/media-player.slice';
 import { createRef, RefObject, useEffect, useRef, useState } from 'react';
 import { durationConverter, isAppleFk, nameConverter, saveVolumeToLocal } from '@modules/feature.module';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ButtonBase, Slider, SwipeableDrawer } from '@mui/material';
 import { MB_VOLUME_SX, SLIDER_SX, VOLUME_SX } from '@constants/theme.const';
 import { LOCAL_KEY } from '@constants/storage-key.const';
@@ -11,10 +11,10 @@ import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
 import { selectLoopState, setLoop, setShuffle, UnionLoop } from '@store/slices/loop-state.slice';
 import { DEFAULT_VOLUME } from '@constants/mock.const';
 import { BottomNav } from '@cpns/bottom-nav/bottom-nav';
-import { SongBase } from '@models/media.model';
-import { ListenedSongItem } from '@screens/personal/components/listened-song-item';
 import { pushOne } from '@store/slices/listened-history.slice';
+import { ListenedSongItem } from '@screens/personal/components/listened-song-item';
 import { onActivateEffect } from '@modules/animate.module';
+import { SongBase } from '@models/media.model';
 
 type SongRef = { [key: string | number]: RefObject<unknown> | any; }
 
@@ -137,6 +137,7 @@ export const MediaPlayer = () => {
   };
 
   useEffect(() => {
+    let playState = playSelector.playing;
     window.onresize = () => {
       setDeviceWidth(innerWidth - 24);
     };
@@ -150,7 +151,36 @@ export const MediaPlayer = () => {
       const html = document.querySelector('html');
       html!.classList.add('on-mb');
     }
+    window.onkeydown = (e) => {
+      switch (e.code) {
+        case 'ArrowRight': {
+          mp3Audio.currentTime += 2;
+          break;
+        }
+        case 'ArrowLeft': {
+          mp3Audio.currentTime -= 2;
+          break;
+        }
+     /*   case 'ArrowUp': {
+          onVolumeChange(volume + 2);
+          break;
+        }
+        case 'ArrowDown': {
+          onVolumeChange(volume - 2);
+          break;
+        }*/
+        case 'Space': {
+          dispatch(!playState ? play() : pause());
+          playState = !playState;
+          break;
+        }
+      }
+    };
+
   }, []);
+  useEffect(() => {
+    toggleDrawer(false)();
+  }, [useLocation()]);
 
   useEffect(() => {
     if (detailOfSong && displayCurrentList && showBody) {
@@ -462,7 +492,10 @@ export const MediaPlayer = () => {
               <div className="cur-sname">{crSong?.songName}</div>
               <div className="ar-name">{nameConverter(crSong?.mainArtist.name)}</div>
             </> : <div className="lyric-list">
-              <div className={displayLyric ? 'd-block' : 'd-none'} style={{ padding: '6px 0 12px 0' }} dangerouslySetInnerHTML={injectHTML()}></div>
+              <div>{(crSong?.lyric || []).length}</div>
+              <div className={displayLyric ? 'd-block' : 'd-none'} style={{ padding: '6px 0 12px 0' }}>
+                {(crSong?.lyric || []).map((e, i) => <div className={`lyric-line${(currentPlayingTime >= e.time && currentPlayingTime <= ((crSong?.lyric || [])[i + 1] || (crSong?.lyric || [])[i]).time || 0) ? ' on-the-way' : ''}`} key={e.time}>{e.text}</div>)}
+              </div>
               <div className={`mb-t100 listened-list ${displayCurrentList ? 'd-block' : 'd-none'}`} style={{ padding: `6px ${isAppleFk() ? 24 : 14}px 12px 0` }}>
                 {
                   crListSong.map((e) => <ListenedSongItem
@@ -500,7 +533,7 @@ export const MediaPlayer = () => {
                 />
               </div>
               <div className="flex justify-between">
-                <div className="duration-text">{durationConverter(currentPlayingTime)}</div>
+                <div className="duration-text">{(currentPlayingTime)}</div>
                 <div className="duration-text">{durationConverter(duration)}</div>
               </div>
             </div>

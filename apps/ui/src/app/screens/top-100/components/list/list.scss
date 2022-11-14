@@ -15,9 +15,6 @@
   &:hover {
     background-color: var(--nav-btn-active-bg-color);
     .action {
-      .duration {
-
-      }
       .button {
         display: flex !important;
       }
@@ -90,8 +87,13 @@
     .remaining {
       width: 30%;
       font-size: 12px;
+      margin-left: auto;
+    }
+    .album-name {
+      transform: translateY(2.5px);
     }
     .duration {
+      transform: translateY(2.5px);
       font-size: 12px;
     }
     .action {

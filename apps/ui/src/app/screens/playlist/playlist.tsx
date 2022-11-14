@@ -53,7 +53,7 @@ export const PlaylistScreen = () => {
         </ButtonBase>
       </div>
       <div className={`flex playlist-list ${layout}`}>
-        {layout === 'list' && <PlayingDecorator className='decorate-root'/>}
+        {layout === 'list' && <PlayingDecorator className='decorate-root' currentsong={currentSong}/>}
         {
           playlist.songs.length > 0 ? <div className="flex layout-controller">
             {

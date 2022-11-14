@@ -2,12 +2,21 @@
   overflow: hidden;
   .s-info {
     width: 300px;
-    margin: 10px 10px 0 40px;
+    margin-left: 40px;
     .decorator {
-      width: 100%;
+      width: 280px;
     }
-  /*  img {
-      width: 350px;
-    }*/
+  }
+}
+.lyrics-box {
+  transform: translateY(-48px);
+  .header-pai {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+.np-ps {
+  .profile-songs .list-root .main {
+    margin-left: 0;
   }
 }

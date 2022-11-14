@@ -13,8 +13,8 @@ import { addOneToPlaylist, PlaylistState } from '@store/slices/playlist.slice';
 
 
 export const Top100Screen = () => {
-  const song10 = generateSongsByAmount(10).map(e => ({ ...e, id: uuid() }));
-  const song100 = generateSongsByAmount(100).map(e => ({ ...e, id: uuid() }));
+  const song10 = generateSongsByAmount(10).map(e => ({ ...e, key: uuid() }));
+  const song100 = generateSongsByAmount(100).map(e => ({ ...e, key: uuid() }));
   const [songs, setSongs] = useState(song10);
   const [mount, setMount] = useState(false);
   const [subOptionRef, setSubOptionRef] = useState<null | HTMLElement>(null);
@@ -51,7 +51,7 @@ export const Top100Screen = () => {
       <div className="header-pai">Nhạc Việt Hôm Nay</div>
       <div>
         {songs.map((e, i) => <List100
-          key={e.id}
+          key={e.key}
           index={i + 1}
           song={e}
           onPlay={() => dispatch(setCurrentLists(songs))}

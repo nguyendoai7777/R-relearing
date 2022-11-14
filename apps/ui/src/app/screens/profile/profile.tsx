@@ -46,7 +46,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const itv = setInterval(() => {
-      setHue(hue => hue + 2);
+      setHue(hue => hue + 4);
     }, 50);
     return () => {
       clearInterval(itv);
@@ -55,7 +55,7 @@ export const Profile = () => {
 
 
   return <>
-    <div className="body-cc60">
+    <div className="body-cc60 np-ps">
       {profile ? <>
         <div className="flex detail-info">
           <div className="profile-col-left information ">

@@ -95,7 +95,7 @@ export const List100 = forwardRef<HTMLDivElement, List100Props>(({onAdd, song, o
           </div>
         </ButtonBase>
         <div className="info flex flex-col justify-between">
-          <div className="name text-ellipsis">{song.songName}</div>
+          <Link className="base-nav name text-ellipsis" to={`/s/${song.id}`}>{song.songName}</Link>
           <div className="flex">
             <Link to={song.mainArtist.profileUrl} className="ar-name base-nav text-nowrap">{nameConverter(song.mainArtist.name)}</Link>
             {
@@ -113,7 +113,7 @@ export const List100 = forwardRef<HTMLDivElement, List100Props>(({onAdd, song, o
         <div className="remaining album-name">
           <Link className="base-nav" to="tada">unknown name</Link>
         </div>
-        <div className="remaining action flex justify-content-end align-items-center">
+        <div className="action flex justify-content-end align-items-center">
           <span className="duration">{durationConverter(song.songDuration)}</span>
           <ButtonBase className="button" onClick={(e) => onAdd && onAdd(e)}>
             <svg>

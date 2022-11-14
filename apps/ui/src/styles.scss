@@ -46,6 +46,9 @@ a {
   font-size: 11px;
   opacity: 0.65;
 }
+.lyric-line {
+  padding: 2px 0;
+}
 .active-base-controller {
   .MuiFormLabel-root {
     color: var(--normal-text-color);
@@ -276,6 +279,11 @@ a {
   .is-playing {
     background-color: rgb(159 159 159 / 25%);
   }
+}
+.on-the-way {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--nav-active-detective);
 }
 .visualization .duration {
   position: absolute;
@@ -521,6 +529,12 @@ a {
   }
 }
 @media screen and (max-width: 600px) {
+  .g-body .standout-ms-box {
+    padding: 0;
+    .aud-list {
+      margin: 0;
+    }
+  }
   .detail-info {
     flex-direction: column;
     .profile-col-left.information {
@@ -569,10 +583,16 @@ a {
       display: block !important;
     }
   }
-  .mb-personal {
+  .mb-personal, .rx-content {
     .list-root .main .duration {
       display: none;
     }
+  }
+  .visualization {
+    display: none !important;
+  }
+  .lyrics-box {
+    transform: translateY(0) !important;
   }
 }
 

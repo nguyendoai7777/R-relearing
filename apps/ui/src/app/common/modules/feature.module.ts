@@ -65,7 +65,7 @@ export const DT = {
 }
 
 export const nameConverter = (raw = "") => {
-  return raw.replace('-',' ');
+  return raw.replace(/-/g,' ');
 }
 
 
@@ -74,3 +74,6 @@ export const randomHexColor = () => {
   return `#${c}`
 }
 
+export const injectHTML = (html?: string) => ({
+  __html: html || ''
+});

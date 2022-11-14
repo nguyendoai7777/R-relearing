@@ -1,5 +1,3 @@
-import { NavButtonProps } from '@cpns/single-components/nav-button';
-
 export const COC_COC_INIT_URL = 'https://qc-static.coccoc.com/a-images/710/9e1/7109e1d4ee536dd4e9257603889511beb7b788f28cd05de07566d63d4e27eaac.jpg';
 
 const BACK_GROUND_IMAGE = {
@@ -70,7 +68,7 @@ export const Mp3 =  {
     id: 'ds2dg5ddd3d1'
   },
   TraiTimTonThuong: {
-    url: 'https://vnno-vn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/4c679431e071092f5060/6879351094073685936?authen=exp=1668319035~acl=/4c679431e071092f5060/*~hmac=8e851d57c5c611f4bd41b86d2f60b00e',
+    url: 'https://vnno-vn-6-tf-mp3-320s1-m-zmp3.zmdcdn.me/4c679431e071092f5060/6879351094073685936?authen=exp=1668586023~acl=/4c679431e071092f5060/*~hmac=482aa1049243a262c6159fa5343eec05',
     id: 'ds2dg5ddd3d1'
   },
   DeNho1ThoiTaDaYeu: {
@@ -80,5 +78,13 @@ export const Mp3 =  {
   XemNhuTaChuaTung: {
     url: 'https://vnno-zn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/3d06d027fa60133e4a71/2360371217814562533?authen=exp=1668333114~acl=/3d06d027fa60133e4a71/*~hmac=e4152350ccdb120247719c0f160ee5c5',
     id: '23dfgdfh67dq'
+  },
+  AiRoiCungSeKhac: {
+    url: 'https://vnno-zn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/80a46d4766078f59d616/2196525628489425475?authen=exp=1668580212~acl=/80a46d4766078f59d616/*~hmac=24a6f89f5a4b2c03eb4ac3e133601a3e',
+    id: '23fffgfs67dq'
+  },
+  CoDonTrenSofa: {
+    url: 'https://vnno-zn-5-tf-mp3-320s1-m-zmp3.zmdcdn.me/8b3dde28da6833366a79/8592396943400072469?authen=exp=1668585423~acl=/8b3dde28da6833366a79/*~hmac=8c6824cbf34472a25a97536b1647222b',
+    id: 'odontrensofa'
   }
 }

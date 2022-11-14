@@ -1,14 +1,17 @@
 import './playing-decorator.scss';
 import { useAppDispatch, useAppSelector } from '@store/store';
 import { pause, play, selectPlayState } from '@store/slices/play-state.slice';
-import { selectMediaPlayer } from '@store/slices/media-player.slice';
-import { CSSProperties, ReactElement, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { audioElement } from '@constants/profile.const';
+import { SongBase } from '@models/media.model';
+import { nameConverter } from '@modules/feature.module';
+import { selectMediaPlayer, setCurrentSong } from '@store/slices/media-player.slice';
 
 export interface PlayingDecoratorProps {
   className?: string;
   style?: CSSProperties;
+  currentsong?: SongBase;
 }
 
 export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
@@ -17,10 +20,12 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
   const [duration, setDuration] = useState(10000);
 
   const { playing } = useAppSelector(selectPlayState);
-  const mediaSelector = useAppSelector(selectMediaPlayer);
-  const crs = mediaSelector.currentSong;
+  const { currentSong } = useAppSelector(selectMediaPlayer);
   const dispatch = useAppDispatch();
   const setPlaying = () => {
+    if(pr.currentsong?.id !== (currentSong?.id || '')) {
+      dispatch(setCurrentSong(pr!.currentsong!));
+    }
     dispatch(playing ? pause() : play());
   };
 
@@ -49,7 +54,7 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
         className={`decorate-thumb cs-pointer relative ${playing ? 'playing' : ''} ${(!playing && clicked > 1) ? 'off' : ''}`}
         onClick={setPlaying}
       >
-        <img className="decorate-img" src={crs?.artwork} alt=""/>
+        <img className="decorate-img" src={pr.currentsong?.artwork} alt=""/>
         <div className="decorate-thumb-overlay absolute"></div>
 
       </div>
@@ -66,10 +71,10 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
 
     </div>
     <div className="flex flex-col align-items-center decorator">
-      <div className="dc-name">{crs?.songName}</div>
-      <Link className="dc-ar base-nav" to={crs?.mainArtist!.profileUrl!}>{crs?.mainArtist.name}</Link>
+      <div className="dc-name">{pr.currentsong?.songName}</div>
+      <Link className="dc-ar base-nav" to={pr.currentsong?.mainArtist!.profileUrl!}>{nameConverter(pr.currentsong?.mainArtist.name)}</Link>
       <div className="dc-sb-ar flex flex-wrap">
-        {crs?.subArtist.length! > 0 && crs?.subArtist.map(e => <div className="flex divider-x" key={e.id}>
+        {pr.currentsong?.subArtist.length! > 0 && pr.currentsong?.subArtist.map(e => <div className="flex divider-x" key={e.id}>
           <Link to={e.profileUrl} className="base-nav">{e.name}</Link>
           <span className="div-x">&nbsp;x&nbsp;</span>
         </div>)}
