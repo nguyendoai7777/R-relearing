@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { UIEvent, useEffect, useRef, useState } from 'react';
 import './visualization.scss';
-import { analyser, audioElement, barWidth, bufferLength } from '@constants/profile.const';
-import { useParams } from 'react-router-dom';
+import { analyser, barWidth, bufferLength } from '@constants/profile.const';
+import { useLocation, useParams } from 'react-router-dom';
 import { SongBase } from '@models/media.model';
 import { PlayingDecorator } from '@cpns/playing-decorator/playing-decorator';
-import { injectHTML } from '@modules/feature.module';
 import { TOP_100_ALL } from '@constants/mock.const';
 
 let recursive: undefined | number = 0;
@@ -15,9 +14,10 @@ export const Visualization = () => {
   let barHeight = 10;
   let x = 0;
 
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
+  /*const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);*/
   const [info, setInfo] = useState<SongBase>();
+  const [needColor, setNeedColor] = useState(false);
   const { songId } = useParams();
 
   let hue = 0;
@@ -45,23 +45,44 @@ export const Visualization = () => {
     }
   };
 
+  const getScrollPos = (e: UIEvent<HTMLElement>) => {
+    if(innerWidth >= 786) {
+      if ((e.nativeEvent.target as HTMLElement).scrollTop > 300) {
+        setNeedColor(true);
+      } else {
+        setNeedColor(false);
+      }
+    } else {
+      if ((e.nativeEvent.target as HTMLElement).scrollTop > 560) {
+        setNeedColor(true);
+      } else {
+        setNeedColor(false);
+      }
+    }
+
+  };
+
+  useEffect(() => {
+    getInfo();
+  }, [useLocation()]);
 
   useEffect(() => {
     getInfo();
     ctx = (canvasRef!.current!.getContext('2d')!);
     if (canvasRef && canvasRef.current) {
-      canvasRef.current.width = 820;
+      canvasRef.current.width = 881;
       canvasRef.current.height = 300;
     }
-    audioElement.addEventListener('loadedmetadata', () => {
+    /*audioElement.addEventListener('loadedmetadata', () => {
       setDuration(audioElement.duration);
     });
     audioElement.addEventListener('timeupdate', () => {
       setCurrentTime(audioElement.currentTime);
-    });
+    });*/
     if (innerWidth >= 600) {
       animate();
     }
+
     return () => {
       if (innerWidth >= 600) {
         cancelAnimationFrame(recursive as number);
@@ -70,20 +91,20 @@ export const Visualization = () => {
     };
   }, []);
 
-  return <div className="body-cc60">
-    <div className="flex s-detail justify-between">
-      <div className="visualization relative flex">
-        <canvas style={{
-          height: '300px',
-          borderBottom: '1px solid var(--tooltip-bg)'
-        }} ref={canvasRef}></canvas>
-        <div className="duration" style={{ width: currentTime / duration * 100 + '%' }}></div>
+  return <div className="my-scrollbar flex s-detail justify-between blur-overlay" onScroll={getScrollPos}>
+    <PlayingDecorator className="s-info sticky-top" style={{ minWidth: '300px' }} currentsong={info}/>
+    <div className="visualization relative  ml-scroll-right">
+      <canvas style={{
+        height: '300px',
+        borderBottom: '1px solid var(--tooltip-bg)'
+      }} ref={canvasRef}></canvas>
+      {/*<div className="duration" style={{ width: currentTime / duration * 100 + '%' }}></div>*/}
+      <div className="lyrics-box">
+        <div className={`header-pai sticky-top${needColor ? ' need-bg' : ''}`}>Lời bài hát</div>
+        <div className="lyrics">
+          {info?.lyric && info?.lyric.map((e, i) => <div className="lyric-line" key={i}>{e.text}</div>)}
+        </div>
       </div>
-      <PlayingDecorator className="s-info" style={{ minWidth: '300px' }} currentsong={info} />
-    </div>
-    <div className="lyrics-box">
-      <div className="header-pai">Lời bài hát</div>
-      <div className="lyrics"></div>
     </div>
   </div>;
 };

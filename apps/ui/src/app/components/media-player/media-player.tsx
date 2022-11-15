@@ -35,12 +35,15 @@ export const MediaPlayer = () => {
   const [displayLyric, setDisplayLyric] = useState(false);
   const [displayCurrentList, setDisplayCurrentList] = useState(false);
   const [cacheScrollPosition, setCacheScrollPosition] = useState(0);
+  const [lActive, setLActive] = useState(-1);
   const playSelector = useAppSelector(selectPlayState);
   const mediaControlSelector = useAppSelector(selectLoopState);
   const mediaSelector = useAppSelector(selectMediaPlayer);
   const crSong = mediaSelector.currentSong;
   const crListSong = mediaSelector.currentList;
   const dispatch = useAppDispatch();
+
+  let c = -1;
 
   const refs = crListSong.reduce((acc: SongBase & SongRef, value) => {
     acc[value.id] = createRef();
@@ -161,22 +164,21 @@ export const MediaPlayer = () => {
           mp3Audio.currentTime -= 2;
           break;
         }
-     /*   case 'ArrowUp': {
-          onVolumeChange(volume + 2);
-          break;
-        }
-        case 'ArrowDown': {
-          onVolumeChange(volume - 2);
-          break;
-        }*/
+        /*   case 'ArrowUp': {
+             onVolumeChange(volume + 2);
+             break;
+           }
+           case 'ArrowDown': {
+             onVolumeChange(volume - 2);
+             break;
+           }*/
         case 'Space': {
-          dispatch(!playState ? play() : pause());
+          dispatch(playState ? pause() : play());
           playState = !playState;
           break;
         }
       }
     };
-
   }, []);
   useEffect(() => {
     toggleDrawer(false)();
@@ -245,12 +247,14 @@ export const MediaPlayer = () => {
     mp3Audio.volume = volume / 100;
   }, [volume]);
   useEffect(() => {
+    c = -1;
     const p = playSelector.playing;
     if (p) {
       void mp3Audio.play();
     } else {
       mp3Audio.pause();
     }
+
   }, [playSelector.playing]);
   useEffect(() => {
     if (displayLyric || displayCurrentList) {
@@ -286,13 +290,7 @@ export const MediaPlayer = () => {
     }
   }, [detailOfSong]);
 
-
-  const injectHTML = () => ({
-    __html: crSong?.lyric || ''
-  });
-
   return <>
-
     <div className={`media-player flex`}>
       <div className="mp-left fa-center">
         {crSong && <>
@@ -475,8 +473,10 @@ export const MediaPlayer = () => {
             <div className="sticky-heading">
               <div className={`current-song-detail relative${showBody ? ' display-lyric' : ''}`}>
                 <img
+                  onClick={() => setDisplayLyric(!displayLyric)}
                   src={crSong?.artwork}
                   style={{
+                    borderRadius: '10px',
                     transition: '.2s',
                     width: `${showBody ? 80 : deviceWidth - 24}px`,
                     height: `${showBody ? 80 : deviceWidth - 24}px`
@@ -492,9 +492,15 @@ export const MediaPlayer = () => {
               <div className="cur-sname">{crSong?.songName}</div>
               <div className="ar-name">{nameConverter(crSong?.mainArtist.name)}</div>
             </> : <div className="lyric-list">
-              <div>{(crSong?.lyric || []).length}</div>
               <div className={displayLyric ? 'd-block' : 'd-none'} style={{ padding: '6px 0 12px 0' }}>
-                {(crSong?.lyric || []).map((e, i) => <div className={`lyric-line${(currentPlayingTime >= e.time && currentPlayingTime <= ((crSong?.lyric || [])[i + 1] || (crSong?.lyric || [])[i]).time || 0) ? ' on-the-way' : ''}`} key={e.time}>{e.text}</div>)}
+                {
+                  (crSong?.lyric || []).map((e, i) =>
+                      <div
+                        className={`lyric-line${(currentPlayingTime >= e.time && currentPlayingTime <= ((crSong?.lyric || [])[i + 1] || (crSong?.lyric || [])[i]).time || 0) ? ' on-the-way' : ''}`}
+                        key={i}
+                      >{e.text}</div>
+
+                  )}
               </div>
               <div className={`mb-t100 listened-list ${displayCurrentList ? 'd-block' : 'd-none'}`} style={{ padding: `6px ${isAppleFk() ? 24 : 14}px 12px 0` }}>
                 {
@@ -533,7 +539,7 @@ export const MediaPlayer = () => {
                 />
               </div>
               <div className="flex justify-between">
-                <div className="duration-text">{(currentPlayingTime)}</div>
+                <div className="duration-text">{durationConverter(currentPlayingTime)}</div>
                 <div className="duration-text">{durationConverter(duration)}</div>
               </div>
             </div>

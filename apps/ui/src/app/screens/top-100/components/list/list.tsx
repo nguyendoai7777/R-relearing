@@ -75,11 +75,10 @@ export const List100 = forwardRef<HTMLDivElement, List100Props>(({onAdd, song, o
   };
 
   return <>
-    <div ref={ref} className={`list-root fa-center${className ? ' ' + className : ''}${currentSong?.id === song.id ? ' is-playing' : ''}`} onDoubleClick={selectedPlayingSong} onContextMenu={onContextMenu}>
-      {isAtTop && <>
+    <div ref={ref} className={`list-root fa-center${className ? ' ' + className : ''}${currentSong?.id === song.id ? ' is-playing' : ''}`} onDoubleClick={selectedPlayingSong}>
         <div className={`order fa-center justify-content-center ${index === 1 || index === 2 || index === 3 ? `order-${index}` : ''}`}><span>{index}</span></div>
         <div className="status flex-center-center">--</div>
-      </>}
+
       <div className="main fa-center">
         <ButtonBase className="thumbnail relative" onClick={selectedPlayingSong}>
           <img src={song.artwork} alt=""/>

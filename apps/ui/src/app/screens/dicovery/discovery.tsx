@@ -38,13 +38,13 @@ export const DiscoveryScreen = () => {
     }, 2000);
   }, []);
   return (
-    <>
-      <div className="slide-gallery relative">
+    <div className="my-scrollbar">
+      <div className="slide-gallery relative ml-scroll-left ml-scroll-right">
         {gallery.length > 0 ?
           <>
             <DIconButton
               className="slide-controller-btn cs-pointer flex-center-center"
-              style={{ left: `${deviceWidth <= 1024 ? '0' : '-25px' }` }}
+              style={{ left: `0` }}
               siz="60px"
               onClick={() => swiperController!.slidePrev()}
             >
@@ -54,7 +54,7 @@ export const DiscoveryScreen = () => {
             </DIconButton>
             <DIconButton
               className="slide-controller-btn cs-pointer flex-center-center"
-              style={{ right: `${deviceWidth <= 1024 ? '0' : '-25px' }` }}
+              style={{ right: `0` }}
               siz="60px"
               onClick={() => swiperController!.slideNext()}
             >
@@ -114,6 +114,6 @@ export const DiscoveryScreen = () => {
         </div>
 
       </div>
-    </>
+    </div>
   );
 };

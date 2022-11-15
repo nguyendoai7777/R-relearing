@@ -231,68 +231,70 @@ export const TOP_100_ALL: SongBase[] = [
     songDuration: 321,
     listenTimes: '12k',
     subArtist: [],
-    /*lyric: `
-      <div class="lyric-line">Hôm nay em rất đau </div>
-      <div class="lyric-line">Con tim như úa màu </div>
-      <div class="lyric-line">Còn lại gì để vương vấn nữa đâu </div>
-      <div class="lyric-line">Thôi đành buông tay </div>
-      <div class="lyric-line">Hôm nay em rất đau </div>
-      <div class="lyric-line">Con tim như nhũn nhàu </div>
-      <div class="lyric-line">Đường vào như càng giá băng hơn </div>
-      <div class="lyric-line">Em đã đánh mất cả thanh xuân </div>
-      <div class="lyric-line">Chỉ để yêu một người vô tâm </div>
-      <div class="lyric-line">Giờ đành tự mình lặng thầm </div>
-      <div class="lyric-line">Xoá đi nỗi buồn </div>
-      <div class="lyric-line">Anh mang theo cả trời bơ vơ </div>
-      <div class="lyric-line">Ngu ngơ nước mắt càng vụn vỡ </div>
-      <div class="lyric-line">Đợi chờ một cơn mưa </div>
-      <div class="lyric-line">Xóa tan bao lầm lỡ </div>
-      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
-      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
-      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
-      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
-      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
-      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
-      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
-      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
-      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
-      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
-      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
-      <div class="lyric-line">Em ôm trái tim đã tổn thương </div>
-      <div class="lyric-line">Em đã đánh mất cả thanh xuân </div>
-      <div class="lyric-line">Chỉ để yêu một người vô tâm </div>
-      <div class="lyric-line">Giờ đành tự mình lặng thầm </div>
-      <div class="lyric-line">Xoá đi nỗi buồn </div>
-      <div class="lyric-line">Anh mang theo cả trời bơ vơ </div>
-      <div class="lyric-line">Ngu ngơ nước mắt càng vụn vỡ </div>
-      <div class="lyric-line">Đợi chờ một cơn mưa </div>
-      <div class="lyric-line">Xóa tan bao lầm lỡ </div>
-      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
-      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
-      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
-      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
-      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
-      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
-      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
-      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
-      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
-      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
-      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
-      <div class="lyric-line">Hôm nay trái tim đã tổn thương </div>
-      <div class="lyric-line">Càng thương nhớ càng thấy cô đơn </div>
-      <div class="lyric-line">Càng níu giữ càng thấy xa hơn </div>
-      <div class="lyric-line">Nỗi buồn cứ vương mang mãi trong lòng </div>
-      <div class="lyric-line">Tàn phai giữa thế gian xoay vòng </div>
-      <div class="lyric-line">Nhặt từng cánh rớt rơi </div>
-      <div class="lyric-line">Hoa hồng bay theo gió mùa đông </div>
-      <div class="lyric-line">Càng yếu đuối càng khóc lâu hơn </div>
-      <div class="lyric-line">Càng mạnh mẽ càng thấy đau hơn </div>
-      <div class="lyric-line">Lối về ấy hôm nay sao khác thường </div>
-      <div class="lyric-line">Vài phút trước vẫn luôn chung đường </div>
-      <div class="lyric-line">Giờ hai hướng hai nơi vô lường </div>
-      <div class="lyric-line">Hôm nay trái tim đã tổn thương </div>
-      <div class="lyric-line">Em ôm trái tim đã tổn thương </div>
-    `*/
+    lyric: [
+      { text: 'Hôm nay em rất đau', time: 26.9 },
+      { text: 'Con tim như úa màu', time: 30.19 },
+      { text: 'Còn lại gì để vương vấn nữa đâu', time: 33.38 },
+      { text: 'Thôi đành buông tay', time: 37.96 },
+      { text: 'Hôm nay em rất đau', time: 39.74 },
+      { text: 'Con tim như nhũn nhàu', time: 42.94 },
+      { text: 'Đường vào như càng giá băng hơn', time: 46.15 },
+      { text: 'Em đã đánh mất cả thanh xuân', time: 52.46 },
+      { text: 'Chỉ để yêu một người vô tâm', time: 55.74 },
+      { text: 'Giờ đành tự mình lặng thầm', time: 58.82 },
+      { text: 'Xoá đi nỗi buồn', time: 61.35 },
+      { text: 'Anh mang theo cả trời bơ vơ', time: 65.19 },
+      { text: 'Ngu ngơ nước mắt càng vụn vỡ', time: 68.42 },
+      { text: 'Đợi chờ một cơn mưa', time: 71.61 },
+      { text: 'Xóa tan bao lầm lỡ', time: 74.1 },
+      { text: 'Càng thương nhớ càng thấy cô đơn', time: 80.65 },
+      { text: 'Càng níu giữ càng thấy xa hơn', time: 83.83 },
+      { text: 'Nỗi buồn cứ vương mang mãi trong lòng', time: 87.51 },
+      { text: 'Tàn phai giữa thế gian xoay vòng', time: 93.49 },
+      { text: 'Nhặt từng cánh rớt rơi hoa hồng', time: 96.47 },
+      { text: 'Bay theo gió mùa đông', time: 100.17 },
+      { text: 'Càng yếu đuối càng khóc lâu hơn', time: 106.17 },
+      { text: 'Càng mạnh mẽ càng thấy đau hơn', time: 109.36 },
+      { text: 'Lối về ấy hôm nay sao khác thường', time: 112.89 },
+      { text: 'Vài phút trước vẫn luôn chung đường', time: 118.78 },
+      { text: 'Giờ hai hướng hai nơi vô lường', time: 122 },
+      { text: 'Em ôm trái tim đã tổn thương', time: 125.75 },
+      { text: '------------------', time: 132.37 },
+      { text: 'Em đã đánh mất cả thanh xuân', time: 157.5 },
+      { text: 'Chỉ để yêu một người vô tâm', time: 160.81 },
+      { text: 'Giờ đành tự mình lặng thầm', time: 163.91 },
+      { text: 'Xoá đi nỗi buồn', time: 166.5 },
+      { text: 'Anh mang theo cả trời bơ vơ', time: 170.38 },
+      { text: 'Ngu ngơ nước mắt càng vụn vỡ', time: 173.57 },
+      { text: 'Đợi chờ một cơn mưa', time: 176.62 },
+      { text: 'Xóa tan bao lầm lỡ', time: 179.24 },
+      { text: 'Càng thương nhớ càng thấy cô đơn', time: 184.07 },
+      { text: 'Càng níu giữ càng thấy xa hơn', time: 187.39 },
+      { text: 'Nỗi buồn cứ vương mang mãi trong lòng', time: 190.86 },
+      { text: 'Tàn phai giữa thế gian xoay vòng', time: 196.94 },
+      { text: 'Nhặt từng cánh rớt rơi hoa hồng ', time: 200.09 },
+      { text: 'Bay theo gió mùa đông', time: 203.836 },
+      { text: 'Càng yếu đuối càng khóc lâu hơn', time: 209.47 },
+      { text: 'Càng mạnh mẽ càng thấy đau hơn', time: 212.85 },
+      { text: 'Lối về ấy hôm nay sao khác thường', time: 216.46 },
+      { text: 'Vài phút trước vẫn luôn chung đường', time: 222.46 },
+      { text: 'Giờ hai hướng hai nơi vô lường', time: 225.5 },
+      { text: 'Hôm nay trái tim đã tổn thương', time: 229.1 },
+      { text: 'Càng thương nhớ càng thấy cô đơn', time: 235.01 },
+      { text: 'Càng níu giữ càng thấy xa hơn', time: 238.27 },
+      { text: 'Nỗi buồn cứ vương mang mãi trong lòng', time: 241.86 },
+      { text: 'Tàn phai giữa thế gian xoay vòng', time: 247.78 },
+      { text: 'Nhặt từng cánh rớt rơi hoa hồng', time: 251.02 },
+      { text: 'Bay theo gió mùa đông', time: 254.55  },
+      { text: 'Càng yếu đuối càng khóc lâu hơn', time: 260.4 },
+      { text: 'Càng mạnh mẽ càng thấy đau hơn', time: 263.87 },
+      { text: 'Lối về ấy hôm nay sao khác thường', time: 267.37 },
+      { text: 'Vài phút trước vẫn luôn chung đường', time: 273.28 },
+      { text: 'Giờ hai hướng hai nơi vô lường', time: 276.6 },
+      { text: 'Hôm nay trái tim đã tổn thương', time: 280.11 },
+      { text: 'Em ôm trái tim đã tổn thương', time: 286.35 },
+      { text: '--', time: 300.35 },
+    ]
   },
   {
     url: '/media/ai-roi-cung-se-khac',
@@ -308,75 +310,78 @@ export const TOP_100_ALL: SongBase[] = [
     songDuration: 273,
     listenTimes: '85.5k',
     subArtist: [],
-    /*lyric: `
-      <div class="lyric-line">Ai rồi cũng sẽ khác </div>
-      <div class="lyric-line">Theo tháng năm dần trôi </div>
-      <div class="lyric-line">Yêu đến mấy cũng buông </div>
-      <div class="lyric-line">Khi người ta thay lòng </div>
-      <div class="lyric-line">Tin vào cả thế giới </div>
-      <div class="lyric-line">Đến lúc em nhận ra </div>
-      <div class="lyric-line">Bao câu hứa năm xưa tan vào mưa </div>
-      <div class="lyric-line">Trong lòng em vẫn thế </div>
-      <div class="lyric-line">Vẫn của anh ngày xưa </div>
-      <div class="lyric-line">Nhưng anh đã quên em </div>
-      <div class="lyric-line">Quên nụ hôn ban đầu </div>
-      <div class="lyric-line">Bao chặng đường gian khó </div>
-      <div class="lyric-line">Ta đã qua cùng nhau </div>
-      <div class="lyric-line">Sao anh nói chia tay cho lòng đau </div>
-      <div class="lyric-line">Rồi cũng đến lúc </div>
-      <div class="lyric-line">Mình buông tay nhau </div>
-      <div class="lyric-line">Hạnh phúc kết thúc </div>
-      <div class="lyric-line">Chỉ một màu đen tối </div>
-      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi anh </div>
-      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
-      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
-      <div class="lyric-line">Người chắc có lẽ </div>
-      <div class="lyric-line">Không nặng lòng như tôi </div>
-      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
-      <div class="lyric-line">Tìm cách xóa đi </div>
-      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
-      <div class="lyric-line">Ai rồi cũng sẽ khác </div>
-      <div class="lyric-line">Theo tháng năm dần trôi </div>
-      <div class="lyric-line">Yêu đến mấy cũng buông </div>
-      <div class="lyric-line">Khi người ta thay lòng </div>
-      <div class="lyric-line">Tin vào cả thế giới </div>
-      <div class="lyric-line">Đến lúc anh nhận ra </div>
-      <div class="lyric-line">Bao câu hứa năm xưa tan vào mưa </div>
-      <div class="lyric-line">Trong lòng em vẫn thế </div>
-      <div class="lyric-line">Vẫn của anh ngày xưa </div>
-      <div class="lyric-line">Nhưng anh đã quên em </div>
-      <div class="lyric-line">Quên nụ hôn ban đầu </div>
-      <div class="lyric-line">Bao chặng đường gian khó </div>
-      <div class="lyric-line">Ta đã qua cùng nhau </div>
-      <div class="lyric-line">Sao anh nói chia ly cho lòng đau </div>
-      <div class="lyric-line">Rồi cũng đến lúc </div>
-      <div class="lyric-line">Mình buông tay nhau </div>
-      <div class="lyric-line">Hạnh phúc kết thúc </div>
-      <div class="lyric-line">Chỉ một màu đen tối </div>
-      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi em </div>
-      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
-      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
-      <div class="lyric-line">Người chắc có lẽ </div>
-      <div class="lyric-line">Không nặng lòng như tôi </div>
-      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
-      <div class="lyric-line">Tìm cách xóa đi </div>
-      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
-      <div class="lyric-line">Rồi cũng đến lúc </div>
-      <div class="lyric-line">Mình buông tay nhau </div>
-      <div class="lyric-line">Hạnh phúc kết thúc </div>
-      <div class="lyric-line">Chỉ một màu đen tối </div>
-      <div class="lyric-line">Rồi nước mắt đã chạm đôi môi em </div>
-      <div class="lyric-line">Lệ chia ly tiếc nuối cho những gì </div>
-      <div class="lyric-line">Ngày tháng có lẽ sẽ quên nhau thôi </div>
-      <div class="lyric-line">Người chắc có lẽ </div>
-      <div class="lyric-line">Không nặng lòng như tôi </div>
-      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
-      <div class="lyric-line">Tìm cách xóa đi </div>
-      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
-      <div class="lyric-line">Vậy thôi tôi đi tìm quên nơi xa </div>
-      <div class="lyric-line">Tìm cách xóa đi </div>
-      <div class="lyric-line">Dĩ vãng chưa phai nhòa </div>
-    `*/
+    lyric: [
+      { text: 'Ai rồi cũng sẽ khác', time: 20.25 },
+      { text: 'Theo tháng năm dần trôi', time: 22.14 },
+      { text: 'Yêu đến mấy cũng buông', time: 25.25 },
+      { text: 'Khi người ta thay lòng', time: 26.76 },
+      { text: 'Tin vào cả thế giới', time: 30.06 },
+      { text: 'Đến lúc em nhận ra', time: 31.86 },
+      { text: 'Bao câu hứa năm xưa tan vào mưa', time: 34.76 },
+      { text: 'Trong lòng em vẫn thế', time: 39.39 },
+      { text: 'Vẫn của anh ngày xưa', time: 41.22 },
+      { text: 'Nhưng anh đã quên em', time: 44.32 },
+      { text: 'Quên nụ hôn ban đầu', time: 46.15 },
+      { text: 'Bao chặng đường gian khó', time: 49.02 },
+      { text: 'Ta đã qua cùng nhau', time: 50.85 },
+      { text: 'Sao anh nói chia tay cho lòng đau', time: 53.46 },
+      { text: 'Rồi cũng đến lúc', time: 58.22 },
+      { text: 'Mình buông tay nhau', time: 60.58 },
+      { text: 'Hạnh phúc kết thúc', time: 63.01 },
+      { text: 'Chỉ một màu đen tối', time: 65.34 },
+      { text: 'Rồi nước mắt đã chạm đôi môi anh', time: 67.68 },
+      { text: 'Lệ chia ly tiếc nuối cho những gì', time: 72.58 },
+      { text: 'Ngày tháng có lẽ sẽ quên nhau thôi', time: 77.37 },
+      { text: 'Người chắc có lẽ', time: 82.21 },
+      { text: 'Không nặng lòng như tôi', time: 84.58 },
+      { text: 'Vậy thôi tôi đi tìm quên nơi xa', time: 86.96 },
+      { text: 'Tìm cách xóa đi', time: 91.9 },
+      { text: 'Dĩ vãng chưa phai nhòa', time: 93.36 },
+      { text: '...', time: 97.34 },
+      { text: 'Ai rồi cũng sẽ khác', time: 116.12 },
+      { text: 'Theo tháng năm dần trôi', time: 118.09 },
+      { text: 'Yêu đến mấy cũng buông', time: 121.04 },
+      { text: 'Khi người ta thay lòng', time: 122.76 },
+      { text: 'Tin vào cả thế giới', time: 126.05 },
+      { text: 'Đến lúc anh nhận ra', time: 127.75 },
+      { text: 'Bao câu hứa năm xưa tan vào mưa', time: 130.55 },
+      { text: 'Trong lòng em vẫn thế', time: 135.54 },
+      { text: 'Vẫn của anh ngày xưa', time: 137.53 },
+      { text: 'Nhưng anh đã quên em', time: 140.42 },
+      { text: 'Quên nụ hôn ban đầu', time: 142.11 },
+      { text: 'Bao chặng đường gian khó', time: 145.27 },
+      { text: 'Ta đã qua cùng nhau', time: 147.03 },
+      { text: 'Sao anh nói chia ly cho lòng đau', time: 149.9 },
+      { text: 'Rồi cũng đến lúc', time: 153.98 },
+      { text: 'Mình buông tay nhau', time: 156.6 },
+      { text: 'Hạnh phúc kết thúc', time: 158.85 },
+      { text: 'Chỉ một màu đen tối', time: 161.36 },
+      { text: 'Rồi nước mắt đã chạm đôi môi em', time: 163.75 },
+      { text: 'Lệ chia ly tiếc nuối cho những gì', time: 168.61 },
+      { text: 'Ngày tháng có lẽ sẽ quên nhau thôi', time: 173.27 },
+      { text: 'Người chắc có lẽ', time: 178.28 },
+      { text: 'Không nặng lòng như tôi', time: 180.66 },
+      { text: 'Vậy thôi tôi đi tìm quên nơi xa', time: 183.04 },
+      { text: 'Tìm cách xóa đi', time: 187.89 },
+      { text: 'Dĩ vãng chưa phai nhòa', time: 189.22 },
+      { text: 'Rồi cũng đến lúc', time: 195.15 },
+      { text: 'Mình buông tay nhau', time: 198.21 },
+      { text: 'Hạnh phúc kết thúc', time: 200.54 },
+      { text: 'Chỉ một màu đen tối', time: 202.46 },
+      { text: 'Rồi nước mắt đã chạm đôi môi em', time: 205.29 },
+      { text: 'Lệ chia ly tiếc nuối cho những gì', time: 209.9 },
+      { text: 'Ngày tháng có lẽ sẽ quên nhau thôi', time: 214.59 },
+      { text: 'Người chắc có lẽ', time: 219.38 },
+      { text: 'Không nặng lòng như tôi', time: 221.2 },
+      { text: 'Vậy thôi tôi đi tìm quên nơi xa', time: 224 },
+      { text: 'Tìm cách xóa đi', time: 228.69 },
+      { text: 'Dĩ vãng chưa phai nhòa', time: 230.37 },
+      { text: 'Vậy thôi tôi đi tìm quên nơi xa', time: 235.7 },
+      { text: 'Tìm cách xóa đi', time: 245.79 },
+      { text: 'Dĩ vãng chưa phai nhòa', time: 249.05 },
+      { text: '....', time: 261.19 },
+
+    ]
   },
   {
     url: '/media/co-don-tren-sofa',
@@ -427,7 +432,7 @@ export const TOP_100_ALL: SongBase[] = [
       },
       {
         text: 'Thì ra là thế, tình nào là tình chẳng mờ phai tháng năm',
-         time: 54.2
+        time: 54.2
       },
       {
         text: 'Một ngày vẫn trôi, đôi môi em phai màu nắng',
@@ -451,7 +456,7 @@ export const TOP_100_ALL: SongBase[] = [
       },
       {
         text: 'Nắng xuyên qua hàng mi rối bời',
-        time: 79.5
+        time: 79.9
       },
       {
         text: 'Giữ tim em vài giây cuối thôi',
@@ -459,7 +464,7 @@ export const TOP_100_ALL: SongBase[] = [
       },
       {
         text: 'Để em được ngã lưng lên một chiếc sofa',
-        time: 87
+        time: 87.46
       },
       {
         text: 'Để nghe một phút tim yên bình đến kỳ lạ',
@@ -505,7 +510,6 @@ export const TOP_100_ALL: SongBase[] = [
         text: 'Rồi lại rơi xuống trên sofa',
         time: 133.48
       },
-
       {
         text: 'Cô đơn trên sofa, sao anh yêu cô ta?',
         time: 138.72
@@ -561,11 +565,11 @@ export const TOP_100_ALL: SongBase[] = [
       },
       {
         text: 'Để nghe một phút tim yên bình đến kỳ lạ',
-        time: 193.5
+        time: 193.35
       },
       {
         text: 'Để em được sống vô tư như một bông hoa, giữa bầu trời kiêu sa',
-        time: 197.66
+        time: 197.21
       },
       {
         text: 'Cho em thôi miệt mài nghĩ suy',
@@ -589,7 +593,7 @@ export const TOP_100_ALL: SongBase[] = [
       },
       {
         text: '[End - quẩy nhạc đi]',
-        time: 223
+        time: 220.11
       },
     ]
   },

@@ -23,10 +23,18 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
   const { currentSong } = useAppSelector(selectMediaPlayer);
   const dispatch = useAppDispatch();
   const setPlaying = () => {
-    if(pr.currentsong?.id !== (currentSong?.id || '')) {
+    if (pr.currentsong?.id !== (currentSong?.id || '')) {
       dispatch(setCurrentSong(pr!.currentsong!));
+      setClicked(2);
+      dispatch(pause());
+      const t = setTimeout(() => {
+        dispatch(play());
+        clearTimeout(t);
+      }, 0);
+    } else {
+      dispatch(playing ? pause() : play());
     }
-    dispatch(playing ? pause() : play());
+
   };
 
   useEffect(() => {
@@ -40,7 +48,6 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
   }, []);
 
   useEffect(() => {
-
     if (playing) {
       setClicked(2);
     } else {
@@ -48,26 +55,25 @@ export const PlayingDecorator = (pr: PlayingDecoratorProps) => {
     }
   }, [playing]);
 
-  return <div {...pr} className={`decorate-box${playing ? ' is-play' : ''} ${pr.className ? ' ' + pr.className : ''}`}>
+  return <div {...pr} className={`decorate-box${(playing && currentSong?.id === pr.currentsong?.id) ? ' is-play' : ''} ${pr.className ? ' ' + pr.className : ''}`}>
     <div className="decorator relative">
       <div
-        className={`decorate-thumb cs-pointer relative ${playing ? 'playing' : ''} ${(!playing && clicked > 1) ? 'off' : ''}`}
+        className={`decorate-thumb cs-pointer relative ${(playing && currentSong?.id === pr.currentsong?.id) ? 'playing' : ''} ${((currentSong?.id === pr.currentsong?.id) && clicked > 1 && !playing) ? 'off' : ''}`}
         onClick={setPlaying}
       >
         <img className="decorate-img" src={pr.currentsong?.artwork} alt=""/>
         <div className="decorate-thumb-overlay absolute"></div>
-
       </div>
-      {playing && <svg className="playing-ic-wa absolute-center">
+      {(playing && currentSong?.id === pr.currentsong?.id) && <svg className="playing-ic-wa absolute-center">
         <use href="#playing-animate"/>
       </svg>}
-      <svg className={`playing-ic-wa dc-playable absolute-center ${playing ? 'hidden' : ''}`}>
+      <svg className={`playing-ic-wa dc-playable absolute-center ${(playing && currentSong?.id === pr.currentsong?.id) ? 'hidden' : ''}`}>
         <use href="#playable"/>
       </svg>
-      <div className={`circular-progress ${playing ? 'playing' : ''}`}>
+      {currentSong?.id === pr.currentsong?.id ? <div className={`circular-progress ${(playing && currentSong?.id === pr.currentsong?.id) ? 'playing' : ''}`}>
         <div className="ink-circular-progress" style={{ background: `conic-gradient(var(--nav-active-detective) ${currentTime / duration * 100 * 3.6}deg, transparent 0deg)` }}></div>
-      </div>
-      <div className={`border-protected${playing ? ' playing' : ''}`}></div>
+      </div> : null}
+      <div className={`border-protected${(playing && currentSong?.id === pr.currentsong?.id) ? ' playing' : ''}`}></div>
 
     </div>
     <div className="flex flex-col align-items-center decorator">

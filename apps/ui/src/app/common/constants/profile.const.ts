@@ -95,7 +95,7 @@ export const PROFILES: ArtisProfile[] = [
     realName: ' Vũ Lệ Quyên',
     profileUrl: '/profile/Lệ-Quyên',
     description: 'Là ca sĩ dòng nhạc nhẹ của Việt Nam. Từ khi còn là sinh viên khoa Quần Chúng - Đại học Văn hóa (Hà Nội) Lệ Quyên đã bắt đầu bước vào con đường ca hát . Tuy nhiên, sự nghiệp ca hát chuyên nghiệp của cô chỉ bắt đầu từ năm 2002 khi được chọn tham gia hát bài hát của nhà tài trợ cho SEA Games 22 tại Việt Nam. Năm 2005, Lệ Quyên cho ra mắt khán giả album đầu tay, Giấc mơ có thật, album đã đưa tên tuổi của Lệ Quyên đến với khán',
-    artwork: 'https://nhachot.vn/wp-content/uploads/2020/02/top-7-bai-hat-hay-nhat-moi-thoi-dai-cua-le-quyen-2020-1.jpg',
+    artwork: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/b/7/1/4/b714f0e447b3ec8c9f903c4963e52422.jpg',
     subArtwork: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/e/5/9/5e59302e5881708cb601c335894fbfe5.jpg',
     songs: [
       TOP_100_ALL[0],
@@ -191,4 +191,4 @@ analyser.fftSize = 128;
 export const SCREEN_SIZE = (innerWidth - 240 - 330 - 120);
 export const bufferLength = analyser.frequencyBinCount;
 export const dataArray = new Uint8Array(bufferLength);
-export const barWidth = (820 + 4) / bufferLength - 4;
+export const barWidth = (881 + 4) / bufferLength - 4;

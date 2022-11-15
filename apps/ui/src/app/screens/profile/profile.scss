@@ -1,6 +1,7 @@
 .profile-col-left {
   width: 25%;
   margin-top: 24px;
+  margin-left: 10px;
   .artwork {
     width: 100%;
      overflow: hidden;
@@ -13,6 +14,11 @@
       width: 100%;
       z-index: 5;
       border-radius: 10px;
+    }
+  }
+  .right-info {
+    .name {
+      padding-top: 14px;
     }
   }
 }

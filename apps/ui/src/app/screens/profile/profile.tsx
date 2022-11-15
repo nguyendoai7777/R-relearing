@@ -55,35 +55,33 @@ export const Profile = () => {
 
 
   return <>
-    <div className="body-cc60 np-ps">
+    <div className="my-scrollbar np-ps flex detail-info">
       {profile ? <>
-        <div className="flex detail-info">
-          <div className="profile-col-left information ">
-            <div className="artwork relative">
-              <img src={profile?.artwork} alt=""/>
-              <div className="decorator-line-root" style={{ background: `linear-gradient(0deg, transparent 0%, hsl(${hue},90%,50%) 45%)` }}></div>
-            </div>
-            <div className="right-info">
-              <div className="name text-center">{nameConverter(profile?.name)}</div>
-              <div className="real-name text-center">Tên thật: <i>{profile?.realName}</i></div>
-              <div className="real-name text-center">Ngày sinh: <i className="specific-note">{profile?.birthdate}</i></div>
-            </div>
-
+        <div style={{top: '15px'}} className="profile-col-left information sticky-top">
+          <div className="artwork relative">
+            <img src={profile?.artwork} alt=""/>
+            <div className="decorator-line-root" style={{ background: `linear-gradient(0deg, transparent 0%, hsl(${hue},90%,50%) 45%)` }}></div>
           </div>
-          <div className="profile-col-right">
-            <div className="description">{profile?.description}</div>
-            <div className="profile-songs">
-              <div className="sub-header-pai">Bài hát</div>
-              {
-                (profile?.songs.length || 0) > 0 && (profile?.songs || []).map((e => <List100
-                  isAtTop={false}
-                  key={e.id}
-                  song={e}
-                  onPlay={() => dispatch(setCurrentLists(profile?.songs || []))}
-                  onAdd={ev => onSelectSong(ev, e)}
-                />))
-              }
-            </div>
+          <div className="right-info">
+            <div className="name text-center">{nameConverter(profile?.name)}</div>
+            <div className="real-name text-center">Tên thật: <i>{profile?.realName}</i></div>
+            <div className="real-name text-center">Ngày sinh: <i className="specific-note">{profile?.birthdate}</i></div>
+          </div>
+
+        </div>
+        <div className="profile-col-right ml-scroll-right">
+          <div className="description">{profile?.description}</div>
+          <div className="profile-songs">
+            <div className="sub-header-pai">Bài hát</div>
+            {
+              (profile?.songs.length || 0) > 0 && (profile?.songs || []).map((e => <List100
+                isAtTop={false}
+                key={e.id}
+                song={e}
+                onPlay={() => dispatch(setCurrentLists(profile?.songs || []))}
+                onAdd={ev => onSelectSong(ev, e)}
+              />))
+            }
           </div>
         </div>
         <div className="mb-personal">

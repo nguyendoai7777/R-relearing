@@ -45,26 +45,28 @@ export const Top100Screen = () => {
   }, [mount]);
 
 
-
   return <>
-    <div className="body-cc60">
-      <div className="header-pai">Nhạc Việt Hôm Nay</div>
-      <div>
-        {songs.map((e, i) => <List100
-          key={e.key}
-          index={i + 1}
-          song={e}
-          onPlay={() => dispatch(setCurrentLists(songs))}
-          onAdd={ev => onSelectSong(ev, e)}
+    <div className="my-scrollbar ml-scroll-left">
+      <div className="ml-scroll-right">
+        <div className="header-pai">Nhạc Việt Hôm Nay</div>
+        <div>
+          {songs.map((e, i) => <List100
+            key={e.key}
+            index={i + 1}
+            song={e}
+            onPlay={() => dispatch(setCurrentLists(songs))}
+            onAdd={ev => onSelectSong(ev, e)}
 
-        />)}
+          />)}
+        </div>
+        <div className="flex justify-content-center">
+          <ButtonBase className="load-btn" onClick={setList}>{mount ? 'Thu Gọn' : 'Xem 100'}</ButtonBase>
+        </div>
+        <div className="header-pai">Khám phá TOP 100</div>
+        <Gallery/>
       </div>
-      <div className="flex justify-content-center">
-        <ButtonBase className="load-btn" onClick={setList}>{mount ? 'Thu Gọn' : 'Xem 100'}</ButtonBase>
-      </div>
-      <div className="header-pai">Khám phá TOP 100</div>
-      <Gallery/>
     </div>
+
 
     <Menu
       className="option-ref"
@@ -107,6 +109,8 @@ export const Top100Screen = () => {
     }} open={createPlaylist}/>
     {/*
     <ContextMenu open={contextMenu !== null} position={contextMenu}>eadasd</ContextMenu>
-*/}
+*/
+    }
   </>;
+
 };

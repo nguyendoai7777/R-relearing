@@ -61,8 +61,9 @@ export function RightSidebar({ onToggleSidebar, id }: RightSidebarProps) {
                 isPlaying={playing && currentSong?.id === e.id}
                 className={currentSong?.id === e.id ? 'playing' : ''}
                 onClick={() => playSong(e)}
-                key={e.id + uuid()}
+                key={e.id}
                 url={e.url}
+                id={e.id}
                 mainArtist={e.mainArtist}
                 subArtist={e.subArtist}
                 artwork={e.artwork}

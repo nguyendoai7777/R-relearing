@@ -30,7 +30,7 @@ export const SongInDetail = (pr: Props & CombinePropsWithBase) => {
       <div className="playable-overlay"></div>
     </div>
     <div className="detail fj-between flex-col">
-      <Link className="text-decoration-none" to={pr.url!}>
+      <Link className="text-decoration-none" to={`/s/${pr.id}`}>
         <div className="name text-ellipsis">{pr.songName}</div>
       </Link>
       <Link className="base-nav" to={pr.mainArtist?.profileUrl!}>

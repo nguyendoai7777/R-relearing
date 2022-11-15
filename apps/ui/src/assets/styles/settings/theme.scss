@@ -3,6 +3,7 @@
   --slide-overlay: rgba(128, 128, 128, 0.10);
 }
 .dark-theme {
+  --background-color-all-blur: #1d1d1d;
   --audio-control-fill: #484848;
   --tooltip-bg: #000;
   --tooltip-text: #fff;
@@ -48,6 +49,7 @@
   }
 }
 .light-theme {
+  --background-color-all-blur: rgba(255, 255, 255, 0.5);
   --audio-control-fill: #484848;
   --tooltip-bg: #525252;
   --tooltip-text: #fff;
@@ -64,7 +66,7 @@
   --media-player-bg-color: #f8f8f8;
   --standout-main-atist-hover: black;
   --standout-main-atist: #585858;
-  --standout-song-name: #000 ;
+  --standout-song-name: #000;
   --background-color-all: #fff;
   --navbar-background-color: #fff;
   --normal-text-color: #000;
@@ -93,6 +95,7 @@
   }
 }
 .pink-theme {
+  --background-color-all-blur: #ffc6e5;
   --audio-control-fill: #484848;
   --tooltip-bg: deeppink;
   --tooltip-text: #fff;
@@ -138,6 +141,7 @@
   }
 }
 .lisa-theme {
+  --background-color-all-blur: rgba(242, 221, 216, 0.6);
   --audio-control-fill: #484848;
   --tooltip-bg: #ff8a8a;
   --tooltip-text: #fff;
@@ -183,6 +187,7 @@
   }
 }
 .jisoo-theme {
+  --background-color-all-blur: rgba(255, 255, 255, 0.5);
   --audio-control-fill: #484848;
   --tooltip-bg: #4a5c82;
   --tooltip-text: #fff;
@@ -229,6 +234,7 @@
   }
 }
 .iu-theme {
+  --background-color-all-blur: rgba(230, 224, 222, 0.6);
   --audio-control-fill: #484848;
   --tooltip-bg: #8f5541;
   --tooltip-text: #fff;
@@ -274,6 +280,7 @@
   }
 }
 .jennie-theme {
+  --background-color-all-blur: rgba(187, 185, 196, 0.6);
   --audio-control-fill: #484848;
   --tooltip-bg: #411151;
   --tooltip-text: #fff;

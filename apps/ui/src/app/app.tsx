@@ -9,8 +9,6 @@ import { LOCAL_KEY } from '@constants/storage-key.const';
 import { DEFAULT_THEME } from '@constants/theme.const';
 import { APP_ROUTING, NOT_NAV_ROUTING } from './app.routing';
 
-
-
 export function App() {
 
   useEffect(() => {
@@ -25,7 +23,7 @@ export function App() {
         <LeftSidebar/>
         <div className="main">
           <Navbar/>
-          <div className="scrollable-body my-scrollbar">
+          <div className="scrollable-body">
             <Routes>
               <Route path="*" element={<Navigate to="discovery" replace/>}/>
               <Route path="" element={<Navigate to="discovery" replace/>}/>
